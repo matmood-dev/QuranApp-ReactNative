@@ -4,6 +4,7 @@ import Home from '../screens/Home';
 import SurahList from '../screens/SurahList';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import PageView from '../screens/PageView';
+import HomeScreen from '../screens/HomeScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,7 @@ export default function BottomTabs() {
         },
       })}
     >
-      <Tab.Screen name="الاستماع للقرآن" component={Home} />
+      <Tab.Screen name="hh" component={HomeScreen} />
       <Tab.Screen name="الرئيسية" component={Home} />
       <Tab.Screen name="القرآن الكريم" component={SurahList} />
     </Tab.Navigator>
