@@ -6,10 +6,14 @@ import {
   StyleSheet,
   View,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import Header from '../components/HomeScreen/Header';
 
 export default function SurahList() {
   const [surahs, setSurahs] = useState([]);
@@ -34,72 +38,71 @@ export default function SurahList() {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor="#f9f9f9" />
-      <FlatList
-        data={surahs}
-        keyExtractor={(item) => item.number.toString()}
-        contentContainerStyle={styles.list}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.item}
-            onPress={() => goToSurahPage(item.number)}
-          >
-            <View style={styles.row}>
-              <Text style={styles.number}>{item.number}</Text>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.name}>{item.name}</Text>
-                {/* Optional: English name and ayah count */}
-                {/* <Text style={styles.details}>{item.englishName} • {item.numberOfAyahs} Ayahs</Text> */}
+    <>
+      <Header />
+    <LinearGradient colors={['#fdfcfb', '#e2d1c3']} style={{ flex: 1 }}>
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fdfcfb" />
+        <FlatList
+          data={surahs}
+          keyExtractor={(item) => item.number.toString()}
+          contentContainerStyle={styles.list}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.item}
+              onPress={() => goToSurahPage(item.number)}
+            >
+              <View style={styles.row}>
+                <Text style={styles.number}>{item.number}</Text>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.name}>{item.name}</Text>
+                </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
-    </SafeAreaView>
+            </TouchableOpacity>
+          )}
+        />
+      </SafeAreaView>
+    </LinearGradient>
+    </>
   );
 }
+
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    paddingTop: 70,
   },
   list: {
     padding: 16,
   },
   item: {
-    paddingVertical: 14,
-    paddingHorizontal: 12,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    marginBottom: 10,
-    elevation: 2,
+    paddingVertical: 18,
+    paddingHorizontal: 16,
+    backgroundColor: '#ffffffcc',
+    borderRadius: 16,
+    marginBottom: 12,
+    elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.08,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   row: {
     flexDirection: 'row-reverse',
     alignItems: 'center',
-    justifyContent: 'flex-start',
   },
   number: {
     fontSize: 16,
-    color: '#008aad',
-    marginLeft: 12,
+    color: 'brown',
     fontWeight: 'bold',
+    marginLeft: 14,
   },
   name: {
-    fontSize: 22,
+    fontSize: 24,
     fontFamily: 'QuranFont',
     color: '#222',
-    textAlign: 'right',
-  },
-  details: {
-    fontSize: 12,
-    color: '#666',
     textAlign: 'right',
   },
 });

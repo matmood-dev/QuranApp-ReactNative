@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     
   },
   scrollShadow: {
+    paddingTop: 120,
   height: 20,
   backgroundColor: 'rgba(0, 0, 0, 0.05)',
   shadowColor: '#000',

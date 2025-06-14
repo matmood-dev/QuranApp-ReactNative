@@ -11,8 +11,11 @@ import {
 import axios from 'axios';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DropdownHeader from '../components/DropdownHeader'; // Adjust path if needed
+import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import DropdownHeader from '../components/DropdownHeader';
+import Header from '../components/HomeScreen/Header';
 
 export default function PageView() {
   const route = useRoute();
@@ -38,8 +41,8 @@ export default function PageView() {
   if (loading) {
     return (
       <SafeAreaView style={styles.centered}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fdfdfd" />
-        <ActivityIndicator size="large" color="#008aad" />
+        <StatusBar barStyle="dark-content" backgroundColor="#fdfcfb" />
+        <ActivityIndicator size="large" color="brown" />
       </SafeAreaView>
     );
   }
@@ -53,166 +56,181 @@ export default function PageView() {
   });
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fdfdfd" />
+    <LinearGradient colors={['#fdfcfb', '#e2d1c3']} style={{ flex: 1 }}>
+      <Header />
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fdfcfb" />
 
-      {/* Page selector with zIndex fix */}
-      <View style={{ zIndex: 1000 }}>
-        <DropdownHeader currentPage={pageNumber} />
-      </View>
-
-
-      {/* Scrollable content with nestedScrollEnabled to avoid FlatList conflict */}
-      <ScrollView
-        contentContainerStyle={styles.container}
-        nestedScrollEnabled
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.ayahBlock}>
-          {Object.values(surahGroups).map((ayahList: any[], index: number) => {
-            const firstAyah = ayahList[0];
-            const isTawbah = firstAyah.surah.number === 9;
-
-            return (
-              <View key={index} style={{ marginBottom: 32 }}>
-                <Text style={styles.surahHeading}>{firstAyah.surah.name}</Text>
-                {firstAyah.numberInSurah === 1 && !isTawbah && (
-                  <Text style={styles.basmala}>﷽</Text>
-                )}
-                <Text style={styles.ayahInline}>
-                  {ayahList.map((ayah: any, i: number) => {
-                    const cleanedText = ayah.text.replace(
-                      'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
-                      ''
-                    ).trim();
-
-                    return (
-                      <Text key={i}>
-                        {cleanedText}{' '}
-                        <Text style={styles.ayahNumber}>﴿{ayah.numberInSurah}﴾ </Text>
-                      </Text>
-                    );
-                  })}
-                </Text>
-              </View>
-            );
-          })}
+        <View style={{ zIndex: 1000, paddingHorizontal: 16, marginBottom: 8 }}>
+          <DropdownHeader currentPage={pageNumber} />
         </View>
-      </ScrollView>
 
-      {/* Footer */}
-      <Text style={styles.pageNumber}>صفحة {pageNumber}</Text>
+        <View style={styles.mainContent}>
+  <View style={styles.card}>
+    <ScrollView
+      style={styles.ayahScroll}
+      nestedScrollEnabled
+      showsVerticalScrollIndicator={false}
+    >
+      {Object.values(surahGroups).map((ayahList: any[], index: number) => {
+        const firstAyah = ayahList[0];
+        const isTawbah = firstAyah.surah.number === 9;
 
-      {/* Navigation buttons */}
-      <View style={styles.navButtons}>
-        <TouchableOpacity
-          onPress={() => {
-            if (pageNumber < 604) {
-              navigation.navigate('PageView', { pageNumber: pageNumber + 1 });
-            }
-          }}
-          style={styles.navButton}
-        >
-          <Ionicons name="chevron-back" size={22} color="#fff" />
-          <Text style={styles.navButtonText}>الصفحة التالية</Text>
-        </TouchableOpacity>
+        return (
+          <View key={index} style={{ marginBottom: 24 }}>
+            <Text style={styles.surahHeading}>{firstAyah.surah.name}</Text>
+            {firstAyah.numberInSurah === 1 && !isTawbah && (
+              <Text style={styles.basmala}>﷽</Text>
+            )}
+            <Text style={styles.ayahText}>
+              {ayahList.map((ayah: any, i: number) => {
+                const cleanedText = ayah.text.replace(
+                  'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
+                  ''
+                ).trim();
+                return (
+                  <Text key={i}>
+                    {cleanedText}{' '}
+                    <Text style={styles.ayahNumber}>﴿{ayah.numberInSurah}﴾ </Text>
+                  </Text>
+                );
+              })}
+            </Text>
+          </View>
+        );
+      })}
+    </ScrollView>
+  </View>
+</View>
 
-        <TouchableOpacity
-          onPress={() => {
-            if (pageNumber > 1) {
-              navigation.navigate('PageView', { pageNumber: pageNumber - 1 });
-            }
-          }}
-          style={[styles.navButton, pageNumber <= 1 && { opacity: 0.5 }]}
-          disabled={pageNumber <= 1}
-        >
-          <Text style={styles.navButtonText}>الصفحة السابقة</Text>
-          <Ionicons name="chevron-forward" size={22} color="#fff" />
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+
+        <View style={styles.footer}>
+          <Text style={styles.pageNumber}>صفحة {pageNumber}</Text>
+          <View style={styles.navButtons}>
+            <TouchableOpacity
+              onPress={() => {
+                if (pageNumber < 604) {
+                  navigation.navigate('PageView', { pageNumber: pageNumber + 1 });
+                }
+              }}
+              style={styles.navButton}
+            >
+              <Ionicons name="chevron-back" size={22} color="#fff" />
+              <Text style={styles.navButtonText}>الصفحة التالية</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                if (pageNumber > 1) {
+                  navigation.navigate('PageView', { pageNumber: pageNumber - 1 });
+                }
+              }}
+              style={[
+                styles.navButton,
+                pageNumber <= 1 && { opacity: 0.5 },
+              ]}
+              disabled={pageNumber <= 1}
+            >
+              <Text style={styles.navButtonText}>الصفحة السابقة</Text>
+              <Ionicons name="chevron-forward" size={22} color="#fff" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fdfdfd',
-  },
-  container: {
-    padding: 24,
-    alignItems: 'center',
-    backgroundColor: '#fdfdfd',
+    paddingTop: 70,
   },
   centered: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fdfdfd',
+    backgroundColor: '#fdfcfb',
   },
-  ayahBlock: {
-    maxWidth: '96%',
-    alignItems: 'center',
+  mainContent: {
+    flex: 1,
+  },
+  scrollContainer: {
+    padding: 16,
+    paddingBottom: 24,
+  },
+  card: {
+    backgroundColor: '#ffffffcc',
+    padding: 18,
+    borderRadius: 16,
+    marginBottom: 20,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 5,
+    maxWidth: '95%',
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
   surahHeading: {
-    fontSize: 34,
+    fontSize: 26,
     fontFamily: 'QuranFont',
-    color: '#004d66',
     textAlign: 'center',
-    marginTop: 20,
+    color: 'brown',
     marginBottom: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    backgroundColor: '#e6f4f1',
-    borderRadius: 12,
-    elevation: 2,
   },
   basmala: {
-    fontSize: 50,
-    textAlign: 'center',
+    fontSize: 36,
     fontFamily: 'QuranFont',
-    color: '#004d66',
-    marginTop: 8,
+    color: '#6b4c3b',
+    textAlign: 'center',
     marginBottom: 16,
   },
-  ayahInline: {
+ ayahScroll: {
+  maxHeight: 480, 
+  marginTop: 8,
+},
+  ayahText: {
+    fontSize: 24,
     fontFamily: 'QuranFont',
-    fontSize: 26,
-    lineHeight: 48,
     textAlign: 'center',
+    lineHeight: 40,
     color: '#222',
-    paddingHorizontal: 4,
   },
   ayahNumber: {
     fontSize: 18,
-    color: '#999',
+    color: '#a18a7f',
+  },
+  footer: {
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+    backgroundColor: 'transparent',
   },
   pageNumber: {
     textAlign: 'center',
     fontSize: 16,
-    color: '#888',
-    marginVertical: 12,
+    color: '#555',
+    marginBottom: 12,
   },
   navButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 24,
-    paddingBottom: 20,
     gap: 12,
   },
   navButton: {
     flex: 1,
-    backgroundColor: '#008aad',
-    paddingVertical: 12,
-    borderRadius: 8,
-    alignItems: 'center',
-    elevation: 3,
+    backgroundColor: '#6b4c3b',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 14,
+    borderRadius: 12,
   },
   navButtonText: {
     color: '#fff',
     fontSize: 16,
+    marginHorizontal: 6,
     fontWeight: '600',
   },
 });
