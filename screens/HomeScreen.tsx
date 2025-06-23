@@ -12,8 +12,6 @@ import HomeHero from '../components/HomeScreen/HomeHero';
 import FeatureCards from '../components/HomeScreen/FeatureCards';
 import PrayerTimes from '../components/HomeScreen/PrayerTimes';
 
-
-
 export default function HomeScreen() {
 
   return (

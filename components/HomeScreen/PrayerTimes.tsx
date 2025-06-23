@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MapPin } from 'lucide-react-native';
+import * as Location from 'expo-location';
 import { getShiaPrayerTimes } from '../../utils/getPrayerTimes';
 
 const prayerIcons: { [key: string]: string } = {
@@ -23,27 +24,41 @@ const prayerOrder = ['Fajr', 'Dhuhr', 'Maghrib', 'Isha'];
 export default function PrayerTimes() {
   const [times, setTimes] = useState<any>(null);
   const [nextPrayer, setNextPrayer] = useState<string | null>(null);
+  const [city, setCity] = useState<string | null>(null);
 
   useEffect(() => {
-    (async () => {
-      const data = await getShiaPrayerTimes();
+  (async () => {
+    try {
+      const data = await getShiaPrayerTimes(); // fetch prayer times
       setTimes(data);
 
+      // Get user's location and reverse geocode it
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status === 'granted') {
+        const location = await Location.getCurrentPositionAsync({});
+        const [place] = await Location.reverseGeocodeAsync(location.coords);
+        if (place.city && place.country) {
+          setCity(`${place.city}، ${place.country}`);
+        }
+      }
+
+      // Calculate next prayer
       const now = new Date();
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
-
       const prayerTimesInMinutes = prayerOrder.map((key) => {
         const [hour, minute] = data[key].split(':').map(Number);
-        return {
-          key,
-          minutes: hour * 60 + minute,
-        };
+        return { key, minutes: hour * 60 + minute };
       });
 
       const upcoming = prayerTimesInMinutes.find((p) => p.minutes > currentMinutes);
       setNextPrayer(upcoming ? upcoming.key : null);
-    })();
-  }, []);
+    } catch (error) {
+      console.error('Error loading prayer times or location:', error);
+    }
+  })();
+}, []);
+
+
 
   if (!times) return <Text style={{ textAlign: 'center' }}>جارٍ التحميل...</Text>;
 
@@ -52,7 +67,7 @@ export default function PrayerTimes() {
       <View style={styles.header}>
         <View style={styles.locationContainer}>
           <MapPin size={16} color="orange" />
-          <Text style={styles.location}>المنامة، البحرين</Text>
+          <Text style={styles.location}>{city || 'المنامة، البحرين'}</Text>
         </View>
         <Text style={styles.date}>حسب المذهب الجعفري</Text>
       </View>
