@@ -6,26 +6,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import BottomTabs from './navigation/BottomTabs';
+import DrawerMenu from './components/HomeScreen/Header/DrawerMenu';
 import PageView from './screens/PageView';
 import SurahList from './screens/SurahList';
-import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-// Optional: silence warnings about RTL layout flips
 LogBox.ignoreLogs(['Require cycle:', 'VirtualizedLists should never be nested']);
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
-    // Enable RTL once
     if (!I18nManager.isRTL) {
-    I18nManager.allowRTL(true);
-    // I18nManager.forceRTL(true);
-    // console.log('RTL enabled – restart the app to apply changes.');
-  }
+      I18nManager.allowRTL(true);
+    }
 
     Font.loadAsync({
       QuranFont: require('./assets/fonts/ScheherazadeNew-Regular.ttf'),
@@ -38,7 +33,10 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          {/* DrawerMenu is the root screen */}
+          <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
+
+          {/* Screens that should be pushed on top */}
           <Stack.Screen name="PageView" component={PageView} />
           <Stack.Screen name="SurahList" component={SurahList} />
         </Stack.Navigator>

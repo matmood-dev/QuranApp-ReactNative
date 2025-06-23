@@ -15,7 +15,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DropdownHeader from '../components/DropdownHeader';
-import Header from '../components/HomeScreen/Header';
 
 export default function PageView() {
   const route = useRoute();
@@ -57,7 +56,6 @@ export default function PageView() {
 
   return (
     <LinearGradient colors={['#fdfcfb', '#e2d1c3']} style={{ flex: 1 }}>
-      <Header />
       <SafeAreaView style={styles.safeArea}>
         <StatusBar barStyle="dark-content" backgroundColor="#fdfcfb" />
 
