@@ -6,6 +6,19 @@ interface PrayerTimesOptions {
   method?: number; // e.g., 13 = Jafari
 }
 
+const formatTime = (timeStr: string): string => timeStr.split(' ')[0];
+
+function toMinutes(time: string): number {
+  const [h, m] = time.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function toHHMM(minutes: number): string {
+  const h = Math.floor(minutes / 60) % 24;
+  const m = minutes % 60;
+  return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+}
+
 export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
   let { latitude, longitude, method } = options;
 
@@ -29,9 +42,7 @@ export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
     }
   }
 
-  if (!method) {
-    method = 13; // Jafari
-  }
+  if (!method) method = 13; // Jafari
 
   const today = new Date();
   const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
@@ -39,18 +50,17 @@ export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
 
   const res = await fetch(url);
   const json = await res.json();
-
   const timings = json.data.timings;
+
+  // Calculate Midnight = halfway between Maghrib and Fajr (next day)
+  const maghribMin = toMinutes(formatTime(timings.Maghrib));
+  const fajrMin = toMinutes(formatTime(timings.Fajr)) + 1440; // next day Fajr
+  const midnightMin = Math.floor((maghribMin + fajrMin) / 2);
 
   return {
     Fajr: formatTime(timings.Fajr),
     Dhuhr: formatTime(timings.Dhuhr),
     Maghrib: formatTime(timings.Maghrib),
-    Isha: formatTime(timings.Isha),
+    Midnight: toHHMM(midnightMin % 1440),
   };
-};
-
-const formatTime = (timeStr: string): string => {
-  // Converts "04:15 (AST)" to "04:15"
-  return timeStr.split(' ')[0];
 };

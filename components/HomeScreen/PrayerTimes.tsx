@@ -9,17 +9,18 @@ const prayerIcons: { [key: string]: string } = {
   Fajr: 'wb-sunny',
   Dhuhr: 'brightness-high',
   Maghrib: 'brightness-low',
-  Isha: 'nights-stay',
+  Midnight: 'nights-stay',
 };
+
+const prayerOrder = ['Fajr', 'Dhuhr', 'Maghrib', 'Midnight'];
 
 const prayerLabels: { [key: string]: string } = {
   Fajr: 'الفجر',
-  Dhuhr: 'الظهر',
-  Maghrib: 'المغرب',
-  Isha: 'العشاء',
+  Dhuhr: 'الظهرين',
+  Maghrib: 'العشائين',
+  Midnight: 'منتصف الليل',
 };
 
-const prayerOrder = ['Fajr', 'Dhuhr', 'Maghrib', 'Isha'];
 
 export default function PrayerTimes() {
   const [times, setTimes] = useState<any>(null);
