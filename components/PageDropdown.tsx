@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 interface PageDropdownProps {
@@ -19,7 +19,7 @@ export default function PageDropdown({ currentPage }: PageDropdownProps) {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.wrapper}>
       <DropDownPicker
         open={open}
         value={value}
@@ -31,33 +31,53 @@ export default function PageDropdown({ currentPage }: PageDropdownProps) {
           navigation.navigate('PageView', { pageNumber: newValue });
         }}
         setItems={setItems}
+        placeholder="اختر الصفحة"
         style={styles.dropdown}
         textStyle={styles.dropdownText}
-        placeholder="اختر الصفحة"
-        zIndex={1000}
+        listItemContainerStyle={styles.listItem}
+        listItemLabelStyle={styles.listItemText}
+        modalContentContainerStyle={styles.modalContent}
+        modalProps={{
+          animationType: 'slide',
+        }}
+        listMode="MODAL"
+        dropDownDirection="AUTO"
+        rtl={true}
+        scrollToIndex={currentPage - 1} // ✅ Scroll to current page (zero-based index)
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     paddingHorizontal: 24,
     marginTop: 10,
-    zIndex: 1000,
-    width: '100%',
-    alignSelf: 'center',
-  },
-  label: {
-    fontSize: 16,
-    color: '#444',
-    marginBottom: 8,
-    textAlign: 'right',
   },
   dropdown: {
-    borderColor: '#ccc',
+    borderColor: '#ddd',
+    borderRadius: 12,
+    backgroundColor: '#fff',
+    height: 50,
   },
   dropdownText: {
     textAlign: 'right',
+    fontSize: 16,
+    color: '#333',
+  },
+  modalContent: {
+    backgroundColor: '#f9f9f9',
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+  },
+  listItem: {
+    borderBottomColor: '#eee',
+    borderBottomWidth: 1,
+    paddingVertical: 10,
+  },
+  listItemText: {
+    textAlign: 'right',
+    fontSize: 18,
+    color: '#444',
   },
 });

@@ -6,10 +6,13 @@ import SurahDropdown from './SurahDropdown'; // Adjust path if needed
 export default function DropdownHeader({ currentPage }: { currentPage: number }) {
   return (
     <View style={styles.container}>
-      <View style={styles.dropdownWrapper}>
+      {/* Higher zIndex for PageDropdown */}
+      <View style={[styles.dropdownWrapper, { zIndex: 2000 }]}>
         <PageDropdown currentPage={currentPage} />
       </View>
-      <View style={styles.dropdownWrapper}>
+      
+      {/* Lower zIndex for SurahDropdown */}
+      <View style={[styles.dropdownWrapper, { zIndex: 1000 }]}>
         <SurahDropdown />
       </View>
     </View>
@@ -21,11 +24,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16,
     paddingTop: 10,
-    zIndex: 1000,
     gap: 8,
   },
   dropdownWrapper: {
     flex: 1,
-    zIndex: 1000, // important for dropdown visibility
   },
 });

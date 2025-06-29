@@ -142,7 +142,7 @@ export default function PageView() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    paddingTop: 70,
+    paddingTop: 20,
   },
   centered: {
     flex: 1,
@@ -158,16 +158,17 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   card: {
-    backgroundColor: '#ffffffcc',
+    backgroundColor: '#fff',
     padding: 18,
     borderRadius: 16,
     marginBottom: 20,
+    marginTop: 15,
     elevation: 3,
     shadowColor: '#000',
     shadowOpacity: 0.08,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
-    maxWidth: '95%',
+    maxWidth: '90%',
     justifyContent: 'center',
     alignSelf: 'center',
   },
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
  ayahScroll: {
-  maxHeight: 480, 
+  maxHeight: 600, 
   marginTop: 8,
 },
   ayahText: {
