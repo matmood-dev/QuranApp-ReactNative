@@ -9,6 +9,7 @@ import SurahList from '../../../screens/SurahList';
 import SettingsScreen from '../../../screens/SettingsScreen';
 import AboutScreen from '../../../screens/AboutScreen';
 import PrayerTimeScreen from '../../../screens/PrayerTimeScreen';
+import ReciterListScreen from '../../../screens/ReciterListScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -65,6 +66,7 @@ export default function DrawerMenu() {
       <Drawer.Screen name="PrayerTime" component={PrayerTimeScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
       <Drawer.Screen name="About" component={AboutScreen} />
+      <Drawer.Screen name="ReciterListScreen" component={ReciterListScreen} />
     </Drawer.Navigator>
   );
 }

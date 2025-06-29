@@ -3,8 +3,10 @@ import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'reac
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeHero() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {/* Search Box */}
@@ -37,10 +39,13 @@ export default function HomeHero() {
           <View style={styles.textContainer}>
             <Text style={styles.heroTitle}>استمع للقرآن الكريم</Text>
             <Text style={styles.heroSubtitle}>تطبيقك المفضل لتلاوة القرآن وتدبر معانيه</Text>
-            <TouchableOpacity style={styles.heroButton}>
-              <Text style={styles.heroButtonText}>ابدأ الاستماع</Text>
-              <Ionicons name="play" size={16} color="#fff" style={styles.buttonIcon} />
-            </TouchableOpacity>
+            <TouchableOpacity
+  style={styles.heroButton}
+  onPress={() => navigation.navigate('ReciterListScreen')} // ✅ screen name in navigator
+>
+  <Text style={styles.heroButtonText}>ابدأ الاستماع</Text>
+  <Ionicons name="play" size={16} color="#fff" style={styles.buttonIcon} />
+</TouchableOpacity>
           </View>
           
           <Image 

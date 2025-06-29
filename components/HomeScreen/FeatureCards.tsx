@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -6,41 +6,41 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
-import * as Animatable from 'react-native-animatable';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+import * as Animatable from "react-native-animatable";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 const cardSize = (width - 48) / 2;
 
 const features = [
   {
-    title: 'المصحف الشريف',
-    screen: 'SurahList',
-    image: require('../../assets/quran-card.jpg'),
-    badge: '',
+    title: "المصحف الشريف",
+    screen: "SurahList",
+    image: require("../../assets/quran-card.jpg"),
+    badge: "",
   },
   {
-    title: 'الاستماع للقرآن',
-    screen: '',
-    image: require('../../assets/audio-card.jpg'),
-    disabled: true,
-    badge: 'قريبًا',
+    title: "الاستماع للقرآن",
+    screen: "ReciterListScreen", // ✅ link to your route name
+    image: require("../../assets/audio-card.jpg"),
+    disabled: false,
+    badge: "",
   },
   {
-    title: 'مفاتيح الجنان',
-    screen: '',
-    image: require('../../assets/duas-card.jpg'),
+    title: "مفاتيح الجنان",
+    screen: "",
+    image: require("../../assets/duas-card.jpg"),
     disabled: true,
-    badge: 'قريبًا',
+    badge: "قريبًا",
   },
   {
-    title: 'قريبًا',
-    screen: '',
-    image: require('../../assets/comingsoon.jpg'),
+    title: "قريبًا",
+    screen: "",
+    image: require("../../assets/comingsoon.jpg"),
     disabled: true,
-    badge: 'قريبًا',
+    badge: "قريبًا",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function FeatureCards() {
               >
                 <Image source={item.image} style={styles.cardImage} />
                 <LinearGradient
-                  colors={['rgba(0, 0, 0, 0.6)', 'rgba(0, 0, 0, 0.1)']}
+                  colors={["rgba(0, 0, 0, 0.6)", "rgba(0, 0, 0, 0.1)"]}
                   start={{ x: 0.5, y: 1 }}
                   end={{ x: 0.5, y: 0 }}
                   style={styles.gradient}
@@ -112,48 +112,48 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 16,
   },
   card: {
     width: cardSize,
     height: cardSize,
     borderRadius: 12,
-    overflow: 'hidden',
-    position: 'relative',
-    shadowColor: '#FFA500',
+    overflow: "hidden",
+    position: "relative",
+    shadowColor: "#FFA500",
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.15,
     shadowRadius: 10,
     elevation: 4,
   },
   cardImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   gradient: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   textWrapper: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 8,
   },
   cardText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: cardSize * 0.13,
-    fontWeight: '700',
-    textAlign: 'center',
+    fontWeight: "700",
+    textAlign: "center",
   },
   badge: {
-    position: 'absolute',
+    position: "absolute",
     top: 8,
     left: 8,
-    backgroundColor: '#FF5722',
+    backgroundColor: "#FF5722",
     paddingHorizontal: 10,
     paddingVertical: 3,
     borderRadius: 6,
@@ -161,19 +161,19 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   badgeText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 11,
-    fontWeight: '900',
+    fontWeight: "900",
   },
   disabledOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "rgba(0,0,0,0.4)",
+    justifyContent: "center",
+    alignItems: "center",
     zIndex: 20,
   },
   lockIcon: {
     fontSize: 24,
-    color: '#fff',
+    color: "#fff",
   },
 });

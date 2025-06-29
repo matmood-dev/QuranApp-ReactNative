@@ -4,6 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
+  Platform
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -38,10 +39,9 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    
   },
   scrollShadow: {
-    paddingTop: 120,
+    paddingTop: Platform.select({ ios: 120, android: 60 }),
   height: 20,
   backgroundColor: 'rgba(0, 0, 0, 0.05)',
   shadowColor: '#000',
