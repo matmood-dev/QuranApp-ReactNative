@@ -2,16 +2,16 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   FlatList,
   StyleSheet,
   Dimensions,
-  Image,
   Platform,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Header from "../components/HomeScreen/Header";
+import Header from "../../components/HomeScreen/Header";
 import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import ReciterCard from "./ReciterCard"; // 👈 Import the separate animated card
 
 const { width } = Dimensions.get("window");
 const cardWidth = (width - 48) / 2;
@@ -20,17 +20,32 @@ const reciters = [
   {
     id: "ar.abdulbasit",
     name: "عبد الباسط عبد الصمد",
-    image: require("../assets/reciters/abdulbasit.jpg"),
+    image: require("../../assets/reciters/abdulbasit.jpg"),
   },
   {
     id: "ar.minshawi",
     name: "محمد المنشاوي",
-    image: require("../assets/reciters/minshawi.jpg"),
+    image: require("../../assets/reciters/minshawi.jpg"),
+  },
+  {
+    id: "ar.kazemi",
+    name: "عامر الكاظمي",
+    image: require("../../assets/reciters/kademi.jpg"),
+  },
+  {
+    id: "ar.tammar",
+    name: "ميثم التمار",
+    image: require("../../assets/reciters/tammar.jpg"),
   },
 ];
 
+type RootStackParamList = {
+  SurahAudioScreen: { reciterId: string; reciterName: string };
+};
+
 export default function ReciterListScreen() {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleSelect = (reciterId: string, reciterName: string) => {
     navigation.navigate("SurahAudioScreen", { reciterId, reciterName });
@@ -42,22 +57,14 @@ export default function ReciterListScreen() {
       <View style={styles.container}>
         <Text style={styles.heading}>اختر القارئ</Text>
         <FlatList
-          key={"2-cols"} // ✅ Force FlatList to fully remount
+          key={"2-cols"}
           data={reciters}
           keyExtractor={(item) => item.id}
           numColumns={2}
           contentContainerStyle={styles.list}
           columnWrapperStyle={styles.row}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.card}
-              onPress={() => handleSelect(item.id, item.name)}
-            >
-              <Image source={item.image} style={styles.image} />
-              <View style={styles.overlay}>
-                <Text style={styles.name}>{item.name}</Text>
-              </View>
-            </TouchableOpacity>
+          renderItem={({ item, index }) => (
+            <ReciterCard item={item} index={index} onSelect={handleSelect} />
           )}
         />
       </View>
@@ -84,31 +91,5 @@ const styles = StyleSheet.create({
   row: {
     justifyContent: "space-between",
     marginBottom: 16,
-  },
-  card: {
-    width: cardWidth,
-    height: cardWidth,
-    borderRadius: 12,
-    overflow: "hidden",
-    position: "relative",
-    elevation: 4,
-    backgroundColor: "#fff",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 6,
-  },
-  name: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "700",
-    textAlign: "center",
   },
 });

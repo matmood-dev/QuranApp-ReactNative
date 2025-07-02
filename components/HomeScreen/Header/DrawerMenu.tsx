@@ -9,7 +9,7 @@ import SurahList from '../../../screens/SurahList';
 import SettingsScreen from '../../../screens/SettingsScreen';
 import AboutScreen from '../../../screens/AboutScreen';
 import PrayerTimeScreen from '../../../screens/PrayerTimeScreen';
-import ReciterListScreen from '../../../screens/ReciterListScreen';
+import ReciterListScreen from '../../../screens/ListenToQuranScreen/ReciterListScreen';
 
 const Drawer = createDrawerNavigator();
 
