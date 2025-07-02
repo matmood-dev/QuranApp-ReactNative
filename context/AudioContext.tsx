@@ -4,13 +4,16 @@ import { Audio } from "expo-av";
 type AudioContextType = {
   isPlaying: boolean;
   currentSurah: string;
-  play: (surahName: string) => void; // ✅ updated
+  reciterId: string;
+  reciterName: string;
+  play: (surahName: string, reciterId: string, reciterName: string) => void;
   pause: () => void;
   toggle: () => void;
   seekTo: (millis: number) => void;
   duration: number;
   position: number;
 };
+
 
 
 const AudioContext = createContext<AudioContextType | null>(null);
@@ -22,6 +25,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(1); // prevent division by zero
   const [currentSurah, setCurrentSurah] = useState(""); // was "الفاتحة"
+  const [reciterId, setReciterId] = useState("");
+  const [reciterName, setReciterName] = useState("");
+
 
   const testAudio = require("../assets/audio/test.mp3");
 
@@ -39,12 +45,15 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const play = async (surahName: string) => {
+  const play = async (surahName: string, reciterId: string, reciterName: string) => {
   await loadSound();
-  setCurrentSurah(surahName); // 👈 Move this earlier
+  setCurrentSurah(surahName);
+  setReciterId(reciterId);
+  setReciterName(reciterName);
   await soundRef.current?.playAsync();
   setIsPlaying(true);
 };
+
 
 
 
@@ -58,11 +67,12 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   if (status?.isPlaying) {
     pause();
   } else {
-    if (currentSurah) {
-      play(currentSurah); // 🔁 resume using the last surah name
+    if (currentSurah && reciterId && reciterName) {
+      play(currentSurah, reciterId, reciterName); // resume with last context
     }
   }
 };
+
 
 
   const seekTo = async (millis: number) => {
@@ -77,9 +87,21 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AudioContext.Provider
-      value={{ isPlaying, currentSurah, play, pause, toggle, seekTo, duration, position }}
-    >
-      {children}
-    </AudioContext.Provider>
+  value={{
+    isPlaying,
+    currentSurah,
+    reciterId,
+    reciterName,
+    play,
+    pause,
+    toggle,
+    seekTo,
+    duration,
+    position,
+  }}
+>
+  {children}
+</AudioContext.Provider>
+
   );
 };

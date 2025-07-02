@@ -1,21 +1,36 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { useAudio } from "../../../context/AudioContext";
+import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useAudio } from "../../../context/AudioContext";
 
 export default function MiniPlayer() {
-  const { isPlaying, toggle, currentSurah } = useAudio();
+  const navigation = useNavigation();
+  const { isPlaying, toggle, currentSurah, reciterId, reciterName } = useAudio();
+  
 
-  // 👉 Don't render the MiniPlayer if nothing is playing
+  // 👉 Don't render if nothing is playing
   if (!currentSurah) return null;
 
+  const handleOpenPlayer = () => {
+  navigation.navigate("FullAudioPlayerScreen", {
+    surahName: currentSurah,
+    reciterId,
+    reciterName,
+  });
+};
+
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleOpenPlayer}>
       <Text style={styles.title}>{currentSurah || "لا يوجد تشغيل"}</Text>
-      <TouchableOpacity onPress={toggle}>
+      <TouchableOpacity onPress={(e) => {
+        e.stopPropagation(); // Prevent parent navigation
+        toggle();
+      }}>
         <Ionicons name={isPlaying ? "pause" : "play"} size={24} color="#fff" />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 }
 
