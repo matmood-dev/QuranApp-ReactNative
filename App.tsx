@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { I18nManager, LogBox } from 'react-native';
+import { I18nManager, LogBox, View } from 'react-native';
 import * as Font from 'expo-font';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -33,18 +33,21 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <AudioProvider> {/* ✅ Wrap everything in AudioProvider */}
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
-            <Stack.Screen name="PageView" component={PageView} />
-            <Stack.Screen name="SurahList" component={SurahList} />
-          </Stack.Navigator>
-        </NavigationContainer>
+  <AudioProvider>
+    <NavigationContainer>
+      {/* 👇 This wrapper ensures MiniPlayer is part of the visual stack */}
+      <View style={{ flex: 1 }}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
+          <Stack.Screen name="PageView" component={PageView} />
+          <Stack.Screen name="SurahList" component={SurahList} />
+        </Stack.Navigator>
 
-        {/* ✅ Show mini player globally (optional) */}
+        {/* ✅ MiniPlayer placed at the bottom of every screen */}
         <MiniPlayer />
-      </AudioProvider>
-    </SafeAreaProvider>
+      </View>
+    </NavigationContainer>
+  </AudioProvider>
+</SafeAreaProvider>
   );
 }

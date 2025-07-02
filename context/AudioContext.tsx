@@ -41,9 +41,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
   const play = async (surahName: string) => {
   await loadSound();
+  setCurrentSurah(surahName); // 👈 Move this earlier
   await soundRef.current?.playAsync();
   setIsPlaying(true);
-  setCurrentSurah(surahName); // ✅ set the name passed
 };
 
 
@@ -54,10 +54,16 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const toggle = async () => {
-    const status = await soundRef.current?.getStatusAsync();
-    if (status?.isPlaying) pause();
-    else play();
-  };
+  const status = await soundRef.current?.getStatusAsync();
+  if (status?.isPlaying) {
+    pause();
+  } else {
+    if (currentSurah) {
+      play(currentSurah); // 🔁 resume using the last surah name
+    }
+  }
+};
+
 
   const seekTo = async (millis: number) => {
     await soundRef.current?.setPositionAsync(millis);

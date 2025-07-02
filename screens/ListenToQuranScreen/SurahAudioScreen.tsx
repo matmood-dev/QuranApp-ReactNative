@@ -16,7 +16,9 @@ import { useNavigation } from "@react-navigation/native";
 import { useAudio } from "../../context/AudioContext";
 
 type RootStackParamList = {
+  ReciterListScreen: undefined; // ✅ add this
   SurahAudioScreen: { reciterId: string; reciterName: string };
+  FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string }; // if used
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "SurahAudioScreen">;

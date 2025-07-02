@@ -41,6 +41,8 @@ const reciters = [
 
 type RootStackParamList = {
   SurahAudioScreen: { reciterId: string; reciterName: string };
+  ReciterListScreen: undefined; // ✅ add this
+  FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string }; // if used
 };
 
 export default function ReciterListScreen() {

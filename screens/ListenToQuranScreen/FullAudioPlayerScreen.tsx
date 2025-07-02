@@ -32,7 +32,7 @@ export default function FullAudioPlayerScreen() {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.backBtn}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate("ReciterListScreen")}
       >
         <Ionicons name="chevron-back" size={24} color="#6b4c3b" />
       </TouchableOpacity>
