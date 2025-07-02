@@ -39,13 +39,14 @@ const SurahAudioScreen: React.FC<Props> = () => {
   }, []);
 
   const handlePlay = (surahNumber: number, surahName: string) => {
-    play(surahName); // plays test.mp3
-    navigation.navigate("FullAudioPlayerScreen", {
-      surahName,
-      reciterId,
-      reciterName,
-    });
-  };
+  play(surahName, reciterId, reciterName); // ✅ now sets all 3 values in context
+  navigation.navigate("FullAudioPlayerScreen", {
+    surahName,
+    reciterId,
+    reciterName,
+  });
+};
+
 
   const renderSurah = ({ item }: any) => (
     <TouchableOpacity

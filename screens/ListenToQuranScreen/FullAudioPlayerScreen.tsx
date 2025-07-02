@@ -1,7 +1,7 @@
 // screens/ListenToQuranScreen/FullAudioPlayerScreen.tsx
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import Slider from '@react-native-community/slider';
+import Slider from "@react-native-community/slider";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useAudio } from "../../context/AudioContext";
@@ -32,7 +32,13 @@ export default function FullAudioPlayerScreen() {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.backBtn}
-        onPress={() => navigation.navigate("ReciterListScreen")}
+        onPress={() =>
+          navigation.navigate("SurahAudioScreen", {
+            surahName,
+            reciterId: route.params.reciterId,
+            reciterName,
+          })
+        }
       >
         <Ionicons name="chevron-back" size={24} color="#6b4c3b" />
       </TouchableOpacity>
