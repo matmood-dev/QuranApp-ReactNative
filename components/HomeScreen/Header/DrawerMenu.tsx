@@ -11,6 +11,7 @@ import AboutScreen from '../../../screens/AboutScreen';
 import PrayerTimeScreen from '../../../screens/PrayerTimeScreen';
 import ReciterListScreen from '../../../screens/ListenToQuranScreen/ReciterListScreen';
 import SurahAudioScreen from '../../../screens/ListenToQuranScreen/SurahAudioScreen';
+import FullAudioPlayerScreen from '../../../screens/ListenToQuranScreen/FullAudioPlayerScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -69,6 +70,7 @@ export default function DrawerMenu() {
       <Drawer.Screen name="About" component={AboutScreen} />
       <Drawer.Screen name="ReciterListScreen" component={ReciterListScreen} />
       <Drawer.Screen name="SurahAudioScreen" component={SurahAudioScreen} />
+      <Drawer.Screen name="FullAudioPlayerScreen" component={FullAudioPlayerScreen} />
     </Drawer.Navigator>
   );
 }

@@ -9,6 +9,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import DrawerMenu from './components/HomeScreen/Header/DrawerMenu';
 import PageView from './screens/PageView';
 import SurahList from './screens/SurahList';
+import { AudioProvider } from './context/AudioContext'; // ✅ Import context
+import MiniPlayer from './screens/ListenToQuranScreen/components/MiniPlayer'; // ✅ Optional MiniPlayer
 
 const Stack = createNativeStackNavigator();
 
@@ -31,16 +33,18 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/* DrawerMenu is the root screen */}
-          <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
+      <AudioProvider> {/* ✅ Wrap everything in AudioProvider */}
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
+            <Stack.Screen name="PageView" component={PageView} />
+            <Stack.Screen name="SurahList" component={SurahList} />
+          </Stack.Navigator>
+        </NavigationContainer>
 
-          {/* Screens that should be pushed on top */}
-          <Stack.Screen name="PageView" component={PageView} />
-          <Stack.Screen name="SurahList" component={SurahList} />
-        </Stack.Navigator>
-      </NavigationContainer>
+        {/* ✅ Show mini player globally (optional) */}
+        <MiniPlayer />
+      </AudioProvider>
     </SafeAreaProvider>
   );
 }

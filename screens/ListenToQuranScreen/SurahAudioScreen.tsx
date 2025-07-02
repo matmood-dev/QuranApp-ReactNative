@@ -13,6 +13,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { LinearGradient } from "expo-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import { useAudio } from "../../context/AudioContext";
 
 type RootStackParamList = {
   SurahAudioScreen: { reciterId: string; reciterName: string };
@@ -25,6 +26,7 @@ const SurahAudioScreen: React.FC<Props> = () => {
   const route = useRoute<RouteProp<RootStackParamList, "SurahAudioScreen">>();
   const { reciterId, reciterName } = route.params;
 
+  const { play } = useAudio(); // ✅ use play from context
   const [surahs, setSurahs] = useState<any[]>([]);
 
   useEffect(() => {
@@ -35,9 +37,12 @@ const SurahAudioScreen: React.FC<Props> = () => {
   }, []);
 
   const handlePlay = (surahNumber: number, surahName: string) => {
-    console.log(
-      `Play Surah ${surahName} from reciter ${reciterName} (${reciterId})`
-    );
+    play(surahName); // plays test.mp3
+    navigation.navigate("FullAudioPlayerScreen", {
+      surahName,
+      reciterId,
+      reciterName,
+    });
   };
 
   const renderSurah = ({ item }: any) => (
