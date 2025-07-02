@@ -17,7 +17,7 @@ function CustomDrawerContent(props) {
   const currentRoute = props.state.routeNames[props.state.index];
 
   const drawerItems = [
-    { label: 'الرئيسية', icon: 'home-outline', screen: 'Home' },
+    { label: 'الرئيسية', icon: 'home-outline', screen: 'HomeScreen' },
     { label: 'المصحف الشريف', icon: 'book-outline', screen: 'SurahList' },
     { label: 'مواقيت الصلاة', icon: 'time-outline', screen: 'PrayerTime' },
     { label: 'الإعدادات', icon: 'settings-outline', screen: 'Settings' },
@@ -61,7 +61,7 @@ export default function DrawerMenu() {
         headerShown: false,
       }}
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="SurahList" component={SurahList} />
       <Drawer.Screen name="PrayerTime" component={PrayerTimeScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
