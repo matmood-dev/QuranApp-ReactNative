@@ -8,7 +8,7 @@ export default function MiniPlayer() {
   const navigation = useNavigation();
   const { isPlaying, toggle, currentSurah, reciterId, reciterName } = useAudio();
 
-  if (!currentSurah) return null;
+  if (!isPlaying || !currentSurah) return null;
 
   const handleOpenPlayer = () => {
     navigation.navigate("FullAudioPlayerScreen", {

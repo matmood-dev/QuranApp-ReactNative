@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   },
   reciterImage: {
     width: "100%",
-    height: 200,
+    height: 230,
     borderRadius: 20,
   },
 });
