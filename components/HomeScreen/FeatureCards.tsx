@@ -24,7 +24,7 @@ const features = [
   {
     title: "الاستماع للقرآن",
     screen: "ReciterListScreen", // ✅ link to your route name
-    image: require("../../assets/audio-card.jpg"),
+    image: require("../../assets/reciters/kademi.jpg"),
     disabled: false,
     badge: "",
   },
@@ -32,7 +32,7 @@ const features = [
     title: "مفاتيح الجنان",
     screen: "",
     image: require("../../assets/duas-card.jpg"),
-    disabled: true,
+    disabled: false,
     badge: "قريبًا",
   },
   {

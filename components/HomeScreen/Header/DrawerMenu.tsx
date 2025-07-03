@@ -21,6 +21,7 @@ function CustomDrawerContent(props) {
   const drawerItems = [
     { label: 'الرئيسية', icon: 'home-outline', screen: 'HomeScreen' },
     { label: 'المصحف الشريف', icon: 'book-outline', screen: 'SurahList' },
+    { label: 'الاستماع للقرآن', icon: 'headset-outline', screen: 'ReciterListScreen' },
     { label: 'مواقيت الصلاة', icon: 'time-outline', screen: 'PrayerTime' },
     { label: 'الإعدادات', icon: 'settings-outline', screen: 'Settings' },
     { label: 'حول التطبيق', icon: 'information-circle-outline', screen: 'About' }, // ✅
