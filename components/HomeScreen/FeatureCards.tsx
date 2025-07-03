@@ -30,10 +30,10 @@ const features = [
   },
   {
     title: "مفاتيح الجنان",
-    screen: "",
+    screen: "MafatihScreen",
     image: require("../../assets/duas-card.jpg"),
     disabled: false,
-    badge: "قريبًا",
+    badge: "جديد",
   },
   {
     title: "قريبًا",

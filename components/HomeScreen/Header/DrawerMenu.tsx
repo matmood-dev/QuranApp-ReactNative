@@ -12,6 +12,7 @@ import PrayerTimeScreen from '../../../screens/PrayerTimeScreen';
 import ReciterListScreen from '../../../screens/ListenToQuranScreen/ReciterListScreen';
 import SurahAudioScreen from '../../../screens/ListenToQuranScreen/SurahAudioScreen';
 import FullAudioPlayerScreen from '../../../screens/ListenToQuranScreen/FullAudioPlayerScreen';
+import MafatihScreen from '../../../screens/MafatihScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +23,7 @@ function CustomDrawerContent(props) {
     { label: 'الرئيسية', icon: 'home-outline', screen: 'HomeScreen' },
     { label: 'المصحف الشريف', icon: 'book-outline', screen: 'SurahList' },
     { label: 'الاستماع للقرآن', icon: 'headset-outline', screen: 'ReciterListScreen' },
+    { label: 'مفاتيح الجنان', icon: 'headset-outline', screen: 'MafatihScreen' },
     { label: 'مواقيت الصلاة', icon: 'time-outline', screen: 'PrayerTime' },
     { label: 'الإعدادات', icon: 'settings-outline', screen: 'Settings' },
     { label: 'حول التطبيق', icon: 'information-circle-outline', screen: 'About' }, // ✅
@@ -72,6 +74,7 @@ export default function DrawerMenu() {
       <Drawer.Screen name="ReciterListScreen" component={ReciterListScreen} />
       <Drawer.Screen name="SurahAudioScreen" component={SurahAudioScreen} />
       <Drawer.Screen name="FullAudioPlayerScreen" component={FullAudioPlayerScreen} />
+      <Drawer.Screen name="MafatihScreen" component={MafatihScreen} />
     </Drawer.Navigator>
   );
 }
