@@ -2,7 +2,8 @@ import React from 'react';
 import { I18nManager, StyleSheet, Text, View, Image } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { LinearGradient } from 'expo-linear-gradient';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Ionicons} from '@expo/vector-icons';
+import type { DrawerContentComponentProps } from '@react-navigation/drawer';
 
 import HomeScreen from '../../../screens/HomeScreen';
 import SurahList from '../../../screens/SurahList';
@@ -16,7 +17,7 @@ import MafatihScreen from '../../../screens/MafatihScreen';
 
 const Drawer = createDrawerNavigator();
 
-function CustomDrawerContent(props) {
+function CustomDrawerContent(props: DrawerContentComponentProps) {
   const currentRoute = props.state.routeNames[props.state.index];
 
   const drawerItems = [
@@ -45,7 +46,7 @@ function CustomDrawerContent(props) {
             style={currentRoute === item.screen && styles.activeItem}
             icon={({ color, size }) => (
               <Ionicons
-                name={item.icon}
+                name={item.icon as keyof typeof Ionicons.glyphMap}
                 size={22}
                 color={currentRoute === item.screen ? '#6b4c3b' : '#888'}
               />

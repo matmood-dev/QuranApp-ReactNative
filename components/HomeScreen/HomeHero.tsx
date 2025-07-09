@@ -4,9 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../types/navigation';
 
 export default function HomeHero() {
-  const navigation = useNavigation();
+  type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+  const navigation = useNavigation<NavigationProp>();
   return (
     <View style={styles.container}>
       {/* Search Box */}
@@ -23,33 +27,40 @@ export default function HomeHero() {
       {/* Hero Card */}
       <View style={styles.heroCardContainer}>
         <Image
-          source={require('../../assets/audio-card.jpg')}
+          source={require("../../assets/audio-card.jpg")}
           style={styles.heroBackgroundImage}
           resizeMode="cover"
         />
-        
+
         <LinearGradient
-          colors={['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.4)']}
+          colors={["rgba(0, 0, 0, 0.1)", "rgba(0, 0, 0, 0.4)"]}
           style={StyleSheet.absoluteFill}
         />
-        
+
         <BlurView intensity={15} tint="light" style={StyleSheet.absoluteFill} />
-        
+
         <View style={styles.heroContent}>
           <View style={styles.textContainer}>
             <Text style={styles.heroTitle}>استمع للقرآن الكريم</Text>
-            <Text style={styles.heroSubtitle}>تطبيقك المفضل لتلاوة القرآن وتدبر معانيه</Text>
+            <Text style={styles.heroSubtitle}>
+              تطبيقك المفضل لتلاوة القرآن وتدبر معانيه
+            </Text>
             <TouchableOpacity
-  style={styles.heroButton}
-  onPress={() => navigation.navigate('ReciterListScreen')} // ✅ screen name in navigator
->
-  <Text style={styles.heroButtonText}>ابدأ الاستماع</Text>
-  <Ionicons name="play" size={16} color="#fff" style={styles.buttonIcon} />
-</TouchableOpacity>
+              style={styles.heroButton}
+              onPress={() => navigation.navigate("ReciterListScreen")}
+            >
+              <Text style={styles.heroButtonText}>ابدأ الاستماع</Text>
+              <Ionicons
+                name="play"
+                size={16}
+                color="#fff"
+                style={styles.buttonIcon}
+              />
+            </TouchableOpacity>
           </View>
-          
-          <Image 
-            source={require('../../assets/quran-illustration.png')} 
+
+          <Image
+            source={require("../../assets/quran-illustration.png")}
             style={styles.heroForegroundImage}
           />
         </View>

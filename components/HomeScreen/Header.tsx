@@ -3,9 +3,12 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Menu, Bell } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { RootDrawerParamList } from '../../types/navigation';
 
 export default function Header() {
-  const navigation = useNavigation();
+  type NavigationProp = DrawerNavigationProp<RootDrawerParamList>;
+  const navigation = useNavigation<NavigationProp>();
 
   return (
     <SafeAreaView edges={['top']} style={styles.safeArea}>

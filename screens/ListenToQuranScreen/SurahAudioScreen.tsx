@@ -8,27 +8,17 @@ import {
   StatusBar,
   Platform,
 } from "react-native";
-import { RouteProp, useRoute } from "@react-navigation/native";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { LinearGradient } from "expo-linear-gradient";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { DrawerScreenProps } from "@react-navigation/drawer";
 import { useAudio } from "../../context/AudioContext";
+import type { RootStackParamList } from "../../types/navigation";
 
-type RootStackParamList = {
-  ReciterListScreen: undefined; // ✅ add this
-  SurahAudioScreen: { reciterId: string; reciterName: string };
-  FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string }; // if used
-};
+type Props = DrawerScreenProps<RootStackParamList, "SurahAudioScreen">;
 
-type Props = NativeStackScreenProps<RootStackParamList, "SurahAudioScreen">;
-
-const SurahAudioScreen: React.FC<Props> = () => {
-  const navigation = useNavigation();
-  const route = useRoute<RouteProp<RootStackParamList, "SurahAudioScreen">>();
+const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
   const { reciterId, reciterName } = route.params;
-
-  const { play } = useAudio(); // ✅ use play from context
+  const { play } = useAudio();
   const [surahs, setSurahs] = useState<any[]>([]);
 
   useEffect(() => {
@@ -39,14 +29,13 @@ const SurahAudioScreen: React.FC<Props> = () => {
   }, []);
 
   const handlePlay = (surahNumber: number, surahName: string) => {
-  play(surahName, reciterId, reciterName); // ✅ now sets all 3 values in context
-  navigation.navigate("FullAudioPlayerScreen", {
-    surahName,
-    reciterId,
-    reciterName,
-  });
-};
-
+    play(surahName, reciterId, reciterName);
+    navigation.navigate("FullAudioPlayerScreen", {
+      surahName,
+      reciterId,
+      reciterName,
+    });
+  };
 
   const renderSurah = ({ item }: any) => (
     <TouchableOpacity

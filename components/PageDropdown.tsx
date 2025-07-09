@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation';
 
 interface PageDropdownProps {
   currentPage: number;
 }
 
 export default function PageDropdown({ currentPage }: PageDropdownProps) {
-  const navigation = useNavigation();
+  type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'PageView'>;
+  
+  const navigation = useNavigation<NavigationProp>();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(currentPage);
   const [items, setItems] = useState(
@@ -43,7 +47,6 @@ export default function PageDropdown({ currentPage }: PageDropdownProps) {
         listMode="MODAL"
         dropDownDirection="AUTO"
         rtl={true}
-        scrollToIndex={currentPage - 1} // ✅ Scroll to current page (zero-based index)
       />
     </View>
   );

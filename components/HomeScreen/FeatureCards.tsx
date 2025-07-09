@@ -10,34 +10,41 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Animatable from "react-native-animatable";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../types/navigation";
 
 const { width } = Dimensions.get("window");
 const cardSize = (width - 48) / 2;
 
-const features = [
+type FeatureItem = {
+  title: string;
+  screen: keyof RootStackParamList;
+  params?: RootStackParamList[keyof RootStackParamList]; // proper typing
+  image: any;
+  badge?: string;
+  disabled?: boolean;
+};
+
+const features: FeatureItem[] = [
   {
     title: "المصحف الشريف",
     screen: "SurahList",
     image: require("../../assets/quran-card.jpg"),
-    badge: "",
   },
   {
     title: "الاستماع للقرآن",
-    screen: "ReciterListScreen", // ✅ link to your route name
+    screen: "ReciterListScreen",
     image: require("../../assets/reciters/kademi.jpg"),
-    disabled: false,
-    badge: "",
   },
   {
     title: "مفاتيح الجنان",
     screen: "MafatihScreen",
     image: require("../../assets/duas-card.jpg"),
-    disabled: false,
     badge: "جديد",
   },
   {
     title: "قريبًا",
-    screen: "",
+    screen: "SurahList",
     image: require("../../assets/comingsoon.jpg"),
     disabled: true,
     badge: "قريبًا",
@@ -45,7 +52,8 @@ const features = [
 ];
 
 export default function FeatureCards() {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const rows = React.useMemo(() => {
     const r = [];
@@ -74,7 +82,9 @@ export default function FeatureCards() {
                 activeOpacity={0.9}
                 style={[styles.card, item.disabled && { opacity: 0.6 }]}
                 onPress={() => {
-                  if (!item.disabled) navigation.navigate(item.screen);
+                  if (!item.disabled) {
+                    navigation.navigate(item.screen, item.params as any);
+                  }
                 }}
               >
                 <Image source={item.image} style={styles.cardImage} />

@@ -5,14 +5,9 @@ import { MapPin } from 'lucide-react-native';
 import * as Location from 'expo-location';
 import { getShiaPrayerTimes } from '../../utils/getPrayerTimes';
 
-const prayerIcons: { [key: string]: string } = {
-  Fajr: 'wb-sunny',
-  Dhuhr: 'brightness-high',
-  Maghrib: 'brightness-low',
-  Midnight: 'nights-stay',
-};
+type PrayerKey = 'Fajr' | 'Dhuhr' | 'Maghrib' | 'Midnight';
 
-const prayerOrder = ['Fajr', 'Dhuhr', 'Maghrib', 'Midnight'];
+const prayerOrder: PrayerKey[] = ['Fajr', 'Dhuhr', 'Maghrib', 'Midnight'];
 
 const prayerLabels: { [key: string]: string } = {
   Fajr: 'الفجر',
@@ -21,9 +16,16 @@ const prayerLabels: { [key: string]: string } = {
   Midnight: 'منتصف الليل',
 };
 
+const prayerIcons: Record<PrayerKey, 'wb-sunny' | 'brightness-high' | 'brightness-low' | 'nights-stay'> = {
+  Fajr: 'wb-sunny',
+  Dhuhr: 'brightness-high',
+  Maghrib: 'brightness-low',
+  Midnight: 'nights-stay',
+};
+
 
 export default function PrayerTimes() {
-  const [times, setTimes] = useState<any>(null);
+  const [times, setTimes] = useState<Record<PrayerKey, string> | null>(null);
   const [nextPrayer, setNextPrayer] = useState<string | null>(null);
   const [city, setCity] = useState<string | null>(null);
 
@@ -68,7 +70,7 @@ export default function PrayerTimes() {
       <View style={styles.header}>
         <View style={styles.locationContainer}>
           <MapPin size={16} color="orange" />
-          <Text style={styles.location}>{city || 'المنامة، البحرين'}</Text>
+          <Text style={styles.location}>{city || "المنامة، البحرين"}</Text>
         </View>
         <Text style={styles.date}>حسب المذهب الجعفري</Text>
       </View>
@@ -79,15 +81,14 @@ export default function PrayerTimes() {
             key={key}
             style={[
               styles.prayerCard,
-              key === 'Fajr' && styles.fajrCard,
-              key === 'Isha' && styles.ishaCard,
+              key === "Fajr" && styles.fajrCard,
               key === nextPrayer && styles.nextPrayerCard,
             ]}
           >
             <MaterialIcons
               name={prayerIcons[key]}
               size={24}
-              color={key === nextPrayer ? '#FFA500' : '#4F6D7A'}
+              color={key === nextPrayer ? "#FFA500" : "#4F6D7A"}
             />
             <Text style={styles.prayerName}>{prayerLabels[key]}</Text>
             <Text style={styles.prayerTime}>{times[key]}</Text>

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { View, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation';
 
 export default function SurahDropdown() {
-  const navigation = useNavigation();
+
+  type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'PageView'>;
+
+  const navigation = useNavigation<NavigationProp>();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState<any[]>([]);
