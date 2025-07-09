@@ -3,7 +3,7 @@ import * as Location from 'expo-location';
 interface PrayerTimesOptions {
   latitude?: number;
   longitude?: number;
-  method?: number; // e.g., 13 = Jafari
+  method?: number;
 }
 
 const formatTime = (timeStr: string): string => timeStr.split(' ')[0];
@@ -22,7 +22,6 @@ function toHHMM(minutes: number): string {
 export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
   let { latitude, longitude, method } = options;
 
-  // Default: Manama, Bahrain + Jafari
   if (!latitude || !longitude) {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -42,7 +41,7 @@ export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
     }
   }
 
-  if (!method) method = 13; // Jafari
+  if (!method) method = 13;
 
   const today = new Date();
   const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
@@ -52,9 +51,8 @@ export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
   const json = await res.json();
   const timings = json.data.timings;
 
-  // Calculate Midnight = halfway between Maghrib and Fajr (next day)
   const maghribMin = toMinutes(formatTime(timings.Maghrib));
-  const fajrMin = toMinutes(formatTime(timings.Fajr)) + 1440; // next day Fajr
+  const fajrMin = toMinutes(formatTime(timings.Fajr)) + 1440;
   const midnightMin = Math.floor((maghribMin + fajrMin) / 2);
 
   return {
@@ -64,3 +62,5 @@ export const getShiaPrayerTimes = async (options: PrayerTimesOptions = {}) => {
     Midnight: toHHMM(midnightMin % 1440),
   };
 };
+
+export type PrayerTimes = Awaited<ReturnType<typeof getShiaPrayerTimes>>;

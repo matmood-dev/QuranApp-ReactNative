@@ -12,13 +12,18 @@ import axios from 'axios';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation'; // adjust path if needed
+
 
 import DropdownHeader from '../components/DropdownHeader';
 
 export default function PageView() {
+  type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'PageView'>;
+
+  const navigation = useNavigation<NavigationProp>();
   const route = useRoute();
-  const navigation = useNavigation();
   const { pageNumber }: any = route.params;
   const [pageData, setPageData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
