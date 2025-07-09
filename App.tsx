@@ -9,8 +9,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import DrawerMenu from './components/HomeScreen/Header/DrawerMenu';
 import PageView from './screens/PageView';
 import SurahList from './screens/SurahList';
-import { AudioProvider } from './context/AudioContext'; // ✅ Import context
-import MiniPlayer from './screens/ListenToQuranScreen/components/MiniPlayer'; // ✅ Optional MiniPlayer
+import { AudioProvider } from './context/AudioContext'; 
+import MiniPlayer from './screens/ListenToQuranScreen/components/MiniPlayer'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +35,6 @@ export default function App() {
     <SafeAreaProvider>
   <AudioProvider>
     <NavigationContainer>
-      {/* 👇 This wrapper ensures MiniPlayer is part of the visual stack */}
       <View style={{ flex: 1 }}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
@@ -43,7 +42,6 @@ export default function App() {
           <Stack.Screen name="SurahList" component={SurahList} />
         </Stack.Navigator>
 
-        {/* ✅ MiniPlayer placed at the bottom of every screen */}
         <MiniPlayer />
       </View>
     </NavigationContainer>

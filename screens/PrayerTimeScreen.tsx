@@ -12,12 +12,15 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { getShiaPrayerTimes, PrayerTimes } from '../utils/getPrayerTimes';
 
-const prayerIcons: { [key: string]: string } = {
+const prayerIcons = {
   Fajr: 'wb-sunny',
   Dhuhr: 'brightness-high',
   Maghrib: 'brightness-low',
   Midnight: 'nights-stay',
-};
+} as const;
+
+type PrayerKey = keyof typeof prayerIcons;
+
 
 const prayerOrder = [
   { key: 'Fajr', label: 'الفجر' },
@@ -65,7 +68,7 @@ export default function PrayerTimeScreen() {
               times?.[key as keyof PrayerTimes] ? (
                 <View key={index} style={styles.card}>
                   <View style={styles.iconCircle}>
-                    <MaterialIcons name={prayerIcons[key]} size={20} color="#6b4c3b" />
+                    <MaterialIcons name={prayerIcons[key as PrayerKey]} size={20} color="#6b4c3b" />
                   </View>
                   <View style={styles.textContainer}>
                     <Text style={styles.prayerText}>{label}</Text>

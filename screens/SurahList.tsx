@@ -12,12 +12,21 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import { RootStackParamList } from "../types/navigation";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import Header from "../components/HomeScreen/Header";
 
 export default function SurahList() {
-  const [surahs, setSurahs] = useState([]);
-  const navigation = useNavigation();
+  type Surah = {
+    number: number;
+    name: string;
+  };
+
+  type NavigationProp = StackNavigationProp<RootStackParamList, "PageView">;
+
+  const [surahs, setSurahs] = useState<Surah[]>([]);
+  const navigation = useNavigation<NavigationProp>();
 
   useEffect(() => {
     axios
@@ -48,7 +57,7 @@ export default function SurahList() {
             data={
               surahs.length % 2 === 0
                 ? surahs
-                    .reduce(
+                    .reduce<Surah[][]>(
                       (acc, _, i) =>
                         i % 2 === 0
                           ? [...acc, surahs.slice(i, i + 2).reverse()]
@@ -56,7 +65,7 @@ export default function SurahList() {
                       []
                     )
                     .flat()
-                : surahs // fallback if odd count
+                : surahs
             }
             keyExtractor={(item) => item.number.toString()}
             numColumns={2}
@@ -83,7 +92,7 @@ export default function SurahList() {
 }
 
 const { width } = Dimensions.get("window");
-const cardWidth = (width - 48) / 2; // 16px padding on each side + 16px between cards
+const cardWidth = (width - 48) / 2;
 
 const styles = StyleSheet.create({
   safeArea: {

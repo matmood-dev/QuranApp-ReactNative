@@ -24,16 +24,16 @@ const features = [
   {
     title: "الاستماع للقرآن",
     screen: "ReciterListScreen", // ✅ link to your route name
-    image: require("../../assets/audio-card.jpg"),
+    image: require("../../assets/reciters/kademi.jpg"),
     disabled: false,
     badge: "",
   },
   {
     title: "مفاتيح الجنان",
-    screen: "",
+    screen: "MafatihScreen",
     image: require("../../assets/duas-card.jpg"),
-    disabled: true,
-    badge: "قريبًا",
+    disabled: false,
+    badge: "جديد",
   },
   {
     title: "قريبًا",
