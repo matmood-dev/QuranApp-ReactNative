@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <Header />
       <ScrollView
         contentContainerStyle={{
-          paddingTop: Platform.select({ ios: 120, android: 80 }),
+          paddingTop: Platform.select({ ios: 120, android: 120 }),
         }}
       >
         <HomeHero />
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
   },
   scrollShadow: {
-    paddingTop: Platform.select({ ios: 120, android: 80 }),
+    paddingTop: Platform.select({ ios: 120, android: 120 }),
   height: 20,
   backgroundColor: 'rgba(0, 0, 0, 0.05)',
   shadowColor: '#000',

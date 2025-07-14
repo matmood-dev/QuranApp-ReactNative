@@ -17,31 +17,31 @@ const { width } = Dimensions.get("window");
 const cardWidth = (width - 48) / 2;
 
 const reciters = [
-  // {
-  //   id: "ar.abdulbasit",
-  //   name: "عبد الباسط عبد الصمد",
-  //   image: require("../../assets/reciters/abdulbasit.jpg"),
-  // },
-  // {
-  //   id: "ar.minshawi",
-  //   name: "محمد المنشاوي",
-  //   image: require("../../assets/reciters/minshawi.jpg"),
-  // },
-  // {
-  //   id: "ar.kazemi",
-  //   name: "عامر الكاظمي",
-  //   image: require("../../assets/reciters/kademi.jpg"),
-  // },
-  // {
-  //   id: "ar.tammar",
-  //   name: "ميثم التمار",
-  //   image: require("../../assets/reciters/tammar.jpg"),
-  // },
   {
-    id: "ar.salman-alutaibi",
-    name: "سلمان العتيبي",
-    image: require("../../assets/reciters/salman-alutaibi.jpg"),
-  }
+    id: "ar.abdulbasit",
+    name: "عبد الباسط عبد الصمد",
+    image: require("../../assets/reciters/abdulbasit.jpg"),
+  },
+  {
+    id: "ar.minshawi",
+    name: "محمد المنشاوي",
+    image: require("../../assets/reciters/minshawi.jpg"),
+  },
+  {
+    id: "ar.kazemi",
+    name: "عامر الكاظمي",
+    image: require("../../assets/reciters/kademi.jpg"),
+  },
+  {
+    id: "ar.tammar",
+    name: "ميثم التمار",
+    image: require("../../assets/reciters/tammar.jpg"),
+  },
+  // {
+  //   id: "ar.salman-alutaibi",
+  //   name: "سلمان العتيبي",
+  //   image: require("../../assets/reciters/salman-alutaibi.jpg"),
+  // }
 ];
 
 type RootStackParamList = {
