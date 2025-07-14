@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Headers from '../components/HomeScreen/Header';
-const Ionicons = require('react-native-vector-icons/Ionicons');
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function SettingsScreen() {
