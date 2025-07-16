@@ -12,10 +12,14 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Headers from "../components/HomeScreen/Header";
 import { useNavigation } from "@react-navigation/native";
 import duasSections from '../data/duasSections.json';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../types/navigation";
+
+type DuasScreenNavProp = NativeStackNavigationProp<RootStackParamList, "DuasScreen">;
 
 
 export default function DuasScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DuasScreenNavProp>();
 
   return (
     <LinearGradient colors={["#fdfcfb", "#f3e7d9"]} style={{ flex: 1 }}>
@@ -36,7 +40,14 @@ export default function DuasScreen() {
                   <TouchableOpacity
                     key={index}
                     style={styles.card}
-                    onPress={() => navigation.navigate(dua.screen as never)}
+                    onPress={() => {
+                      if (dua.duas) {
+                        navigation.navigate("DuasListScreen", {
+                          title: dua.title,
+                          items: [{ title: dua.title, duas: dua.duas }],
+                        });
+                      }
+                    }}
                   >
                     <View style={styles.iconCircle}>
                       <MaterialIcons

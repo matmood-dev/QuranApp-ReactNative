@@ -11,6 +11,8 @@ import PageView from './screens/PageView';
 import SurahList from './screens/SurahList';
 import { AudioProvider } from './context/AudioContext'; 
 import MiniPlayer from './screens/ListenToQuranScreen/components/MiniPlayer'; 
+import DuasListScreen from './screens/MafatihScreen/DuasListScreen'
+import DuaDetailScreen from './screens/MafatihScreen/DuaDetailScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +42,8 @@ export default function App() {
           <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
           <Stack.Screen name="PageView" component={PageView} />
           <Stack.Screen name="SurahList" component={SurahList} />
+          <Stack.Screen name="DuasListScreen" component={DuasListScreen} />
+          <Stack.Screen name="DuaDetailScreen" component={DuaDetailScreen} />
         </Stack.Navigator>
 
         <MiniPlayer />
