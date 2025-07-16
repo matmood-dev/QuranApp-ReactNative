@@ -18,7 +18,7 @@ export default function DuaDetailScreen() {
   const route = useRoute<DuaDetailRouteProp>();
   const navigation = useNavigation();
   const { title } = route.params;
-  const [fontSize, setFontSize] = useState(20);
+  const [fontSize, setFontSize] = useState(26);
 
   const increaseFontSize = () => {
     if (fontSize < 40) setFontSize(fontSize + 2);
