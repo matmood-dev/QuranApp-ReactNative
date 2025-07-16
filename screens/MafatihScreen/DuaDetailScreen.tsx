@@ -5,8 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
-  Share,
 } from "react-native";
 import { RouteProp, useRoute, useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../../types/navigation";
@@ -16,36 +14,18 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 type DuaDetailRouteProp = RouteProp<RootStackParamList, "DuaDetailScreen">;
 
-const { width } = Dimensions.get('window');
-
 export default function DuaDetailScreen() {
   const route = useRoute<DuaDetailRouteProp>();
   const navigation = useNavigation();
   const { title } = route.params;
-  const [fontSize, setFontSize] = useState(18);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [fontSize, setFontSize] = useState(20);
 
   const increaseFontSize = () => {
-    if (fontSize < 24) setFontSize(fontSize + 2);
+    if (fontSize < 40) setFontSize(fontSize + 2);
   };
 
   const decreaseFontSize = () => {
-    if (fontSize > 14) setFontSize(fontSize - 2);
-  };
-
-  const handleShare = async () => {
-    try {
-      await Share.share({
-        message: `${title}\n\nنص الدعاء هنا...`,
-        title: title,
-      });
-    } catch (error) {
-      console.error('Error sharing:', error);
-    }
-  };
-
-  const toggleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
+    if (fontSize > 10) setFontSize(fontSize - 2);
   };
 
   return (
@@ -80,6 +60,33 @@ export default function DuaDetailScreen() {
             />
             <Text style={styles.title}>{title}</Text>
             <View style={styles.titleUnderline} />
+          </LinearGradient>
+        </View>
+
+        {/* Control Bar */}
+        <View style={styles.controlBar}>
+          <LinearGradient
+            colors={["#ffffff", "#fafafa"]}
+            style={styles.controlBarGradient}
+          >
+            <TouchableOpacity
+              style={styles.controlButton}
+              onPress={decreaseFontSize}
+            >
+              <MaterialIcons name="text-decrease" size={20} color="#6b4c3b" />
+            </TouchableOpacity>
+
+            <View style={styles.fontSizeIndicator}>
+              <Text style={styles.fontSizeText}>حجم الخط</Text>
+              <Text style={styles.fontSizeValue}>{fontSize}</Text>
+            </View>
+
+            <TouchableOpacity
+              style={styles.controlButton}
+              onPress={increaseFontSize}
+            >
+              <MaterialIcons name="text-increase" size={20} color="#6b4c3b" />
+            </TouchableOpacity>
           </LinearGradient>
         </View>
 
@@ -126,52 +133,6 @@ export default function DuaDetailScreen() {
             </LinearGradient>
           </View>
         </ScrollView>
-        {/* Control Bar */}
-        <View style={styles.controlBar}>
-          <LinearGradient
-            colors={["#ffffff", "#fafafa"]}
-            style={styles.controlBarGradient}
-          >
-            <TouchableOpacity
-              style={styles.controlButton}
-              onPress={decreaseFontSize}
-            >
-              <MaterialIcons name="text-decrease" size={20} color="#6b4c3b" />
-            </TouchableOpacity>
-
-            <View style={styles.fontSizeIndicator}>
-              <Text style={styles.fontSizeText}>حجم الخط</Text>
-              <Text style={styles.fontSizeValue}>{fontSize}</Text>
-            </View>
-
-            <TouchableOpacity
-              style={styles.controlButton}
-              onPress={increaseFontSize}
-            >
-              <MaterialIcons name="text-increase" size={20} color="#6b4c3b" />
-            </TouchableOpacity>
-
-            <View style={styles.divider} />
-
-            <TouchableOpacity
-              style={styles.controlButton}
-              onPress={toggleBookmark}
-            >
-              <MaterialIcons
-                name={isBookmarked ? "bookmark" : "bookmark-border"}
-                size={20}
-                color={isBookmarked ? "#d4af37" : "#6b4c3b"}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.controlButton}
-              onPress={handleShare}
-            >
-              <MaterialIcons name="share" size={20} color="#6b4c3b" />
-            </TouchableOpacity>
-          </LinearGradient>
-        </View>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -275,11 +236,6 @@ const styles = StyleSheet.create({
     color: "#6b4c3b",
     fontWeight: "bold",
   },
-  divider: {
-    width: 1,
-    height: 30,
-    backgroundColor: "rgba(107, 76, 59, 0.2)",
-  },
   scrollView: {
     flex: 1,
   },
@@ -330,8 +286,5 @@ const styles = StyleSheet.create({
   decorativeBottom: {
     height: 4,
     backgroundColor: "rgba(107, 76, 59, 0.1)",
-  },
-  bottomSpacer: {
-    height: 40,
   },
 });
