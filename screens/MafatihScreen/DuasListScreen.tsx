@@ -44,36 +44,36 @@ export default function DuasListScreen() {
   };
 
   return (
-    <LinearGradient colors={["#fdfcfb", "#f7f0e8", "#f3e7d9"]} style={{ flex: 1 }}>
+    <LinearGradient
+      colors={["#fdfcfb", "#f7f0e8", "#f3e7d9"]}
+      style={{ flex: 1 }}
+    >
       <SafeAreaView style={styles.container}>
-        
         {/* Enhanced Header Section */}
         <View style={styles.headerSection}>
           <LinearGradient
             colors={["#8b6f47", "#6b4c3b"]}
             style={styles.titleContainer}
           >
-            <MaterialIcons 
-              name="menu-book" 
-              size={24} 
-              color="#ffffff" 
+            <MaterialIcons
+              name="menu-book"
+              size={24}
+              color="#ffffff"
               style={styles.titleIcon}
             />
             <Text style={styles.title}>{title}</Text>
             <View style={styles.titleUnderline} />
           </LinearGradient>
-          
+
           <View style={styles.subtitleContainer}>
-            <Text style={styles.subtitle}>
-              اختر الدعاء الذي تريد قراءته
-            </Text>
+            <Text style={styles.subtitle}>اختر الدعاء الذي تريد قراءته</Text>
             <Text style={styles.itemCount}>
               {items[0]?.duas.length || 0} دعاء
             </Text>
           </View>
         </View>
 
-        <ScrollView 
+        <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
@@ -83,12 +83,18 @@ export default function DuasListScreen() {
               key={index}
               style={[
                 styles.cardWrapper,
-                { transform: [{ scale: scaleAnim }] }
+                { transform: [{ scale: scaleAnim }] },
               ]}
             >
               <TouchableOpacity
                 style={styles.card}
-                onPress={() => navigation.navigate("DuaDetailScreen", { title: dua.title })}
+                onPress={() =>
+                  navigation.navigate("DuaDetailScreen", {
+                    title: dua.title,
+                    header: dua.header,
+                    text: dua.text,
+                  })
+                }
                 onPressIn={handlePressIn}
                 onPressOut={handlePressOut}
                 activeOpacity={0.8}
@@ -106,11 +112,11 @@ export default function DuasListScreen() {
                         <Text style={styles.numberText}>{index + 1}</Text>
                       </LinearGradient>
                     </View>
-                    
+
                     <View style={styles.textContainer}>
                       <Text style={styles.duaText}>{dua.title}</Text>
                     </View>
-                    
+
                     <View style={styles.arrowContainer}>
                       <MaterialIcons
                         name="keyboard-arrow-left"
@@ -120,7 +126,7 @@ export default function DuasListScreen() {
                       />
                     </View>
                   </View>
-                  
+
                   {/* Decorative elements */}
                   <View style={styles.cornerAccent} />
                   <View style={styles.bottomAccent} />
@@ -128,7 +134,7 @@ export default function DuasListScreen() {
               </TouchableOpacity>
             </Animated.View>
           ))}
-          
+
           {/* Bottom spacer */}
           <View style={styles.bottomSpacer} />
         </ScrollView>

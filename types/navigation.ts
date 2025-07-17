@@ -16,17 +16,24 @@ export type RootStackParamList = {
   Settings: undefined;
   About: undefined;
   HomeScreen: undefined;
-  
+
   DuasScreen: undefined;
   DuasListScreen: {
     title: string;
     items: {
       title: string;
-      duas: { title: string }[];
+      icon: string;
+      duas: {
+        title: string;
+        header?: string;
+        text?: string;
+      }[];
     }[];
   };
   DuaDetailScreen: {
     title: string;
+    header?: string;
+    text?: string;
   };
 };
 
