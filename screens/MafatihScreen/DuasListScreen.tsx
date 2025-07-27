@@ -68,7 +68,7 @@ export default function DuasListScreen() {
           <View style={styles.subtitleContainer}>
             <Text style={styles.subtitle}>اختر الدعاء الذي تريد قراءته</Text>
             <Text style={styles.itemCount}>
-              {items[0]?.duas.length || 0} دعاء
+              {items.length || 0} دعاء
             </Text>
           </View>
         </View>
@@ -78,7 +78,7 @@ export default function DuasListScreen() {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          {items[0]?.duas.map((dua, index) => (
+          {items.map((dua, index) => (
             <Animated.View
               key={index}
               style={[
@@ -87,17 +87,16 @@ export default function DuasListScreen() {
               ]}
             >
               <TouchableOpacity
+                key={index}
                 style={styles.card}
                 onPress={() =>
                   navigation.navigate("DuaDetailScreen", {
                     title: dua.title,
                     header: dua.header,
-                    text: dua.text,
+                    text: dua.text || "",
+                    text2: dua.text2 || "",
                   })
                 }
-                onPressIn={handlePressIn}
-                onPressOut={handlePressOut}
-                activeOpacity={0.8}
               >
                 <LinearGradient
                   colors={["#ffffff", "#fafafa"]}

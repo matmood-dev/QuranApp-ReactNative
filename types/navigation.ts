@@ -22,20 +22,16 @@ export type RootStackParamList = {
     title: string;
     items: {
       title: string;
-      icon: string;
-      duas: {
-        title: string;
-        header?: string;
-        text?: string;
-        text2: string;
-      }[];
+      header?: string;
+      text?: string;
+      text2?: string;
     }[];
   };
   DuaDetailScreen: {
     title: string;
     header?: string;
-    text?: string;
-    text2: string;
+    text: string;
+    text2?: string;
   };
 };
 

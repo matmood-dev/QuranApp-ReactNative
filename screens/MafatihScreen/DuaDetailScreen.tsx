@@ -132,19 +132,13 @@ export default function DuaDetailScreen() {
                   </Text>
                 ) : null}
 
-                {/* Main text */}
-                {text ? (
-                  <Text style={[styles.duaText, { fontSize }]}>{text}</Text>
-                ) : (
-                  <Text style={[styles.duaText, { fontSize }]}>
-                    لم يتم العثور على نص الدعاء.
-                  </Text>
-                )}
+                <Text style={[styles.duaText, { fontSize }]}>
+                  {text || "لم يتم العثور على نص الدعاء."}
+                </Text>
 
-                {/* Additional text2 if available */}
-                {route.params.text2 ? (
+                {text2 ? (
                   <Text style={[styles.duaText, { fontSize, marginTop: 20 }]}>
-                    {route.params.text2}
+                    {text2}
                   </Text>
                 ) : null}
               </View>

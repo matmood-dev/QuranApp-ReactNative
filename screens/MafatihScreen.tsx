@@ -44,7 +44,7 @@ export default function DuasScreen() {
                       if (dua.duas) {
                         navigation.navigate("DuasListScreen", {
                           title: dua.title,
-                          items: [{ title: dua.title, duas: dua.duas }],
+                          items: dua.duas,
                         });
                       }
                     }}
