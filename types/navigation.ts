@@ -27,6 +27,7 @@ export type RootStackParamList = {
         title: string;
         header?: string;
         text?: string;
+        text2: string;
       }[];
     }[];
   };
@@ -34,6 +35,7 @@ export type RootStackParamList = {
     title: string;
     header?: string;
     text?: string;
+    text2: string;
   };
 };
 

@@ -17,7 +17,7 @@ type DuaDetailRouteProp = RouteProp<RootStackParamList, "DuaDetailScreen">;
 export default function DuaDetailScreen() {
   const route = useRoute<DuaDetailRouteProp>();
   const navigation = useNavigation();
-  const { title, header, text } = route.params;
+  const { title, header, text, text2 } = route.params;
   const [fontSize, setFontSize] = useState(24);
 
   const increaseFontSize = () => {
@@ -132,9 +132,21 @@ export default function DuaDetailScreen() {
                   </Text>
                 ) : null}
 
-                <Text style={[styles.duaText, { fontSize }]}>
-                  {text || "لم يتم العثور على نص الدعاء."}
-                </Text>
+                {/* Main text */}
+                {text ? (
+                  <Text style={[styles.duaText, { fontSize }]}>{text}</Text>
+                ) : (
+                  <Text style={[styles.duaText, { fontSize }]}>
+                    لم يتم العثور على نص الدعاء.
+                  </Text>
+                )}
+
+                {/* Additional text2 if available */}
+                {route.params.text2 ? (
+                  <Text style={[styles.duaText, { fontSize, marginTop: 20 }]}>
+                    {route.params.text2}
+                  </Text>
+                ) : null}
               </View>
               <View style={styles.decorativeBottom} />
             </LinearGradient>
