@@ -20,10 +20,10 @@ const prayerIcons: Record<
   PrayerKey,
   "wb-sunny" | "brightness-5" | "brightness-7" | "nights-stay" | "mode-night"
 > = {
-  Fajr: "wb-sunny",         // valid
-  Shurooq: "brightness-5",  // valid (represents sunrise)
-  Dhuhr: "brightness-7",    // valid (full sun)
-  Maghrib: "mode-night",      // valid, or use "brightness-4" if you prefer
+  Fajr: "wb-sunny",
+  Shurooq: "brightness-5",
+  Dhuhr: "brightness-7",
+  Maghrib: "mode-night",
 };
 
 
@@ -143,7 +143,6 @@ export default function PrayerTimes() {
             >
               <View style={styles.iconWrapper}>
                 <MaterialIcons
-                  key={`${key}-${isNext}`}
                   name={prayerIcons[key]}
                   size={28}
                   color={isNext ? "#FF8C00" : "#4F6D7A"}
