@@ -2,54 +2,43 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MapPin } from 'lucide-react-native';
-import * as Location from 'expo-location';
-import { getShiaPrayerTimes } from '../../utils/getPrayerTimes';
+import { FullPrayerDay } from '../../types/prayers';
+import { getCustomPrayerTimes } from '../../utils/getPrayerTimes';
 
-type PrayerKey = 'Fajr' | 'Dhuhr' | 'Maghrib' | 'Midnight';
+type PrayerKey = 'Fajr' | 'Shurooq' | 'Dhuhr' | 'Maghrib';
 
-const prayerOrder: PrayerKey[] = ['Fajr', 'Dhuhr', 'Maghrib', 'Midnight'];
+const prayerOrder: PrayerKey[] = ['Fajr', 'Shurooq', 'Dhuhr', 'Maghrib'];
 
 const prayerLabels: { [key: string]: string } = {
   Fajr: 'الفجر',
+  Shurooq: 'الشروق',
   Dhuhr: 'الظهرين',
   Maghrib: 'العشائين',
-  Midnight: 'منتصف الليل',
 };
 
-const prayerIcons: Record<PrayerKey, 'wb-sunny' | 'brightness-high' | 'brightness-low' | 'nights-stay'> = {
+const prayerIcons: Record<PrayerKey, 'wb-sunny' | 'brightness-high' | 'brightness-low'> = {
   Fajr: 'wb-sunny',
+  Shurooq: 'wb-sunny',
   Dhuhr: 'brightness-high',
   Maghrib: 'brightness-low',
-  Midnight: 'nights-stay',
 };
 
 
 export default function PrayerTimes() {
-  const [times, setTimes] = useState<Record<PrayerKey, string> | null>(null);
+  const [times, setTimes] = useState<FullPrayerDay | null>(null);
   const [nextPrayer, setNextPrayer] = useState<string | null>(null);
-  const [city, setCity] = useState<string | null>(null);
 
   useEffect(() => {
   (async () => {
     try {
-      const data = await getShiaPrayerTimes(); // fetch prayer times
+      const data = await getCustomPrayerTimes();
       setTimes(data);
-
-      // Get user's location and reverse geocode it
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status === 'granted') {
-        const location = await Location.getCurrentPositionAsync({});
-        const [place] = await Location.reverseGeocodeAsync(location.coords);
-        if (place.city && place.country) {
-          setCity(`${place.city}، ${place.country}`);
-        }
-      }
 
       // Calculate next prayer
       const now = new Date();
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
       const prayerTimesInMinutes = prayerOrder.map((key) => {
-        const [hour, minute] = data[key].split(':').map(Number);
+        const [hour, minute] = (data[key] ?? "00:00").split(":").map(Number);
         return { key, minutes: hour * 60 + minute };
       });
 
@@ -70,10 +59,18 @@ export default function PrayerTimes() {
       <View style={styles.header}>
         <View style={styles.locationContainer}>
           <MapPin size={16} color="orange" />
-          <Text style={styles.location}>{city || "المنامة، البحرين"}</Text>
+          <Text style={styles.location}>{"المنامة، البحرين"}</Text>
         </View>
         <Text style={styles.date}>حسب المذهب الجعفري</Text>
       </View>
+
+      {/* ✅ Add the extra info here */}
+      {times.Occasion && (
+        <Text style={styles.occasion}>المناسبة: {times.Occasion}</Text>
+      )}
+      {times.ahkam && (
+        <Text style={styles.ahkam}>حكم اليوم: {times.ahkam}</Text>
+      )}
 
       <View style={styles.prayerGrid}>
         {prayerOrder.map((key) => (
@@ -105,67 +102,67 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     padding: 16,
     marginBottom: 40,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: "#F8F9FA",
     borderRadius: 16,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 6,
   },
   header: {
     marginBottom: 16,
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
   },
   locationContainer: {
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
+    flexDirection: "row-reverse",
+    alignItems: "center",
     gap: 4,
     marginBottom: 4,
   },
   location: {
     fontSize: 16,
-    fontFamily: 'DINNextLTArabic-Medium',
-    color: '#4F6D7A',
+    fontFamily: "DINNextLTArabic-Medium",
+    color: "#4F6D7A",
   },
   date: {
     fontSize: 13,
-    fontFamily: 'DINNextLTArabic-Regular',
-    color: '#6C757D',
+    fontFamily: "DINNextLTArabic-Regular",
+    color: "#6C757D",
   },
   prayerGrid: {
-    flexDirection: 'row-reverse',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexDirection: "row-reverse",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
     rowGap: 12,
   },
   prayerCard: {
-    width: '22%',
-    backgroundColor: '#FFFFFF',
+    width: "22%",
+    backgroundColor: "#FFFFFF",
     borderRadius: 12,
     paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     elevation: 1,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 3,
   },
   fajrCard: {
-    backgroundColor: '#F0F7FF',
-    borderColor: '#D4E6FF',
+    backgroundColor: "#F0F7FF",
+    borderColor: "#D4E6FF",
     borderWidth: 1,
   },
   ishaCard: {
-    backgroundColor: '#F5F0FF',
-    borderColor: '#E6DDFF',
+    backgroundColor: "#F5F0FF",
+    borderColor: "#E6DDFF",
     borderWidth: 1,
   },
   nextPrayerCard: {
-    borderColor: '#FFA500',
+    borderColor: "#FFA500",
     borderWidth: 2,
-    shadowColor: '#FFA500',
+    shadowColor: "#FFA500",
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
@@ -173,14 +170,28 @@ const styles = StyleSheet.create({
   },
   prayerName: {
     fontSize: 14,
-    fontFamily: 'DINNextLTArabic-Medium',
-    color: '#4F6D7A',
+    fontFamily: "DINNextLTArabic-Medium",
+    color: "#4F6D7A",
     marginTop: 8,
     marginBottom: 4,
   },
   prayerTime: {
     fontSize: 15,
-    fontFamily: 'DINNextLTArabic-Bold',
-    color: '#2C3E50',
+    fontFamily: "DINNextLTArabic-Bold",
+    color: "#2C3E50",
+  },
+  occasion: {
+    fontSize: 14,
+    color: "#c0392b",
+    fontFamily: "DINNextLTArabic-Medium",
+    marginBottom: 4,
+    textAlign: "right",
+  },
+  ahkam: {
+    fontSize: 13,
+    color: "#6C757D",
+    fontFamily: "DINNextLTArabic-Regular",
+    marginBottom: 10,
+    textAlign: "right",
   },
 });
