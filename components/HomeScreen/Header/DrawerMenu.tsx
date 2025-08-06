@@ -1,5 +1,5 @@
 import React from 'react';
-import { I18nManager, StyleSheet, Text, View, Image } from 'react-native';
+import { I18nManager, StyleSheet, View, Image } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { LinearGradient } from 'expo-linear-gradient';
 import {Ionicons} from '@expo/vector-icons';
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: 16,
     color: '#333',
+    fontFamily: 'lightFont',
   },
   activeItem: {
     backgroundColor: '#fff5ee',
@@ -105,6 +106,6 @@ const styles = StyleSheet.create({
   },
   activeLabel: {
     color: '#6b4c3b',
-    fontWeight: 'bold',
+    fontFamily: 'normalFont',
   },
 });

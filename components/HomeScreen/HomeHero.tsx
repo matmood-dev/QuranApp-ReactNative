@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../types/navigation';
+
+import AppText from '../AppText';
 
 export default function HomeHero() {
   type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -41,15 +43,15 @@ export default function HomeHero() {
 
         <View style={styles.heroContent}>
           <View style={styles.textContainer}>
-            <Text style={styles.heroTitle}>استمع للقرآن الكريم</Text>
-            <Text style={styles.heroSubtitle}>
+            <AppText size={24} color='white'>استمع للقرآن الكريم</AppText>
+            <AppText size={16} color='white' style={{ marginTop: 8 }}>
               تطبيقك المفضل لتلاوة القرآن وتدبر معانيه
-            </Text>
+            </AppText>
             <TouchableOpacity
               style={styles.heroButton}
               onPress={() => navigation.navigate("ReciterListScreen")}
             >
-              <Text style={styles.heroButtonText}>ابدأ الاستماع</Text>
+              <AppText color='white'>ابدأ الاستماع</AppText>
               <Ionicons
                 name="play"
                 size={16}
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingTop: 16,
+    fontFamily: 'normalFont',
   },
   searchBox: {
     flexDirection: 'row',
@@ -126,27 +129,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     zIndex: 2,
   },
-  heroTitle: {
-    fontSize: 24,
-    color: '#fff',
-    fontWeight: '700',
-    marginBottom: 8,
-    textAlign: 'right',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
-  },
-  heroSubtitle: {
-    fontSize: 15,
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontFamily: 'DINNextLTArabic-Regular',
-    marginBottom: 20,
-    textAlign: 'right',
-    lineHeight: 22,
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
-  },
   heroButton: {
     backgroundColor: '#38A169',
     paddingHorizontal: 24,
@@ -160,11 +142,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 4,
-  },
-  heroButtonText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 15,
   },
   buttonIcon: {
     marginRight: 8,

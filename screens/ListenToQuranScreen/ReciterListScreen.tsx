@@ -12,6 +12,7 @@ import Header from "../../components/HomeScreen/Header";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import ReciterCard from "./ReciterCard"; // 👈 Import the separate animated card
+import AppText from "../../components/AppText";
 
 const { width } = Dimensions.get("window");
 const cardWidth = (width - 48) / 2;
@@ -62,7 +63,7 @@ export default function ReciterListScreen() {
     <LinearGradient colors={["#fdfcfb", "#e2d1c3"]} style={{ flex: 1 }}>
       <Header />
       <View style={styles.container}>
-        <Text style={styles.heading}>اختر القارئ</Text>
+        <AppText align="center" marginBottom={40} size={28} font="lightFont">اختر القارئ</AppText>
         <FlatList
           key={"2-cols"}
           data={reciters}
@@ -84,13 +85,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.select({ ios: 150, android: 120 }),
     paddingHorizontal: 16,
-  },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#222",
-    marginBottom: 16,
-    textAlign: "center",
   },
   list: {
     paddingBottom: 20,

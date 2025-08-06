@@ -18,6 +18,7 @@ import { RootStackParamList } from '../types/navigation'; // adjust path if need
 
 
 import DropdownHeader from '../components/DropdownHeader';
+import AppText from '../components/AppText';
 
 export default function PageView() {
   type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'PageView'>;
@@ -81,7 +82,7 @@ export default function PageView() {
 
         return (
           <View key={index} style={{ marginBottom: 24 }}>
-            <Text style={styles.surahHeading}>{firstAyah.surah.name}</Text>
+            <AppText align='center' color='brown' size={24} marginBottom={20}>{firstAyah.surah.name}</AppText>
             {firstAyah.numberInSurah === 1 && !isTawbah && (
               <Text style={styles.basmala}>﷽</Text>
             )}
@@ -177,19 +178,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
   },
-  surahHeading: {
-    fontSize: 26,
-    fontFamily: 'QuranFont',
-    textAlign: 'center',
-    color: 'brown',
-    marginBottom: 12,
-  },
   basmala: {
-    fontSize: 36,
+    fontSize: 50,
     fontFamily: 'QuranFont',
     color: '#6b4c3b',
     textAlign: 'center',
-    marginBottom: 16,
   },
  ayahScroll: {
   maxHeight: 600, 

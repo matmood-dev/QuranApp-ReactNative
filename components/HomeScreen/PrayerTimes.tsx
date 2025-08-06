@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MapPin } from 'lucide-react-native';
 import * as Location from 'expo-location';
 import { getShiaPrayerTimes } from '../../utils/getPrayerTimes';
+
+import AppText from '../AppText';
 
 type PrayerKey = 'Fajr' | 'Dhuhr' | 'Maghrib' | 'Midnight';
 
@@ -63,16 +65,16 @@ export default function PrayerTimes() {
 
 
 
-  if (!times) return <Text style={{ textAlign: 'center' }}>جارٍ التحميل...</Text>;
+  if (!times) return <AppText align='center'>جارٍ التحميل...</AppText>;
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.locationContainer}>
           <MapPin size={16} color="orange" />
-          <Text style={styles.location}>{city || "المنامة، البحرين"}</Text>
+          <AppText>{city || "المنامة، البحرين"}</AppText>
         </View>
-        <Text style={styles.date}>حسب المذهب الجعفري</Text>
+        <AppText color='#a3a3a3' size={14}>حسب المذهب الجعفري</AppText>
       </View>
 
       <View style={styles.prayerGrid}>
@@ -90,8 +92,8 @@ export default function PrayerTimes() {
               size={24}
               color={key === nextPrayer ? "#FFA500" : "#4F6D7A"}
             />
-            <Text style={styles.prayerName}>{prayerLabels[key]}</Text>
-            <Text style={styles.prayerTime}>{times[key]}</Text>
+            <AppText size={14} font='lightFont' align='center'>{prayerLabels[key]}</AppText>
+            <AppText align='center'>{times[key]}</AppText>
           </View>
         ))}
       </View>
@@ -122,16 +124,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
     marginBottom: 4,
-  },
-  location: {
-    fontSize: 16,
-    fontFamily: 'DINNextLTArabic-Medium',
-    color: '#4F6D7A',
-  },
-  date: {
-    fontSize: 13,
-    fontFamily: 'DINNextLTArabic-Regular',
-    color: '#6C757D',
   },
   prayerGrid: {
     flexDirection: 'row-reverse',
@@ -170,17 +162,5 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     elevation: 3,
-  },
-  prayerName: {
-    fontSize: 14,
-    fontFamily: 'DINNextLTArabic-Medium',
-    color: '#4F6D7A',
-    marginTop: 8,
-    marginBottom: 4,
-  },
-  prayerTime: {
-    fontSize: 15,
-    fontFamily: 'DINNextLTArabic-Bold',
-    color: '#2C3E50',
   },
 });

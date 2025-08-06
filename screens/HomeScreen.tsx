@@ -35,6 +35,7 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
+    fontFamily: 'normalFont',
   },
   scrollShadow: {
     paddingTop: Platform.select({ ios: 120, android: 120 }),
