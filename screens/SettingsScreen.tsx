@@ -1,29 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Headers from '../components/HomeScreen/Header';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import AppText from '../components/AppText';
 
 export default function SettingsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Headers />
-      <Text style={styles.title}>الإعدادات</Text>
+      <AppText color='#6b4c3b' align='center' size={24} paddindTop={20} marginBottom={20}>الإعدادات</AppText>
 
       <ScrollView contentContainerStyle={styles.content}>
         <TouchableOpacity style={styles.settingItem}>
-          <Ionicons name="language-outline" size={22} color="#6b4c3b" />
-          <Text style={styles.settingText}>اللغة</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="moon-outline" size={22} color="#6b4c3b" />
-          <Text style={styles.settingText}>الوضع الليلي</Text>
+          <AppText color='#333' size={18} font='lightFont' paddingHorizontal={10}>الوضع الليلي</AppText>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="information-circle-outline" size={22} color="#6b4c3b" />
-          <Text style={styles.settingText}>حول التطبيق</Text>
+          <AppText color='#333' size={18} font='lightFont' paddingHorizontal={10}>حول التطبيق</AppText>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -36,32 +33,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#fdfcfb',
     paddingTop: 60,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#6b4c3b',
-    textAlign: 'center',
-    marginVertical: 16,
-  },
   content: {
     paddingHorizontal: 20,
   },
   settingItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#ffffffdd',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.07,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  settingText: {
-    fontSize: 16,
-    marginStart: 12,
-    color: '#333',
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  backgroundColor: '#fff', // use solid color for better shadow rendering on Android
+  padding: 16,
+  borderRadius: 12,
+  marginBottom: 12,
+
+  // iOS shadow
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.1,
+  shadowRadius: 6,
+
+  // Android shadow
+  elevation: 5,
+},
 });

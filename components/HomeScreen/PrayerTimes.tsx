@@ -74,7 +74,7 @@ export default function PrayerTimes() {
           <MapPin size={16} color="orange" />
           <AppText>{city || "المنامة، البحرين"}</AppText>
         </View>
-        <AppText color='#a3a3a3' size={14}>حسب المذهب الجعفري</AppText>
+        <AppText width='100%' align='right' color='#a3a3a3' size={14}>حسب المذهب الجعفري</AppText>
       </View>
 
       <View style={styles.prayerGrid}>

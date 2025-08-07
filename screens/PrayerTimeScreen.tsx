@@ -11,6 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { getShiaPrayerTimes, PrayerTimes } from '../utils/getPrayerTimes';
+import AppText from '../components/AppText';
 
 const prayerIcons = {
   Fajr: 'wb-sunny',
@@ -52,15 +53,15 @@ export default function PrayerTimeScreen() {
     <LinearGradient colors={['#fdfcfb', '#f3e7d9']} style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
         <Headers />
-        <Text style={styles.title}>مواقيت الصلاة</Text>
+        <AppText color='#6b4c3b' size={25} align='center' marginBottom={30}>مواقيت الصلاة</AppText>
 
         {loading ? (
           <ActivityIndicator size="large" color="#6b4c3b" style={{ marginTop: 40 }} />
         ) : error ? (
           <View style={{ padding: 20 }}>
-            <Text style={{ color: '#c00', textAlign: 'center' }}>
+            <AppText color='red' size={16} align='center'>
               تعذر الحصول على مواقيت الصلاة حالياً. حاول لاحقاً.
-            </Text>
+            </AppText>
           </View>
         ) : (
           <ScrollView contentContainerStyle={styles.content}>
@@ -71,10 +72,10 @@ export default function PrayerTimeScreen() {
                     <MaterialIcons name={prayerIcons[key as PrayerKey]} size={20} color="#6b4c3b" />
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={styles.prayerText}>{label}</Text>
-                    <Text style={styles.timeText}>
+                    <AppText align='right' width='100%'>{label}</AppText>
+                    <AppText align='right' width='100%' size={18} color='#6b4c3b' font='boldFont'>
                       {times[key as keyof PrayerTimes]}
-                    </Text>
+                    </AppText>
                   </View>
                 </View>
               ) : null
@@ -91,30 +92,28 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 80,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#6b4c3b',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
   content: {
     paddingHorizontal: 20,
     paddingBottom: 40,
   },
   card: {
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    backgroundColor: '#ffffffee',
-    padding: 16,
-    borderRadius: 14,
-    marginBottom: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 4,
-    elevation: 2,
-  },
+  flexDirection: 'row-reverse',
+  alignItems: 'center',
+  backgroundColor: '#ffffff',
+  padding: 16,
+  borderRadius: 14,
+  marginBottom: 14,
+
+  // iOS shadow
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.1,
+  shadowRadius: 6,
+
+  // Android shadow (elevation only)
+  elevation: 4,
+},
+
   iconCircle: {
     width: 36,
     height: 36,
@@ -127,16 +126,5 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     alignItems: 'flex-end',
-  },
-  prayerText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#4F4F4F',
-  },
-  timeText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#6b4c3b',
-    marginTop: 4,
   },
 });

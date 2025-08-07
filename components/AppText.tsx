@@ -22,6 +22,7 @@ type AppTextProps = TextProps & {
   width?: string;
   alignSelf?: string;
   paddingBottom?: number;
+  paddindTop?: number;
   paddingHorizontal?: number;
   lineHeight?: number;
 };
@@ -41,6 +42,7 @@ export default function AppText({
   width = undefined,
   alignSelf = "center",
   paddingBottom = 0,
+  paddindTop = 0,
   paddingHorizontal = 0,
   lineHeight,
   ...props
@@ -59,6 +61,7 @@ export default function AppText({
     width: width,
     alignSelf: align === "center" ? "center" : "flex-start",
     paddingBottom: paddingBottom,
+    paddingTop: paddindTop,
     paddingHorizontal: paddingHorizontal,
     lineHeight: lineHeight,
   };

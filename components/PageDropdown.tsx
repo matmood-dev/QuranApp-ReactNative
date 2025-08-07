@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: 16,
     color: '#333',
+    fontFamily: 'normalFont',
   },
   modalContent: {
     backgroundColor: '#f9f9f9',
