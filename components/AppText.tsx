@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, TextProps, TextStyle } from "react-native";
+import { Text, TextProps, TextStyle, DimensionValue } from "react-native";
 
 type AppTextProps = TextProps & {
   size?: number;
@@ -19,7 +19,7 @@ type AppTextProps = TextProps & {
   flex?: number;
   borderBottomWidth?: number;
   borderBottomColor?: string;
-  width?: string;
+  width?: DimensionValue;
   alignSelf?: string;
   paddingBottom?: number;
   paddindTop?: number;
