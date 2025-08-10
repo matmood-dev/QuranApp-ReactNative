@@ -15,7 +15,14 @@ import type { RootStackParamList } from "../../types/navigation";
 
 import AppText from "../../components/AppText";
 
-type Props = DrawerScreenProps<RootStackParamList, "SurahAudioScreen">;
+type Props = DrawerScreenProps<
+  {
+    SurahAudioScreen: { reciterId: string; reciterName: string };
+    FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string };
+    ReciterListScreen: undefined;
+  },
+  "SurahAudioScreen"
+>;
 
 const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
   const { reciterId, reciterName } = route.params;
@@ -60,7 +67,7 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
         >
           <Ionicons name="chevron-back" size={26} color="#6b4c3b" />
         </TouchableOpacity>
-        <AppText color="6b4c3b" align="center" font="lightFont" size={20}>السور بصوت: {reciterName}</AppText>
+        <AppText color="#6b4c3b" align="center" font="lightFont" size={20}>السور بصوت: {reciterName}</AppText>
       </LinearGradient>
 
       <FlatList

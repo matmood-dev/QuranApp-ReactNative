@@ -15,7 +15,19 @@ import SurahAudioScreen from '../../../screens/ListenToQuranScreen/SurahAudioScr
 import FullAudioPlayerScreen from '../../../screens/ListenToQuranScreen/FullAudioPlayerScreen';
 import MafatihScreen from '../../../screens/MafatihScreen';
 
-const Drawer = createDrawerNavigator();
+// WITH
+const Drawer = createDrawerNavigator<{
+  HomeScreen: undefined;
+  SurahList: undefined;
+  PrayerTime: undefined;
+  Settings: undefined;
+  About: undefined;
+  ReciterListScreen: undefined;
+  SurahAudioScreen: { reciterId: string; reciterName: string };
+  FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string };
+  MafatihScreen: undefined;
+}>();
+
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const currentRoute = props.state.routeNames[props.state.index];
@@ -27,7 +39,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
     { label: 'مفاتيح الجنان', icon: 'headset-outline', screen: 'MafatihScreen' },
     { label: 'مواقيت الصلاة', icon: 'time-outline', screen: 'PrayerTime' },
     { label: 'الإعدادات', icon: 'settings-outline', screen: 'Settings' },
-    { label: 'حول التطبيق', icon: 'information-circle-outline', screen: 'About' }, // ✅
+    { label: 'حول التطبيق', icon: 'information-circle-outline', screen: 'About' },
   ];
 
   return (
