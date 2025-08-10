@@ -13,6 +13,7 @@ import HomeHero from '../components/HomeScreen/HomeHero';
 import FeatureCards from '../components/HomeScreen/FeatureCards';
 import PrayerTimes from '../components/HomeScreen/PrayerTimes';
 
+
 export default function HomeScreen() {
   return (
     <LinearGradient colors={['#fdfcfb', '#e2d1c3']} style={{ flex: 1 }}>
