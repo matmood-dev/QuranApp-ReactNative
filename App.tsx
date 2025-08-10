@@ -28,6 +28,12 @@ export default function App() {
 
     Font.loadAsync({
       QuranFont: require('./assets/fonts/ScheherazadeNew-Regular.ttf'),
+      lightFont: require('./assets/fonts/Rubik-Light.ttf'),
+      normalFont: require('./assets/fonts/Rubik-Regular.ttf'),
+      boldFont: require('./assets/fonts/Rubik-Medium.ttf'),
+      duaLightFont: require('./assets/fonts/Lateef-ExtraLight.ttf'),
+      duaNormalFont: require('./assets/fonts/Lateef-Regular.ttf'),
+      duaBoldFont: require('./assets/fonts/Lateef-SemiBold.ttf'),
     }).then(() => setFontsLoaded(true));
   }, []);
 

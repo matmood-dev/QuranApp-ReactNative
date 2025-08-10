@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: 16,
     color: '#333',
+    fontFamily: 'normalFont',
   },
   modalContent: {
     backgroundColor: '#f9f9f9',
@@ -104,10 +105,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#eee',
     borderBottomWidth: 1,
     paddingVertical: 10,
+    height: 50,
   },
   listItemText: {
     textAlign: 'right',
-    fontSize: 18,
+    fontSize: 16,
     color: '#444',
   },
   searchInput: {

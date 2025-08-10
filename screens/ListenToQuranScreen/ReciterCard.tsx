@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { Animated, TouchableOpacity, Image, View, Text, StyleSheet } from "react-native";
+import { Animated, TouchableOpacity, Image, View, StyleSheet } from "react-native";
+import AppText from "../../components/AppText";
 
 type Props = {
   item: {
@@ -37,7 +38,7 @@ export default function ReciterCard({ item, index, onSelect }: Props) {
       <TouchableOpacity style={cardStyles.card} onPress={() => onSelect(item.id, item.name)}>
         <Image source={item.image} style={cardStyles.image} />
         <View style={cardStyles.overlay}>
-          <Text style={cardStyles.name}>{item.name}</Text>
+          <AppText color="white" align="center" font="lightFont" size={28}>{item.name}</AppText>
         </View>
       </TouchableOpacity>
     </Animated.View>
@@ -64,11 +65,5 @@ const cardStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 6,
-  },
-  name: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "700",
-    textAlign: "center",
   },
 });

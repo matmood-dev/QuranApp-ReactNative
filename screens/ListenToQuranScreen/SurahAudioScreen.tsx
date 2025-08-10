@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   View,
-  Text,
   FlatList,
   TouchableOpacity,
   StyleSheet,
@@ -13,6 +12,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 import { useAudio } from "../../context/AudioContext";
 import type { RootStackParamList } from "../../types/navigation";
+
+import AppText from "../../components/AppText";
 
 type Props = DrawerScreenProps<RootStackParamList, "SurahAudioScreen">;
 
@@ -43,9 +44,9 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
       onPress={() => handlePlay(item.number, item.name)}
     >
       <View style={styles.cardBadge}>
-        <Text style={styles.badgeText}>{item.number}</Text>
+        <AppText font="boldFont" size={18} align="center">{item.number}</AppText>
       </View>
-      <Text style={styles.cardText}>{item.name}</Text>
+      <AppText flex={1} font="lightFont" size={24}>{item.name}</AppText>
     </TouchableOpacity>
   );
 
@@ -59,7 +60,7 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
         >
           <Ionicons name="chevron-back" size={26} color="#6b4c3b" />
         </TouchableOpacity>
-        <Text style={styles.heading}>السور بصوت: {reciterName}</Text>
+        <AppText color="6b4c3b" align="center" font="lightFont" size={20}>السور بصوت: {reciterName}</AppText>
       </LinearGradient>
 
       <FlatList
@@ -86,12 +87,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#6b4c3b",
-    textAlign: "center",
-  },
   list: {
     padding: 16,
   },
@@ -108,13 +103,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 3,
   },
-  cardText: {
-    fontSize: 18,
-    color: "#222",
-    writingDirection: "rtl",
-    flex: 1,
-    textAlign: "right",
-  },
   cardBadge: {
     width: 36,
     height: 36,
@@ -123,11 +111,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 12,
-  },
-  badgeText: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#333",
   },
   backButton: {
     position: "absolute",

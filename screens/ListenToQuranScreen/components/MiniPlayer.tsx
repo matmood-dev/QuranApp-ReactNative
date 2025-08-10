@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Platform } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useAudio } from "../../../context/AudioContext";
+
+import AppText from "../../../components/AppText";
 
 export default function MiniPlayer() {
   const navigation = useNavigation();
@@ -20,7 +22,7 @@ export default function MiniPlayer() {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleOpenPlayer}>
-      <Text style={styles.title}>{currentSurah}</Text>
+      <AppText color="white" font="lightFont" size={20}>{currentSurah}</AppText>
       <TouchableOpacity
         onPress={(e) => {
           e.stopPropagation();
@@ -42,9 +44,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  title: {
-    color: "#fff",
-    fontSize: 16,
   },
 });

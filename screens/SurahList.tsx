@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   FlatList,
-  Text,
   TouchableOpacity,
   StyleSheet,
   View,
@@ -16,6 +15,7 @@ import { RootStackParamList } from "../types/navigation";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import Header from "../components/HomeScreen/Header";
+import AppText from "../components/AppText";
 
 export default function SurahList() {
   type Surah = {
@@ -77,9 +77,11 @@ export default function SurahList() {
                 onPress={() => goToSurahPage(item.number)}
               >
                 <View style={styles.row}>
-                  <Text style={styles.number}>{item.number}</Text>
+                  <AppText style={[styles.number]}>{item.number}</AppText>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.name}>{item.name}</Text>
+                    <AppText font="lightFont" size={20} align="center">
+                      {item.name}
+                    </AppText>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -128,11 +130,5 @@ const styles = StyleSheet.create({
     color: "brown",
     fontWeight: "bold",
     marginLeft: 12,
-  },
-  name: {
-    fontSize: 22,
-    fontFamily: "QuranFont",
-    color: "#222",
-    textAlign: "right",
   },
 });

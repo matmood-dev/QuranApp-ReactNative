@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   StyleSheet,
   Platform,
@@ -11,6 +10,8 @@ import Slider from "@react-native-community/slider";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useAudio } from "../../context/AudioContext";
+
+import AppText from "../../components/AppText";
 
 type ParamList = {
   FullAudioPlayerScreen: {
@@ -56,8 +57,16 @@ export default function FullAudioPlayerScreen() {
         <Ionicons name="chevron-back" size={26} color="#6b4c3b" />
       </TouchableOpacity>
 
-      <Text style={styles.surahName}>{surahName}</Text>
-      <Text style={styles.reciter}>بصوت: {reciterName}</Text>
+      <AppText
+        color="#6b4c3b"
+        font="lightFont"
+        size={30}
+        marginBottom={8}
+        align="center"
+      >
+        {surahName}
+      </AppText>
+      <AppText font="lightFont" align="center" marginBottom={50}>بصوت: {reciterName}</AppText>
 
       {/* Optional waveform or image placeholder */}
       <View style={styles.imageBox}>
@@ -80,8 +89,8 @@ export default function FullAudioPlayerScreen() {
         thumbTintColor="#6b4c3b"
       />
       <View style={styles.timeRow}>
-        <Text style={styles.timeText}>{formatTime(position)}</Text>
-        <Text style={styles.timeText}>{formatTime(duration)}</Text>
+        <AppText color="#555" font="boldFont" align="left">{formatTime(position)}</AppText>
+        <AppText color="#555" font="boldFont" align="right">{formatTime(duration)}</AppText>
       </View>
 
       {/* Playback controls */}
@@ -117,20 +126,6 @@ const styles = StyleSheet.create({
     left: 20,
     zIndex: 10,
   },
-  surahName: {
-    fontSize: 28,
-    textAlign: "center",
-    marginBottom: 8,
-    color: "#6b4c3b",
-    writingDirection: "rtl",
-  },
-  reciter: {
-    fontSize: 18,
-    textAlign: "center",
-    color: "#777",
-    marginBottom: 30,
-    writingDirection: "rtl",
-  },
   imageBox: {
     width: "100%",
     marginBottom: 30,
@@ -145,10 +140,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 30,
-  },
-  timeText: {
-    color: "#555",
-    fontSize: 14,
   },
   controls: {
     flexDirection: "row",

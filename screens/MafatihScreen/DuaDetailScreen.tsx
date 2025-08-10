@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -11,6 +10,7 @@ import { RootStackParamList } from "../../types/navigation";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialIcons } from "@expo/vector-icons";
+import AppText from "../../components/AppText";
 
 type DuaDetailRouteProp = RouteProp<RootStackParamList, "DuaDetailScreen">;
 
@@ -18,14 +18,14 @@ export default function DuaDetailScreen() {
   const route = useRoute<DuaDetailRouteProp>();
   const navigation = useNavigation();
   const { title, header, text, text2 } = route.params;
-  const [fontSize, setFontSize] = useState(24);
+  const [fontSize, setFontSize] = useState(34);
 
   const increaseFontSize = () => {
-    if (fontSize < 40) setFontSize(fontSize + 2);
+    if (fontSize < 60) setFontSize(fontSize + 2);
   };
 
   const decreaseFontSize = () => {
-    if (fontSize > 10) setFontSize(fontSize - 2);
+    if (fontSize > 20) setFontSize(fontSize - 2);
   };
 
   return (
@@ -52,13 +52,7 @@ export default function DuaDetailScreen() {
             colors={["#8b6f47", "#6b4c3b"]}
             style={styles.titleContainer}
           >
-            <MaterialIcons
-              name="book"
-              size={24}
-              color="#ffffff"
-              style={styles.titleIcon}
-            />
-            <Text style={styles.title}>{title}</Text>
+            <AppText color="white" font="lightFont" size={26} align="center">{title}</AppText>
             <View style={styles.titleUnderline} />
           </LinearGradient>
         </View>
@@ -77,8 +71,8 @@ export default function DuaDetailScreen() {
             </TouchableOpacity>
 
             <View style={styles.fontSizeIndicator}>
-              <Text style={styles.fontSizeText}>حجم الخط</Text>
-              <Text style={styles.fontSizeValue}>{fontSize}</Text>
+              <AppText color="#6b4c3b">حجم الخط</AppText>
+              <AppText color="#6b4c3b" align="center">{fontSize}</AppText>
             </View>
 
             <TouchableOpacity
@@ -96,17 +90,6 @@ export default function DuaDetailScreen() {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          {/* Bismillah Section */}
-          <View style={styles.bismillahContainer}>
-            <LinearGradient
-              colors={["#e6d2c3", "#d4c4b0"]}
-              style={styles.bismillahGradient}
-            >
-              <Text style={styles.bismillahText}>
-                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-              </Text>
-            </LinearGradient>
-          </View>
 
           {/* Main Dua Content */}
           <View style={styles.duaContentContainer}>
@@ -118,28 +101,23 @@ export default function DuaDetailScreen() {
 
               <View style={styles.duaTextContainer}>
                 {header ? (
-                  <Text
-                    style={[
-                      styles.duaText,
-                      {
-                        fontSize: fontSize - 8,
-                        marginBottom: 20,
-                        color: "#6b4c3b",
-                      },
-                    ]}
-                  >
+                  <AppText align="center" size={30} color="#6b4c3b" font="duaLightFont">
                     {header}
-                  </Text>
+                  </AppText>
                 ) : null}
 
-                <Text style={[styles.duaText, { fontSize }]}>
+                <AppText font="QuranFont" align="center" size={60} color="#6b4c3b">
+                ﷽
+              </AppText>
+
+                <AppText style={{ fontSize }} font="duaNormalFont" align="center" color="#333333">
                   {text || "لم يتم العثور على نص الدعاء."}
-                </Text>
+                </AppText>
 
                 {text2 ? (
-                  <Text style={[styles.duaText, { fontSize, marginTop: 20 }]}>
+                  <AppText style={{ fontSize }} font="duaNormalFont" align="center" color="#333333">
                     {text2}
-                  </Text>
+                  </AppText>
                 ) : null}
               </View>
               <View style={styles.decorativeBottom} />
@@ -194,13 +172,6 @@ const styles = StyleSheet.create({
   titleIcon: {
     marginBottom: 8,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#ffffff",
-    textAlign: "center",
-    letterSpacing: 0.5,
-  },
   titleUnderline: {
     width: 60,
     height: 3,
@@ -239,16 +210,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 12,
   },
-  fontSizeText: {
-    fontSize: 12,
-    color: "#6b4c3b",
-    fontWeight: "500",
-  },
-  fontSizeValue: {
-    fontSize: 16,
-    color: "#6b4c3b",
-    fontWeight: "bold",
-  },
   scrollView: {
     flex: 1,
   },
@@ -263,12 +224,6 @@ const styles = StyleSheet.create({
   bismillahGradient: {
     padding: 16,
     alignItems: "center",
-  },
-  bismillahText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#6b4c3b",
-    textAlign: "center",
   },
   duaContentContainer: {
     marginBottom: 20,
@@ -289,12 +244,6 @@ const styles = StyleSheet.create({
   },
   duaTextContainer: {
     padding: 24,
-  },
-  duaText: {
-    color: "#333333",
-    lineHeight: 45,
-    textAlign: "center",
-    fontWeight: "500",
   },
   decorativeBottom: {
     height: 4,

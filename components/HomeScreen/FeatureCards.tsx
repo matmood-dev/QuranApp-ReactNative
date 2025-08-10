@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  Text,
   Image,
   StyleSheet,
   TouchableOpacity,
@@ -12,6 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import * as Animatable from "react-native-animatable";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types/navigation";
+import AppText from "../AppText";
 
 const { width } = Dimensions.get("window");
 const cardSize = (width - 48) / 2;
@@ -96,15 +96,15 @@ export default function FeatureCards() {
                 />
                 {item.badge && (
                   <View style={styles.badge}>
-                    <Text style={styles.badgeText}>{item.badge}</Text>
+                    <AppText color="white" size={14}>{item.badge}</AppText>
                   </View>
                 )}
                 <View style={styles.textWrapper}>
-                  <Text style={styles.cardText}>{item.title}</Text>
+                  <AppText font="lightFont" size={28} color="white" align="center">{item.title}</AppText>
                 </View>
                 {item.disabled && (
                   <View style={styles.disabledOverlay}>
-                    <Text style={styles.lockIcon}>🔒</Text>
+                    <AppText font="boldFont" size={30} color="white">🔒</AppText>
                   </View>
                 )}
               </TouchableOpacity>
@@ -153,12 +153,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 8,
   },
-  cardText: {
-    color: "#fff",
-    fontSize: cardSize * 0.13,
-    fontWeight: "700",
-    textAlign: "center",
-  },
   badge: {
     position: "absolute",
     top: 8,
@@ -170,20 +164,11 @@ const styles = StyleSheet.create({
     zIndex: 10,
     elevation: 3,
   },
-  badgeText: {
-    color: "#fff",
-    fontSize: 11,
-    fontWeight: "900",
-  },
   disabledOverlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0,0,0,0.4)",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 20,
-  },
-  lockIcon: {
-    fontSize: 24,
-    color: "#fff",
   },
 });
