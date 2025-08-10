@@ -8,7 +8,8 @@ import AppText from "../../../components/AppText";
 
 export default function MiniPlayer() {
   const navigation = useNavigation();
-  const { isPlaying, toggle, currentSurah, reciterId, reciterName } = useAudio();
+  const { isPlaying, toggle, currentSurah, reciterId, reciterName } =
+    useAudio();
 
   if (!isPlaying || !currentSurah) return null;
 
@@ -22,7 +23,9 @@ export default function MiniPlayer() {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleOpenPlayer}>
-      <AppText color="white" font="lightFont" size={20}>{currentSurah}</AppText>
+      <AppText color="white" font="duaBoldFont" size={25}>
+        {currentSurah}
+      </AppText>
       <TouchableOpacity
         onPress={(e) => {
           e.stopPropagation();

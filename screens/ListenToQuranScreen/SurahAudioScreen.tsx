@@ -53,7 +53,7 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
       <View style={styles.cardBadge}>
         <AppText font="boldFont" size={18} align="center">{item.number}</AppText>
       </View>
-      <AppText flex={1} font="lightFont" size={24}>{item.name}</AppText>
+      <AppText flex={1} font="duaBoldFont" size={35}>{item.name}</AppText>
     </TouchableOpacity>
   );
 

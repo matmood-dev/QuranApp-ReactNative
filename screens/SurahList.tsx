@@ -77,9 +77,9 @@ export default function SurahList() {
                 onPress={() => goToSurahPage(item.number)}
               >
                 <View style={styles.row}>
-                  <AppText style={[styles.number]}>{item.number}</AppText>
+                  <AppText font="duaBoldFont" align="center" color="brown" size={35}>{item.number}</AppText>
                   <View style={{ flex: 1 }}>
-                    <AppText font="lightFont" size={20} align="center">
+                    <AppText font="duaBoldFont" size={35} align="center">
                       {item.name}
                     </AppText>
                   </View>
@@ -124,11 +124,5 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row-reverse",
     alignItems: "center",
-  },
-  number: {
-    fontSize: 16,
-    color: "brown",
-    fontWeight: "bold",
-    marginLeft: 12,
-  },
+  }
 });

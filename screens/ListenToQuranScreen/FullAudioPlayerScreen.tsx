@@ -59,8 +59,8 @@ export default function FullAudioPlayerScreen() {
 
       <AppText
         color="#6b4c3b"
-        font="lightFont"
-        size={30}
+        font="duaBoldFont"
+        size={50}
         marginBottom={8}
         align="center"
       >

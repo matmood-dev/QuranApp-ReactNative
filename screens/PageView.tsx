@@ -82,7 +82,7 @@ export default function PageView() {
 
         return (
           <View key={index} style={{ marginBottom: 24 }}>
-            <AppText align='center' color='brown' size={24} marginBottom={20}>{firstAyah.surah.name}</AppText>
+            <AppText font='duaBoldFont' align='center' color='brown' size={40} marginBottom={20}>{firstAyah.surah.name}</AppText>
             {firstAyah.numberInSurah === 1 && !isTawbah && (
               <Text style={styles.basmala}>﷽</Text>
             )}
