@@ -135,7 +135,7 @@ export default function ReciterListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.select({ ios: 140, android: 100 }),
+    paddingTop: Platform.select({ ios: 140, android: 130 }),
     paddingHorizontal: 16,
   },
   list: {
