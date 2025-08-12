@@ -1,21 +1,21 @@
 import React from "react";
 import {
   View,
-  Text,
   FlatList,
   StyleSheet,
   Dimensions,
   Platform,
+  StatusBar,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Header from "../../components/HomeScreen/Header";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import ReciterCard from "./ReciterCard"; // 👈 Import the separate animated card
+import ReciterCard from "./ReciterCard";
 import AppText from "../../components/AppText";
 
 const { width } = Dimensions.get("window");
-const cardWidth = (width - 48) / 2;
+export const CARD_SIZE = (width - 48) / 2; // shared with card
 
 const reciters = [
   {
@@ -38,17 +38,56 @@ const reciters = [
     name: "ميثم التمار",
     image: require("../../assets/reciters/tammar.jpg"),
   },
-  // {
-  //   id: "ar.salman-alutaibi",
-  //   name: "سلمان العتيبي",
-  //   image: require("../../assets/reciters/salman-alutaibi.jpg"),
-  // }
+  {
+    id: "ar.mrashad",
+    name: "محمد رشاد",
+    image: require("../../assets/reciters/mrashad.jpg"),
+  },
+  {
+    id: "ar.mayoob",
+    name: "محمد أيوب",
+    image: require("../../assets/reciters/mayoob.png"),
+  },
+  {
+    id: "ar.sudais",
+    name: "عبد الرحمن السديس",
+    image: require("../../assets/reciters/sudais.jpg"),
+  },
+  {
+    id: "ar.sghamdi",
+    name: "سعد الغامدي",
+    image: require("../../assets/reciters/sghamdi.jpg"),
+  },
+  {
+    id: "ar.maher",
+    name: "ماهر المعيقلي",
+    image: require("../../assets/reciters/maher.jpg"),
+  },
+  {
+    id: "ar.afasi",
+    name: "مشاري العفاسي",
+    image: require("../../assets/reciters/afasi.jpg"),
+  },
+  {
+    id: "ar.ydosary",
+    name: "ياسر الدوسري",
+    image: require("../../assets/reciters/ydosary.webp"),
+  },
+  {
+    id: "ar.rkurdi",
+    name: "رعد الكردي",
+    image: require("../../assets/reciters/rkurdi.webp"),
+  },
 ];
 
 type RootStackParamList = {
   SurahAudioScreen: { reciterId: string; reciterName: string };
-  ReciterListScreen: undefined; // ✅ add this
-  FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string }; // if used
+  ReciterListScreen: undefined;
+  FullAudioPlayerScreen: {
+    surahName: string;
+    reciterId: string;
+    reciterName: string;
+  };
 };
 
 export default function ReciterListScreen() {
@@ -60,17 +99,30 @@ export default function ReciterListScreen() {
   };
 
   return (
-    <LinearGradient colors={["#fdfcfb", "#e2d1c3"]} style={{ flex: 1 }}>
+    <LinearGradient
+      colors={["#f8fafc", "#eef2ff"]}
+      start={{ x: 0.1, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <StatusBar
+        barStyle={Platform.OS === "ios" ? "dark-content" : "dark-content"}
+      />
       <Header />
       <View style={styles.container}>
-        <AppText align="center" marginBottom={40} size={28} font="lightFont">اختر القارئ</AppText>
+        <AppText align="center" marginBottom={24} size={26} font="lightFont">
+          اختر القارئ
+        </AppText>
+
         <FlatList
-          key={"2-cols"}
           data={reciters}
           keyExtractor={(item) => item.id}
-          numColumns={2}
-          contentContainerStyle={styles.list}
-          columnWrapperStyle={styles.row}
+          numColumns={3}
+          contentContainerStyle={{ paddingBottom: 28 }}
+          columnWrapperStyle={{
+            justifyContent: "space-between",
+            marginBottom: 12,
+          }} // ← gaps!
           renderItem={({ item, index }) => (
             <ReciterCard item={item} index={index} onSelect={handleSelect} />
           )}
@@ -83,11 +135,11 @@ export default function ReciterListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.select({ ios: 150, android: 120 }),
+    paddingTop: Platform.select({ ios: 120, android: 100 }),
     paddingHorizontal: 16,
   },
   list: {
-    paddingBottom: 20,
+    paddingBottom: 28,
   },
   row: {
     justifyContent: "space-between",
