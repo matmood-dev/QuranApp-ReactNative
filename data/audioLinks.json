@@ -1,0 +1,89 @@
+{
+    "id": "ar.kazemi",
+    "name": "عامر الكاظمي",
+    "baseUrl": "https://nooralquranapi.netlify.app/kadumi",
+    "format": "mp3",
+    "pattern": "{num3}.mp3",
+    "surahs": [
+        {
+            "number": 1,
+            "name": "الفاتحة",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah001.mp3"
+        },
+        {
+            "number": 2,
+            "name": "البقرة",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah002.mp3"
+        },
+        {
+            "number": 3,
+            "name": "آل عمران",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah003.mp3"
+        },
+        {
+            "number": 4,
+            "name": "النساء",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah004.mp3"
+        },
+        {
+            "number": 5,
+            "name": "المائدة",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah005.mp3"
+        },
+        {
+            "number": 6,
+            "name": "الأنعام",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah006.mp3"
+        },
+        {
+            "number": 7,
+            "name": "الأعراف",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah007.mp3"
+        },
+        {
+            "number": 8,
+            "name": "الأنفال",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah008.mp3"
+        },
+        {
+            "number": 9,
+            "name": "التوبة",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah009.mp3"
+        },
+        {
+            "number": 10,
+            "name": "يونس",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah010.mp3"
+        },
+        {
+            "number": 11,
+            "name": "هود",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah011.mp3"
+        },
+        {
+            "number": 12,
+            "name": "يوسف",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah012.mp3"
+        },
+        {
+            "number": 13,
+            "name": "الرعد",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah013.mp3"
+        },
+        {
+            "number": 14,
+            "name": "إبراهيم",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah014.mp3"
+        },
+        {
+            "number": 15,
+            "name": "الحجر",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah015.mp3"
+        },
+        {
+            "number": 16,
+            "name": "النحل",
+            "url": "https://nooralquranapi.netlify.app/kadumi/surah016.mp3"
+        }
+    ]
+}

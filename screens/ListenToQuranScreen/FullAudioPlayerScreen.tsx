@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   View,
   TouchableOpacity,
@@ -10,7 +10,6 @@ import Slider from "@react-native-community/slider";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useAudio } from "../../context/AudioContext";
-
 import AppText from "../../components/AppText";
 
 type ParamList = {
@@ -18,6 +17,10 @@ type ParamList = {
     surahName: string;
     reciterId: string;
     reciterName: string;
+    /** Optional but recommended to avoid Arabic name variants */
+    surahNumber?: number;
+    /** Autoplay when screen opens (default true) */
+    autoplay?: boolean;
   };
 };
 
@@ -39,8 +42,37 @@ export default function FullAudioPlayerScreen() {
 
   const navigation = useNavigation();
   const route = useRoute<RouteProp<ParamList, "FullAudioPlayerScreen">>();
-  const { surahName, reciterName, reciterId } = route.params;
-  const { isPlaying, toggle, position, duration, seekTo } = useAudio();
+  const {
+    surahName,
+    reciterName,
+    reciterId,
+    surahNumber,
+    autoplay = true,
+  } = route.params;
+
+  const { isPlaying, play, pause, position, duration, seekTo } = useAudio();
+
+  // pick number if available (more reliable), otherwise Arabic name
+  const surahKey = useMemo(
+    () => (typeof surahNumber === "number" ? surahNumber : surahName),
+    [surahNumber, surahName]
+  );
+
+  // Autoplay on mount (only once)
+  useEffect(() => {
+    if (autoplay) {
+      play(surahKey, reciterId, reciterName).catch(() => {});
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // run once
+
+  const onPlayPress = async () => {
+    if (isPlaying) {
+      await pause();
+    } else {
+      await play(surahKey, reciterId, reciterName);
+    }
+  };
 
   const formatTime = (ms: number) => {
     const minutes = Math.floor(ms / 60000);
@@ -50,15 +82,20 @@ export default function FullAudioPlayerScreen() {
     return `${minutes}:${seconds}`;
   };
 
+  const imgSource =
+    reciterImages[reciterId] ?? require("../../assets/reciters/placeholder.jpg");
+
+  const sliderDisabled = !duration || duration <= 1;
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.backBtn}
         onPress={() =>
-          navigation.navigate("SurahAudioScreen", {
-            reciterId,
-            reciterName,
-          })
+          navigation.navigate(
+            "SurahAudioScreen" as never,
+            { reciterId, reciterName } as never
+          )
         }
       >
         <Ionicons name="chevron-back" size={26} color="#6b4c3b" />
@@ -77,22 +114,17 @@ export default function FullAudioPlayerScreen() {
         بصوت: {reciterName}
       </AppText>
 
-      {/* Optional waveform or image placeholder */}
       <View style={styles.imageBox}>
-        <Image
-          source={reciterImages[reciterId]}
-          style={styles.reciterImage}
-          resizeMode="cover"
-        />
+        <Image source={imgSource} style={styles.reciterImage} resizeMode="cover" />
       </View>
 
-      {/* Slider and time */}
       <Slider
         style={styles.slider}
         minimumValue={0}
-        maximumValue={duration}
+        maximumValue={duration || 1}
         value={position}
         onSlidingComplete={seekTo}
+        disabled={sliderDisabled}
         minimumTrackTintColor="#6b4c3b"
         maximumTrackTintColor="#ddd"
         thumbTintColor="#6b4c3b"
@@ -106,17 +138,12 @@ export default function FullAudioPlayerScreen() {
         </AppText>
       </View>
 
-      {/* Playback controls */}
       <View style={styles.controls}>
         <TouchableOpacity disabled>
           <Ionicons name="play-back" size={36} color="#ccc" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={toggle} style={styles.playButton}>
-          <Ionicons
-            name={isPlaying ? "pause" : "play"}
-            size={42}
-            color="#fff"
-          />
+        <TouchableOpacity onPress={onPlayPress} style={styles.playButton}>
+          <Ionicons name={isPlaying ? "pause" : "play"} size={42} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity disabled>
           <Ionicons name="play-forward" size={36} color="#ccc" />

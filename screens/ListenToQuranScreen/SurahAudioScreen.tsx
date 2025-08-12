@@ -13,17 +13,21 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 import { useAudio } from "../../context/AudioContext";
-import type { RootStackParamList } from "../../types/navigation";
 import AppText from "../../components/AppText";
 
-type Props = DrawerScreenProps<
-  {
-    SurahAudioScreen: { reciterId: string; reciterName: string };
-    FullAudioPlayerScreen: { surahName: string; reciterId: string; reciterName: string };
-    ReciterListScreen: undefined;
-  },
-  "SurahAudioScreen"
->;
+type NavParams = {
+  SurahAudioScreen: { reciterId: string; reciterName: string };
+  FullAudioPlayerScreen: {
+    surahName: string;
+    surahNumber: number;           // ✅ add number
+    reciterId: string;
+    reciterName: string;
+    autoplay?: boolean;            // optional
+  };
+  ReciterListScreen: undefined;
+};
+
+type Props = DrawerScreenProps<NavParams, "SurahAudioScreen">;
 
 type Surah = { number: number; name: string };
 
@@ -40,23 +44,45 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
       .then((data) => mounted && setSurahs(data.data))
       .catch(console.error)
       .finally(() => mounted && setLoading(false));
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  const handlePlay = useCallback((surahNumber: number, surahName: string) => {
-    play(surahName, reciterId, reciterName);
-    navigation.navigate("FullAudioPlayerScreen", { surahName, reciterId, reciterName });
-  }, [navigation, play, reciterId, reciterName]);
+  // ✅ Play by number (more reliable than Arabic name) and navigate with both
+  const handlePlay = useCallback(
+    async (surahNumber: number, surahName: string) => {
+      await play(surahNumber, reciterId, reciterName);
+      navigation.navigate("FullAudioPlayerScreen", {
+        surahName,
+        surahNumber,           // ✅ pass number
+        reciterId,
+        reciterName,
+        autoplay: false,       // already started playing above; keep UI in sync
+      });
+    },
+    [navigation, play, reciterId, reciterName]
+  );
 
   const data = useMemo(() => surahs, [surahs]);
 
-  const renderItem = useCallback(({ item, index }: { item: Surah; index: number }) => {
-    return <SurahRow index={index} item={item} onPress={() => handlePlay(item.number, item.name)} />;
-  }, [handlePlay]);
+  const renderItem = useCallback(
+    ({ item, index }: { item: Surah; index: number }) => {
+      return (
+        <SurahRow
+          index={index}
+          item={item}
+          onPress={() => handlePlay(item.number, item.name)}
+        />
+      );
+    },
+    [handlePlay]
+  );
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#f8fafc" />
+
       {/* Header */}
       <LinearGradient
         colors={["#f8fafc", "#eef2ff"]}
@@ -98,14 +124,27 @@ const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
 export default SurahAudioScreen;
 
 /** ---- Row Card ---- */
-function SurahRow({ item, index, onPress }: { item: Surah; index: number; onPress: () => void }) {
+function SurahRow({
+  item,
+  index,
+  onPress,
+}: {
+  item: Surah;
+  index: number;
+  onPress: () => void;
+}) {
   const fade = useRef(new Animated.Value(0)).current;
   const translate = useRef(new Animated.Value(10)).current;
   const press = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     Animated.parallel([
-      Animated.timing(fade, { toValue: 1, duration: 260, delay: index * 12, useNativeDriver: true }),
+      Animated.timing(fade, {
+        toValue: 1,
+        duration: 260,
+        delay: index * 12,
+        useNativeDriver: true,
+      }),
       Animated.spring(translate, { toValue: 0, friction: 9, useNativeDriver: true }),
     ]).start();
   }, [fade, translate, index]);
@@ -128,7 +167,10 @@ function SurahRow({ item, index, onPress }: { item: Surah; index: number; onPres
           </AppText>
         </View>
 
-        <AppText flex={1} font="duaBoldFont" size={22} color="#111827}">{item.name}</AppText>
+        {/* 🛠️ fixed stray curly brace in color */}
+        <AppText flex={1} font="duaBoldFont" size={22} color="#111827">
+          {item.name}
+        </AppText>
 
         <Ionicons name="play-circle" size={24} color="#64748b" />
       </Pressable>
@@ -209,7 +251,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "brown", // violet
+    backgroundColor: "brown",
   },
 
   loader: {
