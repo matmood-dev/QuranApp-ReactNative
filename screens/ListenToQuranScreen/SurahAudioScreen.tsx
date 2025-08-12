@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import {
-  View,
-  FlatList,
-  TouchableOpacity,
+  Animated,
+  Pressable,
   StyleSheet,
+  View,
   StatusBar,
   Platform,
+  ActivityIndicator,
+  FlatList,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 import { useAudio } from "../../context/AudioContext";
 import type { RootStackParamList } from "../../types/navigation";
-
 import AppText from "../../components/AppText";
 
 type Props = DrawerScreenProps<
@@ -24,115 +25,196 @@ type Props = DrawerScreenProps<
   "SurahAudioScreen"
 >;
 
+type Surah = { number: number; name: string };
+
 const SurahAudioScreen: React.FC<Props> = ({ navigation, route }) => {
   const { reciterId, reciterName } = route.params;
   const { play } = useAudio();
-  const [surahs, setSurahs] = useState<any[]>([]);
+  const [surahs, setSurahs] = useState<Surah[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
     fetch("https://api.alquran.cloud/v1/surah")
       .then((res) => res.json())
-      .then((data) => setSurahs(data.data))
-      .catch((err) => console.error(err));
+      .then((data) => mounted && setSurahs(data.data))
+      .catch(console.error)
+      .finally(() => mounted && setLoading(false));
+    return () => { mounted = false; };
   }, []);
 
-  const handlePlay = (surahNumber: number, surahName: string) => {
+  const handlePlay = useCallback((surahNumber: number, surahName: string) => {
     play(surahName, reciterId, reciterName);
-    navigation.navigate("FullAudioPlayerScreen", {
-      surahName,
-      reciterId,
-      reciterName,
-    });
-  };
+    navigation.navigate("FullAudioPlayerScreen", { surahName, reciterId, reciterName });
+  }, [navigation, play, reciterId, reciterName]);
 
-  const renderSurah = ({ item }: any) => (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() => handlePlay(item.number, item.name)}
-    >
-      <View style={styles.cardBadge}>
-        <AppText font="boldFont" size={18} align="center">{item.number}</AppText>
-      </View>
-      <AppText flex={1} font="duaBoldFont" size={35}>{item.name}</AppText>
-    </TouchableOpacity>
-  );
+  const data = useMemo(() => surahs, [surahs]);
+
+  const renderItem = useCallback(({ item, index }: { item: Surah; index: number }) => {
+    return <SurahRow index={index} item={item} onPress={() => handlePlay(item.number, item.name)} />;
+  }, [handlePlay]);
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fdfcfb" />
-      <LinearGradient colors={["#fdfcfb", "#e2d1c3"]} style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
+      <StatusBar barStyle="dark-content" backgroundColor="#f8fafc" />
+      {/* Header */}
+      <LinearGradient
+        colors={["#f8fafc", "#eef2ff"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.header}
+      >
+        <Pressable
           onPress={() => navigation.navigate("ReciterListScreen")}
+          style={styles.backButton}
+          android_ripple={{ color: "rgba(0,0,0,0.08)", borderless: true }}
         >
-          <Ionicons name="chevron-back" size={26} color="#6b4c3b" />
-        </TouchableOpacity>
-        <AppText color="#6b4c3b" align="center" font="lightFont" size={20}>السور بصوت: {reciterName}</AppText>
+          <Ionicons name="chevron-back" size={22} color="#334155" />
+        </Pressable>
+
+        <AppText color="#334155" align="center" font="lightFont" size={18}>
+          السور بصوت: {reciterName}
+        </AppText>
       </LinearGradient>
 
-      <FlatList
-        data={surahs}
-        keyExtractor={(item) => item.number.toString()}
-        renderItem={renderSurah}
-        contentContainerStyle={styles.list}
-      />
+      {/* List */}
+      {loading ? (
+        <View style={styles.loader}>
+          <ActivityIndicator size="large" />
+        </View>
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={(item) => String(item.number)}
+          renderItem={renderItem}
+          contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </View>
   );
 };
 
+export default SurahAudioScreen;
+
+/** ---- Row Card ---- */
+function SurahRow({ item, index, onPress }: { item: Surah; index: number; onPress: () => void }) {
+  const fade = useRef(new Animated.Value(0)).current;
+  const translate = useRef(new Animated.Value(10)).current;
+  const press = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fade, { toValue: 1, duration: 260, delay: index * 12, useNativeDriver: true }),
+      Animated.spring(translate, { toValue: 0, friction: 9, useNativeDriver: true }),
+    ]).start();
+  }, [fade, translate, index]);
+
+  const onPressIn = () => Animated.spring(press, { toValue: 0.98, useNativeDriver: true }).start();
+  const onPressOut = () => Animated.spring(press, { toValue: 1, useNativeDriver: true }).start();
+
+  return (
+    <Animated.View style={{ opacity: fade, transform: [{ translateY: translate }, { scale: press }] }}>
+      <Pressable
+        onPressIn={onPressIn}
+        onPressOut={onPressOut}
+        onPress={onPress}
+        android_ripple={{ color: "rgba(0,0,0,0.06)" }}
+        style={styles.card}
+      >
+        <View style={styles.badge}>
+          <AppText font="boldFont" size={15} align="center" color="#fff">
+            {item.number}
+          </AppText>
+        </View>
+
+        <AppText flex={1} font="duaBoldFont" size={22} color="#111827}">{item.name}</AppText>
+
+        <Ionicons name="play-circle" size={24} color="#64748b" />
+      </Pressable>
+    </Animated.View>
+  );
+}
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
+  container: { flex: 1, backgroundColor: "#fff" },
+
   header: {
-    paddingTop: Platform.OS === "android" ? 60 : 100,
-    paddingBottom: 30,
+    paddingTop: Platform.OS === "android" ? 56 : 88,
+    paddingBottom: 18,
     paddingHorizontal: 20,
-    borderBottomWidth: 1,
-    borderColor: "#ddd",
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-  },
-  list: {
-    padding: 16,
-  },
-  card: {
-    backgroundColor: "#f9f9f9",
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    flexDirection: "row",
-    alignItems: "center",
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-  },
-  cardBadge: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: "#e2d1c3",
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: 12,
+    borderBottomLeftRadius: 28,
+    borderBottomRightRadius: 28,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.08,
+        shadowRadius: 10,
+        shadowOffset: { width: 0, height: 6 },
+      },
+      android: { elevation: 3 },
+    }),
   },
   backButton: {
     position: "absolute",
-    top: Platform.OS === "android" ? 50 : 90,
-    left: 20,
+    top: Platform.OS === "android" ? 50 : 80,
+    left: 18,
     zIndex: 10,
-    backgroundColor: "#fff",
-    borderRadius: 20,
-    padding: 8,
-    elevation: 4,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
+    height: 36,
+    width: 36,
+    borderRadius: 18,
+    backgroundColor: "#ffffff",
+    alignItems: "center",
+    justifyContent: "center",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.15,
+        shadowRadius: 6,
+        shadowOffset: { width: 0, height: 3 },
+      },
+      android: { elevation: 4 },
+    }),
+  },
+
+  list: {
+    padding: 16,
+    paddingTop: 12,
+    paddingBottom: 24,
+  },
+
+  card: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 12,
+    marginBottom: 10,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
+        shadowOffset: { width: 0, height: 4 },
+      },
+      android: { elevation: 2 },
+    }),
+  },
+
+  badge: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    marginRight: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "brown", // violet
+  },
+
+  loader: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
-
-export default SurahAudioScreen;

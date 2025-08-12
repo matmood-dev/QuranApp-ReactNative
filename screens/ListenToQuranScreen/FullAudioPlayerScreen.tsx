@@ -27,7 +27,14 @@ export default function FullAudioPlayerScreen() {
     "ar.minshawi": require("../../assets/reciters/minshawi.jpg"),
     "ar.kazemi": require("../../assets/reciters/kademi.jpg"),
     "ar.tammar": require("../../assets/reciters/tammar.jpg"),
-    "ar.salman-alutaibi": require("../../assets/reciters/salman-alutaibi.jpg"),
+    "ar.afasi": require("../../assets/reciters/afasi.jpg"),
+    "ar.maher": require("../../assets/reciters/maher.jpg"),
+    "ar.mayoob": require("../../assets/reciters/mayoob.png"),
+    "ar.mrashad": require("../../assets/reciters/mrashad.jpg"),
+    "ar.rkurdi": require("../../assets/reciters/rkurdi.webp"),
+    "ar.sghamdi": require("../../assets/reciters/sghamdi.jpg"),
+    "ar.sudais": require("../../assets/reciters/sudais.jpg"),
+    "ar.ydosary": require("../../assets/reciters/ydosary.webp"),
   };
 
   const navigation = useNavigation();
@@ -66,7 +73,9 @@ export default function FullAudioPlayerScreen() {
       >
         {surahName}
       </AppText>
-      <AppText font="lightFont" align="center" marginBottom={50}>بصوت: {reciterName}</AppText>
+      <AppText font="lightFont" align="center" marginBottom={50}>
+        بصوت: {reciterName}
+      </AppText>
 
       {/* Optional waveform or image placeholder */}
       <View style={styles.imageBox}>
@@ -89,8 +98,12 @@ export default function FullAudioPlayerScreen() {
         thumbTintColor="#6b4c3b"
       />
       <View style={styles.timeRow}>
-        <AppText color="#555" font="boldFont" align="left">{formatTime(position)}</AppText>
-        <AppText color="#555" font="boldFont" align="right">{formatTime(duration)}</AppText>
+        <AppText color="#555" font="boldFont" align="left">
+          {formatTime(position)}
+        </AppText>
+        <AppText color="#555" font="boldFont" align="right">
+          {formatTime(duration)}
+        </AppText>
       </View>
 
       {/* Playback controls */}
