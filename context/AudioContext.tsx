@@ -1,13 +1,23 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Audio } from "expo-av";
 import { getSurahUrl } from "../utils/audioLinks";
 
 type AudioContextType = {
   isPlaying: boolean;
-  currentSurah: string;          // display label: name or number as string
+  currentSurah: string; // display label: name or number as string
   reciterId: string;
   reciterName: string;
-  play: (surah: string | number, reciterId: string, reciterName: string) => Promise<void>;
+  play: (
+    surah: string | number,
+    reciterId: string,
+    reciterName: string
+  ) => Promise<void>;
   pause: () => Promise<void>;
   toggle: () => Promise<void>;
   seekTo: (millis: number) => Promise<void>;
@@ -29,7 +39,11 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [reciterName, setReciterName] = useState("");
 
   // keep last args so toggle() can start playback if nothing is loaded yet
-  const lastArgs = useRef<{ surah: string | number; rId: string; rName: string } | null>(null);
+  const lastArgs = useRef<{
+    surah: string | number;
+    rId: string;
+    rName: string;
+  } | null>(null);
 
   useEffect(() => {
     Audio.setAudioModeAsync({
@@ -72,7 +86,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   // Play by (surah name or number, reciterId, reciterName) using JSON links
   const play = async (surah: string | number, rId: string, rName: string) => {
     try {
-      const url = getSurahUrl(rId, surah);     // ✅ use the param directly
+      const url = getSurahUrl(rId, surah); // ✅ use the param directly
       await unloadCurrent();
 
       // remember args for resume
@@ -91,15 +105,37 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const getCurrentStatus = async () => {
+    if (!soundRef.current) return null;
+    try {
+      const status = await soundRef.current.getStatusAsync();
+      return status;
+    } catch {
+      return null;
+    }
+  };
+
   const pause = async () => {
-    if (!soundRef.current) return;
-    await soundRef.current.pauseAsync();
+    const s = soundRef.current;
+    if (!s) return;
+
+    const status = await s.getStatusAsync();
+    if (!status.isLoaded) return; // not ready yet
+
+    // If actually playing, pause. If not, just ensure shouldPlay=false.
+    if (status.isPlaying) {
+      await s.pauseAsync();
+    } else {
+      await s.setStatusAsync({ shouldPlay: false });
+    }
     setIsPlaying(false);
   };
 
   const toggle = async () => {
-    if (!soundRef.current) {
-      // nothing loaded — try to start with last known args
+    const s = soundRef.current;
+
+    // Nothing loaded yet? Try last known args or bail
+    if (!s) {
       if (lastArgs.current) {
         const { surah, rId, rName } = lastArgs.current;
         await play(surah, rId, rName);
@@ -107,11 +143,14 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    const status = await soundRef.current.getStatusAsync();
-    if (status.isLoaded && status.isPlaying) {
-      await pause();
-    } else if (status.isLoaded) {
-      await soundRef.current.playAsync();
+    const status = await s.getStatusAsync();
+    if (!status.isLoaded) return;
+
+    if (status.isPlaying) {
+      await s.setStatusAsync({ shouldPlay: false });
+      setIsPlaying(false);
+    } else {
+      await s.setStatusAsync({ shouldPlay: true });
       setIsPlaying(true);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   View,
   TouchableOpacity,
@@ -50,7 +50,8 @@ export default function FullAudioPlayerScreen() {
     autoplay = true,
   } = route.params;
 
-  const { isPlaying, play, pause, position, duration, seekTo } = useAudio();
+  const { isPlaying, play, pause, position, duration, seekTo, toggle } =
+    useAudio();
 
   // pick number if available (more reliable), otherwise Arabic name
   const surahKey = useMemo(
@@ -66,11 +67,14 @@ export default function FullAudioPlayerScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // run once
 
+  const [busy, setBusy] = useState(false);
   const onPlayPress = async () => {
-    if (isPlaying) {
-      await pause();
-    } else {
-      await play(surahKey, reciterId, reciterName);
+    if (busy) return;
+    setBusy(true);
+    try {
+      await toggle();
+    } finally {
+      setBusy(false);
     }
   };
 
@@ -83,7 +87,8 @@ export default function FullAudioPlayerScreen() {
   };
 
   const imgSource =
-    reciterImages[reciterId] ?? require("../../assets/reciters/placeholder.jpg");
+    reciterImages[reciterId] ??
+    require("../../assets/reciters/placeholder.jpg");
 
   const sliderDisabled = !duration || duration <= 1;
 
@@ -115,7 +120,11 @@ export default function FullAudioPlayerScreen() {
       </AppText>
 
       <View style={styles.imageBox}>
-        <Image source={imgSource} style={styles.reciterImage} resizeMode="cover" />
+        <Image
+          source={imgSource}
+          style={styles.reciterImage}
+          resizeMode="cover"
+        />
       </View>
 
       <Slider
@@ -143,7 +152,11 @@ export default function FullAudioPlayerScreen() {
           <Ionicons name="play-back" size={36} color="#ccc" />
         </TouchableOpacity>
         <TouchableOpacity onPress={onPlayPress} style={styles.playButton}>
-          <Ionicons name={isPlaying ? "pause" : "play"} size={42} color="#fff" />
+          <Ionicons
+            name={isPlaying ? "pause" : "play"}
+            size={42}
+            color="#fff"
+          />
         </TouchableOpacity>
         <TouchableOpacity disabled>
           <Ionicons name="play-forward" size={36} color="#ccc" />
