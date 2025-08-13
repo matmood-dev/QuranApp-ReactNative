@@ -1,89 +1,1828 @@
-{
+[
+  {
     "id": "ar.kazemi",
     "name": "عامر الكاظمي",
     "baseUrl": "https://nooralquranapi.netlify.app/kadumi",
     "format": "mp3",
     "pattern": "{num3}.mp3",
     "surahs": [
-        {
-            "number": 1,
-            "name": "الفاتحة",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah001.mp3"
-        },
-        {
-            "number": 2,
-            "name": "البقرة",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah002.mp3"
-        },
-        {
-            "number": 3,
-            "name": "آل عمران",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah003.mp3"
-        },
-        {
-            "number": 4,
-            "name": "النساء",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah004.mp3"
-        },
-        {
-            "number": 5,
-            "name": "المائدة",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah005.mp3"
-        },
-        {
-            "number": 6,
-            "name": "الأنعام",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah006.mp3"
-        },
-        {
-            "number": 7,
-            "name": "الأعراف",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah007.mp3"
-        },
-        {
-            "number": 8,
-            "name": "الأنفال",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah008.mp3"
-        },
-        {
-            "number": 9,
-            "name": "التوبة",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah009.mp3"
-        },
-        {
-            "number": 10,
-            "name": "يونس",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah010.mp3"
-        },
-        {
-            "number": 11,
-            "name": "هود",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah011.mp3"
-        },
-        {
-            "number": 12,
-            "name": "يوسف",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah012.mp3"
-        },
-        {
-            "number": 13,
-            "name": "الرعد",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah013.mp3"
-        },
-        {
-            "number": 14,
-            "name": "إبراهيم",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah014.mp3"
-        },
-        {
-            "number": 15,
-            "name": "الحجر",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah015.mp3"
-        },
-        {
-            "number": 16,
-            "name": "النحل",
-            "url": "https://nooralquranapi.netlify.app/kadumi/surah016.mp3"
-        }
+      {
+        "number": 1,
+        "name": "الفاتحة",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah001.mp3"
+      },
+      {
+        "number": 2,
+        "name": "البقرة",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah002.mp3"
+      },
+      {
+        "number": 3,
+        "name": "آل عمران",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah003.mp3"
+      },
+      {
+        "number": 4,
+        "name": "النساء",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah004.mp3"
+      },
+      {
+        "number": 5,
+        "name": "المائدة",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah005.mp3"
+      },
+      {
+        "number": 6,
+        "name": "الأنعام",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah006.mp3"
+      },
+      {
+        "number": 7,
+        "name": "الأعراف",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah007.mp3"
+      },
+      {
+        "number": 8,
+        "name": "الأنفال",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah008.mp3"
+      },
+      {
+        "number": 9,
+        "name": "التوبة",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah009.mp3"
+      },
+      {
+        "number": 10,
+        "name": "يونس",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah010.mp3"
+      },
+      {
+        "number": 11,
+        "name": "هود",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah011.mp3"
+      },
+      {
+        "number": 12,
+        "name": "يوسف",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah012.mp3"
+      },
+      {
+        "number": 13,
+        "name": "الرعد",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah013.mp3"
+      },
+      {
+        "number": 14,
+        "name": "إبراهيم",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah014.mp3"
+      },
+      {
+        "number": 15,
+        "name": "الحجر",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah015.mp3"
+      },
+      {
+        "number": 16,
+        "name": "النحل",
+        "url": "https://nooralquranapi.netlify.app/kadumi/surah016.mp3"
+      }
     ]
-}
+  },
+  {
+    "id": "ar.mrashad",
+    "name": "محمد المنشاوي",
+    "baseUrl": "https://nooralquranapi.netlify.app/mrashad",
+    "format": "mp3",
+    "pattern": "{num3}.mp3",
+    "surahs": [
+      {
+        "number": 1,
+        "name": "الفاتحة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/001.mp3"
+      },
+      {
+        "number": 2,
+        "name": "البقرة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/002.mp3"
+      },
+      {
+        "number": 3,
+        "name": "آل عمران",
+        "url": "https://nooralquranapi.netlify.app/mrashad/003.mp3"
+      },
+      {
+        "number": 4,
+        "name": "النساء",
+        "url": "https://nooralquranapi.netlify.app/mrashad/004.mp3"
+      },
+      {
+        "number": 5,
+        "name": "المائدة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/005.mp3"
+      },
+      {
+        "number": 6,
+        "name": "الأنعام",
+        "url": "https://nooralquranapi.netlify.app/mrashad/006.mp3"
+      },
+      {
+        "number": 7,
+        "name": "الأعراف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/007.mp3"
+      },
+      {
+        "number": 8,
+        "name": "الأنفال",
+        "url": "https://nooralquranapi.netlify.app/mrashad/008.mp3"
+      },
+      {
+        "number": 9,
+        "name": "التوبة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/009.mp3"
+      },
+      {
+        "number": 10,
+        "name": "يونس",
+        "url": "https://nooralquranapi.netlify.app/mrashad/010.mp3"
+      },
+      {
+        "number": 11,
+        "name": "هود",
+        "url": "https://nooralquranapi.netlify.app/mrashad/011.mp3"
+      },
+      {
+        "number": 12,
+        "name": "يوسف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/012.mp3"
+      },
+      {
+        "number": 13,
+        "name": "الرعد",
+        "url": "https://nooralquranapi.netlify.app/mrashad/013.mp3"
+      },
+      {
+        "number": 14,
+        "name": "إبراهيم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/014.mp3"
+      },
+      {
+        "number": 15,
+        "name": "الحجر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/015.mp3"
+      },
+      {
+        "number": 16,
+        "name": "النحل",
+        "url": "https://nooralquranapi.netlify.app/mrashad/016.mp3"
+      },
+      {
+        "number": 17,
+        "name": "الإسراء",
+        "url": "https://nooralquranapi.netlify.app/mrashad/017.mp3"
+      },
+      {
+        "number": 18,
+        "name": "الكهف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/018.mp3"
+      },
+      {
+        "number": 19,
+        "name": "مريم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/019.mp3"
+      },
+      {
+        "number": 20,
+        "name": "طه",
+        "url": "https://nooralquranapi.netlify.app/mrashad/020.mp3"
+      },
+      {
+        "number": 21,
+        "name": "الأنبياء",
+        "url": "https://nooralquranapi.netlify.app/mrashad/021.mp3"
+      },
+      {
+        "number": 22,
+        "name": "الحج",
+        "url": "https://nooralquranapi.netlify.app/mrashad/022.mp3"
+      },
+      {
+        "number": 23,
+        "name": "المؤمنون",
+        "url": "https://nooralquranapi.netlify.app/mrashad/023.mp3"
+      },
+      {
+        "number": 24,
+        "name": "النور",
+        "url": "https://nooralquranapi.netlify.app/mrashad/024.mp3"
+      },
+      {
+        "number": 25,
+        "name": "الفرقان",
+        "url": "https://nooralquranapi.netlify.app/mrashad/025.mp3"
+      },
+      {
+        "number": 26,
+        "name": "الشعراء",
+        "url": "https://nooralquranapi.netlify.app/mrashad/026.mp3"
+      },
+      {
+        "number": 27,
+        "name": "النمل",
+        "url": "https://nooralquranapi.netlify.app/mrashad/027.mp3"
+      },
+      {
+        "number": 28,
+        "name": "القصص",
+        "url": "https://nooralquranapi.netlify.app/mrashad/028.mp3"
+      },
+      {
+        "number": 29,
+        "name": "العنكبوت",
+        "url": "https://nooralquranapi.netlify.app/mrashad/029.mp3"
+      },
+      {
+        "number": 30,
+        "name": "الروم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/030.mp3"
+      },
+      {
+        "number": 31,
+        "name": "لقمان",
+        "url": "https://nooralquranapi.netlify.app/mrashad/031.mp3"
+      },
+      {
+        "number": 32,
+        "name": "السجدة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/032.mp3"
+      },
+      {
+        "number": 33,
+        "name": "الأحزاب",
+        "url": "https://nooralquranapi.netlify.app/mrashad/033.mp3"
+      },
+      {
+        "number": 34,
+        "name": "سبإ",
+        "url": "https://nooralquranapi.netlify.app/mrashad/034.mp3"
+      },
+      {
+        "number": 35,
+        "name": "فاطر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/035.mp3"
+      },
+      {
+        "number": 36,
+        "name": "يس",
+        "url": "https://nooralquranapi.netlify.app/mrashad/036.mp3"
+      },
+      {
+        "number": 37,
+        "name": "الصافات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/037.mp3"
+      },
+      {
+        "number": 38,
+        "name": "ص",
+        "url": "https://nooralquranapi.netlify.app/mrashad/038.mp3"
+      },
+      {
+        "number": 39,
+        "name": "الزمر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/039.mp3"
+      },
+      {
+        "number": 40,
+        "name": "غافر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/040.mp3"
+      },
+      {
+        "number": 41,
+        "name": "فصلت",
+        "url": "https://nooralquranapi.netlify.app/mrashad/041.mp3"
+      },
+      {
+        "number": 42,
+        "name": "الشورى",
+        "url": "https://nooralquranapi.netlify.app/mrashad/042.mp3"
+      },
+      {
+        "number": 43,
+        "name": "الزخرف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/043.mp3"
+      },
+      {
+        "number": 44,
+        "name": "الدخان",
+        "url": "https://nooralquranapi.netlify.app/mrashad/044.mp3"
+      },
+      {
+        "number": 45,
+        "name": "الجاثية",
+        "url": "https://nooralquranapi.netlify.app/mrashad/045.mp3"
+      },
+      {
+        "number": 46,
+        "name": "الأحقاف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/046.mp3"
+      },
+      {
+        "number": 47,
+        "name": "محمد",
+        "url": "https://nooralquranapi.netlify.app/mrashad/047.mp3"
+      },
+      {
+        "number": 48,
+        "name": "الفتح",
+        "url": "https://nooralquranapi.netlify.app/mrashad/048.mp3"
+      },
+      {
+        "number": 49,
+        "name": "الحجرات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/049.mp3"
+      },
+      {
+        "number": 50,
+        "name": "ق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/050.mp3"
+      },
+      {
+        "number": 51,
+        "name": "الذاريات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/051.mp3"
+      },
+      {
+        "number": 52,
+        "name": "الطور",
+        "url": "https://nooralquranapi.netlify.app/mrashad/052.mp3"
+      },
+      {
+        "number": 53,
+        "name": "النجم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/053.mp3"
+      },
+      {
+        "number": 54,
+        "name": "القمر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/054.mp3"
+      },
+      {
+        "number": 55,
+        "name": "الرحمن",
+        "url": "https://nooralquranapi.netlify.app/mrashad/055.mp3"
+      },
+      {
+        "number": 56,
+        "name": "الواقعة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/056.mp3"
+      },
+      {
+        "number": 57,
+        "name": "الحديد",
+        "url": "https://nooralquranapi.netlify.app/mrashad/057.mp3"
+      },
+      {
+        "number": 58,
+        "name": "المجادلة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/058.mp3"
+      },
+      {
+        "number": 59,
+        "name": "الحشر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/059.mp3"
+      },
+      {
+        "number": 60,
+        "name": "الممتحنة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/060.mp3"
+      },
+      {
+        "number": 61,
+        "name": "الصف",
+        "url": "https://nooralquranapi.netlify.app/mrashad/061.mp3"
+      },
+      {
+        "number": 62,
+        "name": "الجمعة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/062.mp3"
+      },
+      {
+        "number": 63,
+        "name": "المنافقون",
+        "url": "https://nooralquranapi.netlify.app/mrashad/063.mp3"
+      },
+      {
+        "number": 64,
+        "name": "التغابن",
+        "url": "https://nooralquranapi.netlify.app/mrashad/064.mp3"
+      },
+      {
+        "number": 65,
+        "name": "الطلاق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/065.mp3"
+      },
+      {
+        "number": 66,
+        "name": "التحريم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/066.mp3"
+      },
+      {
+        "number": 67,
+        "name": "الملك",
+        "url": "https://nooralquranapi.netlify.app/mrashad/067.mp3"
+      },
+      {
+        "number": 68,
+        "name": "القلم",
+        "url": "https://nooralquranapi.netlify.app/mrashad/068.mp3"
+      },
+      {
+        "number": 69,
+        "name": "الحاقة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/069.mp3"
+      },
+      {
+        "number": 70,
+        "name": "المعارج",
+        "url": "https://nooralquranapi.netlify.app/mrashad/070.mp3"
+      },
+      {
+        "number": 71,
+        "name": "نوح",
+        "url": "https://nooralquranapi.netlify.app/mrashad/071.mp3"
+      },
+      {
+        "number": 72,
+        "name": "الجن",
+        "url": "https://nooralquranapi.netlify.app/mrashad/072.mp3"
+      },
+      {
+        "number": 73,
+        "name": "المزمل",
+        "url": "https://nooralquranapi.netlify.app/mrashad/073.mp3"
+      },
+      {
+        "number": 74,
+        "name": "المدثر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/074.mp3"
+      },
+      {
+        "number": 75,
+        "name": "القيامة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/075.mp3"
+      },
+      {
+        "number": 76,
+        "name": "الإنسان",
+        "url": "https://nooralquranapi.netlify.app/mrashad/076.mp3"
+      },
+      {
+        "number": 77,
+        "name": "المرسلات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/077.mp3"
+      },
+      {
+        "number": 78,
+        "name": "النبأ",
+        "url": "https://nooralquranapi.netlify.app/mrashad/078.mp3"
+      },
+      {
+        "number": 79,
+        "name": "النازعات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/079.mp3"
+      },
+      {
+        "number": 80,
+        "name": "عبس",
+        "url": "https://nooralquranapi.netlify.app/mrashad/080.mp3"
+      },
+      {
+        "number": 81,
+        "name": "التكوير",
+        "url": "https://nooralquranapi.netlify.app/mrashad/081.mp3"
+      },
+      {
+        "number": 82,
+        "name": "الانفطار",
+        "url": "https://nooralquranapi.netlify.app/mrashad/082.mp3"
+      },
+      {
+        "number": 83,
+        "name": "المطففين",
+        "url": "https://nooralquranapi.netlify.app/mrashad/083.mp3"
+      },
+      {
+        "number": 84,
+        "name": "الانشقاق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/084.mp3"
+      },
+      {
+        "number": 85,
+        "name": "البروج",
+        "url": "https://nooralquranapi.netlify.app/mrashad/085.mp3"
+      },
+      {
+        "number": 86,
+        "name": "الطارق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/086.mp3"
+      },
+      {
+        "number": 87,
+        "name": "الأعلى",
+        "url": "https://nooralquranapi.netlify.app/mrashad/087.mp3"
+      },
+      {
+        "number": 88,
+        "name": "الغاشية",
+        "url": "https://nooralquranapi.netlify.app/mrashad/088.mp3"
+      },
+      {
+        "number": 89,
+        "name": "الفجر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/089.mp3"
+      },
+      {
+        "number": 90,
+        "name": "البلد",
+        "url": "https://nooralquranapi.netlify.app/mrashad/090.mp3"
+      },
+      {
+        "number": 91,
+        "name": "الشمس",
+        "url": "https://nooralquranapi.netlify.app/mrashad/091.mp3"
+      },
+      {
+        "number": 92,
+        "name": "الليل",
+        "url": "https://nooralquranapi.netlify.app/mrashad/092.mp3"
+      },
+      {
+        "number": 93,
+        "name": "الضحى",
+        "url": "https://nooralquranapi.netlify.app/mrashad/093.mp3"
+      },
+      {
+        "number": 94,
+        "name": "الشرح",
+        "url": "https://nooralquranapi.netlify.app/mrashad/094.mp3"
+      },
+      {
+        "number": 95,
+        "name": "التين",
+        "url": "https://nooralquranapi.netlify.app/mrashad/095.mp3"
+      },
+      {
+        "number": 96,
+        "name": "العلق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/096.mp3"
+      },
+      {
+        "number": 97,
+        "name": "القدر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/097.mp3"
+      },
+      {
+        "number": 98,
+        "name": "البينة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/098.mp3"
+      },
+      {
+        "number": 99,
+        "name": "الزلزلة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/099.mp3"
+      },
+      {
+        "number": 100,
+        "name": "العاديات",
+        "url": "https://nooralquranapi.netlify.app/mrashad/100.mp3"
+      },
+      {
+        "number": 101,
+        "name": "القارعة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/101.mp3"
+      },
+      {
+        "number": 102,
+        "name": "التكاثر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/102.mp3"
+      },
+      {
+        "number": 103,
+        "name": "العصر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/103.mp3"
+      },
+      {
+        "number": 104,
+        "name": "الهمزة",
+        "url": "https://nooralquranapi.netlify.app/mrashad/104.mp3"
+      },
+      {
+        "number": 105,
+        "name": "الفيل",
+        "url": "https://nooralquranapi.netlify.app/mrashad/105.mp3"
+      },
+      {
+        "number": 106,
+        "name": "قريش",
+        "url": "https://nooralquranapi.netlify.app/mrashad/106.mp3"
+      },
+      {
+        "number": 107,
+        "name": "الماعون",
+        "url": "https://nooralquranapi.netlify.app/mrashad/107.mp3"
+      },
+      {
+        "number": 108,
+        "name": "الكوثر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/108.mp3"
+      },
+      {
+        "number": 109,
+        "name": "الكافرون",
+        "url": "https://nooralquranapi.netlify.app/mrashad/109.mp3"
+      },
+      {
+        "number": 110,
+        "name": "النصر",
+        "url": "https://nooralquranapi.netlify.app/mrashad/110.mp3"
+      },
+      {
+        "number": 111,
+        "name": "المسد",
+        "url": "https://nooralquranapi.netlify.app/mrashad/111.mp3"
+      },
+      {
+        "number": 112,
+        "name": "الإخلاص",
+        "url": "https://nooralquranapi.netlify.app/mrashad/112.mp3"
+      },
+      {
+        "number": 113,
+        "name": "الفلق",
+        "url": "https://nooralquranapi.netlify.app/mrashad/113.mp3"
+      },
+      {
+        "number": 114,
+        "name": "الناس",
+        "url": "https://nooralquranapi.netlify.app/mrashad/114.mp3"
+      }
+    ]
+  },
+  {
+    "id": "ar.minshawi",
+    "name": "محمد المنشاوي",
+    "baseUrl": "https://nooralquranapi.netlify.app/minshawi",
+    "format": "mp3",
+    "pattern": "{num3}.mp3",
+    "surahs": [
+      {
+        "number": 1,
+        "name": "الفاتحة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/001.mp3"
+      },
+      {
+        "number": 2,
+        "name": "البقرة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/002.mp3"
+      },
+      {
+        "number": 3,
+        "name": "آل عمران",
+        "url": "https://nooralquranapi.netlify.app/minshawi/003.mp3"
+      },
+      {
+        "number": 4,
+        "name": "النساء",
+        "url": "https://nooralquranapi.netlify.app/minshawi/004.mp3"
+      },
+      {
+        "number": 5,
+        "name": "المائدة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/005.mp3"
+      },
+      {
+        "number": 6,
+        "name": "الأنعام",
+        "url": "https://nooralquranapi.netlify.app/minshawi/006.mp3"
+      },
+      {
+        "number": 7,
+        "name": "الأعراف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/007.mp3"
+      },
+      {
+        "number": 8,
+        "name": "الأنفال",
+        "url": "https://nooralquranapi.netlify.app/minshawi/008.mp3"
+      },
+      {
+        "number": 9,
+        "name": "التوبة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/009.mp3"
+      },
+      {
+        "number": 10,
+        "name": "يونس",
+        "url": "https://nooralquranapi.netlify.app/minshawi/010.mp3"
+      },
+      {
+        "number": 11,
+        "name": "هود",
+        "url": "https://nooralquranapi.netlify.app/minshawi/011.mp3"
+      },
+      {
+        "number": 12,
+        "name": "يوسف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/012.mp3"
+      },
+      {
+        "number": 13,
+        "name": "الرعد",
+        "url": "https://nooralquranapi.netlify.app/minshawi/013.mp3"
+      },
+      {
+        "number": 14,
+        "name": "إبراهيم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/014.mp3"
+      },
+      {
+        "number": 15,
+        "name": "الحجر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/015.mp3"
+      },
+      {
+        "number": 16,
+        "name": "النحل",
+        "url": "https://nooralquranapi.netlify.app/minshawi/016.mp3"
+      },
+      {
+        "number": 17,
+        "name": "الإسراء",
+        "url": "https://nooralquranapi.netlify.app/minshawi/017.mp3"
+      },
+      {
+        "number": 18,
+        "name": "الكهف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/018.mp3"
+      },
+      {
+        "number": 19,
+        "name": "مريم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/019.mp3"
+      },
+      {
+        "number": 20,
+        "name": "طه",
+        "url": "https://nooralquranapi.netlify.app/minshawi/020.mp3"
+      },
+      {
+        "number": 21,
+        "name": "الأنبياء",
+        "url": "https://nooralquranapi.netlify.app/minshawi/021.mp3"
+      },
+      {
+        "number": 22,
+        "name": "الحج",
+        "url": "https://nooralquranapi.netlify.app/minshawi/022.mp3"
+      },
+      {
+        "number": 23,
+        "name": "المؤمنون",
+        "url": "https://nooralquranapi.netlify.app/minshawi/023.mp3"
+      },
+      {
+        "number": 24,
+        "name": "النور",
+        "url": "https://nooralquranapi.netlify.app/minshawi/024.mp3"
+      },
+      {
+        "number": 25,
+        "name": "الفرقان",
+        "url": "https://nooralquranapi.netlify.app/minshawi/025.mp3"
+      },
+      {
+        "number": 26,
+        "name": "الشعراء",
+        "url": "https://nooralquranapi.netlify.app/minshawi/026.mp3"
+      },
+      {
+        "number": 27,
+        "name": "النمل",
+        "url": "https://nooralquranapi.netlify.app/minshawi/027.mp3"
+      },
+      {
+        "number": 28,
+        "name": "القصص",
+        "url": "https://nooralquranapi.netlify.app/minshawi/028.mp3"
+      },
+      {
+        "number": 29,
+        "name": "العنكبوت",
+        "url": "https://nooralquranapi.netlify.app/minshawi/029.mp3"
+      },
+      {
+        "number": 30,
+        "name": "الروم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/030.mp3"
+      },
+      {
+        "number": 31,
+        "name": "لقمان",
+        "url": "https://nooralquranapi.netlify.app/minshawi/031.mp3"
+      },
+      {
+        "number": 32,
+        "name": "السجدة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/032.mp3"
+      },
+      {
+        "number": 33,
+        "name": "الأحزاب",
+        "url": "https://nooralquranapi.netlify.app/minshawi/033.mp3"
+      },
+      {
+        "number": 34,
+        "name": "سبإ",
+        "url": "https://nooralquranapi.netlify.app/minshawi/034.mp3"
+      },
+      {
+        "number": 35,
+        "name": "فاطر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/035.mp3"
+      },
+      {
+        "number": 36,
+        "name": "يس",
+        "url": "https://nooralquranapi.netlify.app/minshawi/036.mp3"
+      },
+      {
+        "number": 37,
+        "name": "الصافات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/037.mp3"
+      },
+      {
+        "number": 38,
+        "name": "ص",
+        "url": "https://nooralquranapi.netlify.app/minshawi/038.mp3"
+      },
+      {
+        "number": 39,
+        "name": "الزمر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/039.mp3"
+      },
+      {
+        "number": 40,
+        "name": "غافر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/040.mp3"
+      },
+      {
+        "number": 41,
+        "name": "فصلت",
+        "url": "https://nooralquranapi.netlify.app/minshawi/041.mp3"
+      },
+      {
+        "number": 42,
+        "name": "الشورى",
+        "url": "https://nooralquranapi.netlify.app/minshawi/042.mp3"
+      },
+      {
+        "number": 43,
+        "name": "الزخرف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/043.mp3"
+      },
+      {
+        "number": 44,
+        "name": "الدخان",
+        "url": "https://nooralquranapi.netlify.app/minshawi/044.mp3"
+      },
+      {
+        "number": 45,
+        "name": "الجاثية",
+        "url": "https://nooralquranapi.netlify.app/minshawi/045.mp3"
+      },
+      {
+        "number": 46,
+        "name": "الأحقاف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/046.mp3"
+      },
+      {
+        "number": 47,
+        "name": "محمد",
+        "url": "https://nooralquranapi.netlify.app/minshawi/047.mp3"
+      },
+      {
+        "number": 48,
+        "name": "الفتح",
+        "url": "https://nooralquranapi.netlify.app/minshawi/048.mp3"
+      },
+      {
+        "number": 49,
+        "name": "الحجرات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/049.mp3"
+      },
+      {
+        "number": 50,
+        "name": "ق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/050.mp3"
+      },
+      {
+        "number": 51,
+        "name": "الذاريات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/051.mp3"
+      },
+      {
+        "number": 52,
+        "name": "الطور",
+        "url": "https://nooralquranapi.netlify.app/minshawi/052.mp3"
+      },
+      {
+        "number": 53,
+        "name": "النجم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/053.mp3"
+      },
+      {
+        "number": 54,
+        "name": "القمر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/054.mp3"
+      },
+      {
+        "number": 55,
+        "name": "الرحمن",
+        "url": "https://nooralquranapi.netlify.app/minshawi/055.mp3"
+      },
+      {
+        "number": 56,
+        "name": "الواقعة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/056.mp3"
+      },
+      {
+        "number": 57,
+        "name": "الحديد",
+        "url": "https://nooralquranapi.netlify.app/minshawi/057.mp3"
+      },
+      {
+        "number": 58,
+        "name": "المجادلة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/058.mp3"
+      },
+      {
+        "number": 59,
+        "name": "الحشر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/059.mp3"
+      },
+      {
+        "number": 60,
+        "name": "الممتحنة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/060.mp3"
+      },
+      {
+        "number": 61,
+        "name": "الصف",
+        "url": "https://nooralquranapi.netlify.app/minshawi/061.mp3"
+      },
+      {
+        "number": 62,
+        "name": "الجمعة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/062.mp3"
+      },
+      {
+        "number": 63,
+        "name": "المنافقون",
+        "url": "https://nooralquranapi.netlify.app/minshawi/063.mp3"
+      },
+      {
+        "number": 64,
+        "name": "التغابن",
+        "url": "https://nooralquranapi.netlify.app/minshawi/064.mp3"
+      },
+      {
+        "number": 65,
+        "name": "الطلاق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/065.mp3"
+      },
+      {
+        "number": 66,
+        "name": "التحريم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/066.mp3"
+      },
+      {
+        "number": 67,
+        "name": "الملك",
+        "url": "https://nooralquranapi.netlify.app/minshawi/067.mp3"
+      },
+      {
+        "number": 68,
+        "name": "القلم",
+        "url": "https://nooralquranapi.netlify.app/minshawi/068.mp3"
+      },
+      {
+        "number": 69,
+        "name": "الحاقة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/069.mp3"
+      },
+      {
+        "number": 70,
+        "name": "المعارج",
+        "url": "https://nooralquranapi.netlify.app/minshawi/070.mp3"
+      },
+      {
+        "number": 71,
+        "name": "نوح",
+        "url": "https://nooralquranapi.netlify.app/minshawi/071.mp3"
+      },
+      {
+        "number": 72,
+        "name": "الجن",
+        "url": "https://nooralquranapi.netlify.app/minshawi/072.mp3"
+      },
+      {
+        "number": 73,
+        "name": "المزمل",
+        "url": "https://nooralquranapi.netlify.app/minshawi/073.mp3"
+      },
+      {
+        "number": 74,
+        "name": "المدثر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/074.mp3"
+      },
+      {
+        "number": 75,
+        "name": "القيامة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/075.mp3"
+      },
+      {
+        "number": 76,
+        "name": "الإنسان",
+        "url": "https://nooralquranapi.netlify.app/minshawi/076.mp3"
+      },
+      {
+        "number": 77,
+        "name": "المرسلات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/077.mp3"
+      },
+      {
+        "number": 78,
+        "name": "النبأ",
+        "url": "https://nooralquranapi.netlify.app/minshawi/078.mp3"
+      },
+      {
+        "number": 79,
+        "name": "النازعات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/079.mp3"
+      },
+      {
+        "number": 80,
+        "name": "عبس",
+        "url": "https://nooralquranapi.netlify.app/minshawi/080.mp3"
+      },
+      {
+        "number": 81,
+        "name": "التكوير",
+        "url": "https://nooralquranapi.netlify.app/minshawi/081.mp3"
+      },
+      {
+        "number": 82,
+        "name": "الانفطار",
+        "url": "https://nooralquranapi.netlify.app/minshawi/082.mp3"
+      },
+      {
+        "number": 83,
+        "name": "المطففين",
+        "url": "https://nooralquranapi.netlify.app/minshawi/083.mp3"
+      },
+      {
+        "number": 84,
+        "name": "الانشقاق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/084.mp3"
+      },
+      {
+        "number": 85,
+        "name": "البروج",
+        "url": "https://nooralquranapi.netlify.app/minshawi/085.mp3"
+      },
+      {
+        "number": 86,
+        "name": "الطارق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/086.mp3"
+      },
+      {
+        "number": 87,
+        "name": "الأعلى",
+        "url": "https://nooralquranapi.netlify.app/minshawi/087.mp3"
+      },
+      {
+        "number": 88,
+        "name": "الغاشية",
+        "url": "https://nooralquranapi.netlify.app/minshawi/088.mp3"
+      },
+      {
+        "number": 89,
+        "name": "الفجر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/089.mp3"
+      },
+      {
+        "number": 90,
+        "name": "البلد",
+        "url": "https://nooralquranapi.netlify.app/minshawi/090.mp3"
+      },
+      {
+        "number": 91,
+        "name": "الشمس",
+        "url": "https://nooralquranapi.netlify.app/minshawi/091.mp3"
+      },
+      {
+        "number": 92,
+        "name": "الليل",
+        "url": "https://nooralquranapi.netlify.app/minshawi/092.mp3"
+      },
+      {
+        "number": 93,
+        "name": "الضحى",
+        "url": "https://nooralquranapi.netlify.app/minshawi/093.mp3"
+      },
+      {
+        "number": 94,
+        "name": "الشرح",
+        "url": "https://nooralquranapi.netlify.app/minshawi/094.mp3"
+      },
+      {
+        "number": 95,
+        "name": "التين",
+        "url": "https://nooralquranapi.netlify.app/minshawi/095.mp3"
+      },
+      {
+        "number": 96,
+        "name": "العلق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/096.mp3"
+      },
+      {
+        "number": 97,
+        "name": "القدر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/097.mp3"
+      },
+      {
+        "number": 98,
+        "name": "البينة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/098.mp3"
+      },
+      {
+        "number": 99,
+        "name": "الزلزلة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/099.mp3"
+      },
+      {
+        "number": 100,
+        "name": "العاديات",
+        "url": "https://nooralquranapi.netlify.app/minshawi/100.mp3"
+      },
+      {
+        "number": 101,
+        "name": "القارعة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/101.mp3"
+      },
+      {
+        "number": 102,
+        "name": "التكاثر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/102.mp3"
+      },
+      {
+        "number": 103,
+        "name": "العصر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/103.mp3"
+      },
+      {
+        "number": 104,
+        "name": "الهمزة",
+        "url": "https://nooralquranapi.netlify.app/minshawi/104.mp3"
+      },
+      {
+        "number": 105,
+        "name": "الفيل",
+        "url": "https://nooralquranapi.netlify.app/minshawi/105.mp3"
+      },
+      {
+        "number": 106,
+        "name": "قريش",
+        "url": "https://nooralquranapi.netlify.app/minshawi/106.mp3"
+      },
+      {
+        "number": 107,
+        "name": "الماعون",
+        "url": "https://nooralquranapi.netlify.app/minshawi/107.mp3"
+      },
+      {
+        "number": 108,
+        "name": "الكوثر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/108.mp3"
+      },
+      {
+        "number": 109,
+        "name": "الكافرون",
+        "url": "https://nooralquranapi.netlify.app/minshawi/109.mp3"
+      },
+      {
+        "number": 110,
+        "name": "النصر",
+        "url": "https://nooralquranapi.netlify.app/minshawi/110.mp3"
+      },
+      {
+        "number": 111,
+        "name": "المسد",
+        "url": "https://nooralquranapi.netlify.app/minshawi/111.mp3"
+      },
+      {
+        "number": 112,
+        "name": "الإخلاص",
+        "url": "https://nooralquranapi.netlify.app/minshawi/112.mp3"
+      },
+      {
+        "number": 113,
+        "name": "الفلق",
+        "url": "https://nooralquranapi.netlify.app/minshawi/113.mp3"
+      },
+      {
+        "number": 114,
+        "name": "الناس",
+        "url": "https://nooralquranapi.netlify.app/minshawi/114.mp3"
+      }
+    ]
+  },
+  {
+    "id": "ar.kjalil",
+    "name": "خالد الجليل",
+    "baseUrl": "https://nooralquranapi.netlify.app/kjalil",
+    "format": "mp3",
+    "pattern": "{num3}.mp3",
+    "surahs": [
+      {
+        "number": 1,
+        "name": "الفاتحة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/001.mp3"
+      },
+      {
+        "number": 2,
+        "name": "البقرة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/002.mp3"
+      },
+      {
+        "number": 3,
+        "name": "آل عمران",
+        "url": "https://nooralquranapi.netlify.app/kjalil/003.mp3"
+      },
+      {
+        "number": 4,
+        "name": "النساء",
+        "url": "https://nooralquranapi.netlify.app/kjalil/004.mp3"
+      },
+      {
+        "number": 5,
+        "name": "المائدة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/005.mp3"
+      },
+      {
+        "number": 6,
+        "name": "الأنعام",
+        "url": "https://nooralquranapi.netlify.app/kjalil/006.mp3"
+      },
+      {
+        "number": 7,
+        "name": "الأعراف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/007.mp3"
+      },
+      {
+        "number": 8,
+        "name": "الأنفال",
+        "url": "https://nooralquranapi.netlify.app/kjalil/008.mp3"
+      },
+      {
+        "number": 9,
+        "name": "التوبة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/009.mp3"
+      },
+      {
+        "number": 10,
+        "name": "يونس",
+        "url": "https://nooralquranapi.netlify.app/kjalil/010.mp3"
+      },
+      {
+        "number": 11,
+        "name": "هود",
+        "url": "https://nooralquranapi.netlify.app/kjalil/011.mp3"
+      },
+      {
+        "number": 12,
+        "name": "يوسف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/012.mp3"
+      },
+      {
+        "number": 13,
+        "name": "الرعد",
+        "url": "https://nooralquranapi.netlify.app/kjalil/013.mp3"
+      },
+      {
+        "number": 14,
+        "name": "إبراهيم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/014.mp3"
+      },
+      {
+        "number": 15,
+        "name": "الحجر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/015.mp3"
+      },
+      {
+        "number": 16,
+        "name": "النحل",
+        "url": "https://nooralquranapi.netlify.app/kjalil/016.mp3"
+      },
+      {
+        "number": 17,
+        "name": "الإسراء",
+        "url": "https://nooralquranapi.netlify.app/kjalil/017.mp3"
+      },
+      {
+        "number": 18,
+        "name": "الكهف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/018.mp3"
+      },
+      {
+        "number": 19,
+        "name": "مريم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/019.mp3"
+      },
+      {
+        "number": 20,
+        "name": "طه",
+        "url": "https://nooralquranapi.netlify.app/kjalil/020.mp3"
+      },
+      {
+        "number": 21,
+        "name": "الأنبياء",
+        "url": "https://nooralquranapi.netlify.app/kjalil/021.mp3"
+      },
+      {
+        "number": 22,
+        "name": "الحج",
+        "url": "https://nooralquranapi.netlify.app/kjalil/022.mp3"
+      },
+      {
+        "number": 23,
+        "name": "المؤمنون",
+        "url": "https://nooralquranapi.netlify.app/kjalil/023.mp3"
+      },
+      {
+        "number": 24,
+        "name": "النور",
+        "url": "https://nooralquranapi.netlify.app/kjalil/024.mp3"
+      },
+      {
+        "number": 25,
+        "name": "الفرقان",
+        "url": "https://nooralquranapi.netlify.app/kjalil/025.mp3"
+      },
+      {
+        "number": 26,
+        "name": "الشعراء",
+        "url": "https://nooralquranapi.netlify.app/kjalil/026.mp3"
+      },
+      {
+        "number": 27,
+        "name": "النمل",
+        "url": "https://nooralquranapi.netlify.app/kjalil/027.mp3"
+      },
+      {
+        "number": 28,
+        "name": "القصص",
+        "url": "https://nooralquranapi.netlify.app/kjalil/028.mp3"
+      },
+      {
+        "number": 29,
+        "name": "العنكبوت",
+        "url": "https://nooralquranapi.netlify.app/kjalil/029.mp3"
+      },
+      {
+        "number": 30,
+        "name": "الروم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/030.mp3"
+      },
+      {
+        "number": 31,
+        "name": "لقمان",
+        "url": "https://nooralquranapi.netlify.app/kjalil/031.mp3"
+      },
+      {
+        "number": 32,
+        "name": "السجدة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/032.mp3"
+      },
+      {
+        "number": 33,
+        "name": "الأحزاب",
+        "url": "https://nooralquranapi.netlify.app/kjalil/033.mp3"
+      },
+      {
+        "number": 34,
+        "name": "سبإ",
+        "url": "https://nooralquranapi.netlify.app/kjalil/034.mp3"
+      },
+      {
+        "number": 35,
+        "name": "فاطر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/035.mp3"
+      },
+      {
+        "number": 36,
+        "name": "يس",
+        "url": "https://nooralquranapi.netlify.app/kjalil/036.mp3"
+      },
+      {
+        "number": 37,
+        "name": "الصافات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/037.mp3"
+      },
+      {
+        "number": 38,
+        "name": "ص",
+        "url": "https://nooralquranapi.netlify.app/kjalil/038.mp3"
+      },
+      {
+        "number": 39,
+        "name": "الزمر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/039.mp3"
+      },
+      {
+        "number": 40,
+        "name": "غافر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/040.mp3"
+      },
+      {
+        "number": 41,
+        "name": "فصلت",
+        "url": "https://nooralquranapi.netlify.app/kjalil/041.mp3"
+      },
+      {
+        "number": 42,
+        "name": "الشورى",
+        "url": "https://nooralquranapi.netlify.app/kjalil/042.mp3"
+      },
+      {
+        "number": 43,
+        "name": "الزخرف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/043.mp3"
+      },
+      {
+        "number": 44,
+        "name": "الدخان",
+        "url": "https://nooralquranapi.netlify.app/kjalil/044.mp3"
+      },
+      {
+        "number": 45,
+        "name": "الجاثية",
+        "url": "https://nooralquranapi.netlify.app/kjalil/045.mp3"
+      },
+      {
+        "number": 46,
+        "name": "الأحقاف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/046.mp3"
+      },
+      {
+        "number": 47,
+        "name": "محمد",
+        "url": "https://nooralquranapi.netlify.app/kjalil/047.mp3"
+      },
+      {
+        "number": 48,
+        "name": "الفتح",
+        "url": "https://nooralquranapi.netlify.app/kjalil/048.mp3"
+      },
+      {
+        "number": 49,
+        "name": "الحجرات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/049.mp3"
+      },
+      {
+        "number": 50,
+        "name": "ق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/050.mp3"
+      },
+      {
+        "number": 51,
+        "name": "الذاريات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/051.mp3"
+      },
+      {
+        "number": 52,
+        "name": "الطور",
+        "url": "https://nooralquranapi.netlify.app/kjalil/052.mp3"
+      },
+      {
+        "number": 53,
+        "name": "النجم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/053.mp3"
+      },
+      {
+        "number": 54,
+        "name": "القمر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/054.mp3"
+      },
+      {
+        "number": 55,
+        "name": "الرحمن",
+        "url": "https://nooralquranapi.netlify.app/kjalil/055.mp3"
+      },
+      {
+        "number": 56,
+        "name": "الواقعة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/056.mp3"
+      },
+      {
+        "number": 57,
+        "name": "الحديد",
+        "url": "https://nooralquranapi.netlify.app/kjalil/057.mp3"
+      },
+      {
+        "number": 58,
+        "name": "المجادلة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/058.mp3"
+      },
+      {
+        "number": 59,
+        "name": "الحشر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/059.mp3"
+      },
+      {
+        "number": 60,
+        "name": "الممتحنة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/060.mp3"
+      },
+      {
+        "number": 61,
+        "name": "الصف",
+        "url": "https://nooralquranapi.netlify.app/kjalil/061.mp3"
+      },
+      {
+        "number": 62,
+        "name": "الجمعة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/062.mp3"
+      },
+      {
+        "number": 63,
+        "name": "المنافقون",
+        "url": "https://nooralquranapi.netlify.app/kjalil/063.mp3"
+      },
+      {
+        "number": 64,
+        "name": "التغابن",
+        "url": "https://nooralquranapi.netlify.app/kjalil/064.mp3"
+      },
+      {
+        "number": 65,
+        "name": "الطلاق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/065.mp3"
+      },
+      {
+        "number": 66,
+        "name": "التحريم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/066.mp3"
+      },
+      {
+        "number": 67,
+        "name": "الملك",
+        "url": "https://nooralquranapi.netlify.app/kjalil/067.mp3"
+      },
+      {
+        "number": 68,
+        "name": "القلم",
+        "url": "https://nooralquranapi.netlify.app/kjalil/068.mp3"
+      },
+      {
+        "number": 69,
+        "name": "الحاقة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/069.mp3"
+      },
+      {
+        "number": 70,
+        "name": "المعارج",
+        "url": "https://nooralquranapi.netlify.app/kjalil/070.mp3"
+      },
+      {
+        "number": 71,
+        "name": "نوح",
+        "url": "https://nooralquranapi.netlify.app/kjalil/071.mp3"
+      },
+      {
+        "number": 72,
+        "name": "الجن",
+        "url": "https://nooralquranapi.netlify.app/kjalil/072.mp3"
+      },
+      {
+        "number": 73,
+        "name": "المزمل",
+        "url": "https://nooralquranapi.netlify.app/kjalil/073.mp3"
+      },
+      {
+        "number": 74,
+        "name": "المدثر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/074.mp3"
+      },
+      {
+        "number": 75,
+        "name": "القيامة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/075.mp3"
+      },
+      {
+        "number": 76,
+        "name": "الإنسان",
+        "url": "https://nooralquranapi.netlify.app/kjalil/076.mp3"
+      },
+      {
+        "number": 77,
+        "name": "المرسلات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/077.mp3"
+      },
+      {
+        "number": 78,
+        "name": "النبأ",
+        "url": "https://nooralquranapi.netlify.app/kjalil/078.mp3"
+      },
+      {
+        "number": 79,
+        "name": "النازعات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/079.mp3"
+      },
+      {
+        "number": 80,
+        "name": "عبس",
+        "url": "https://nooralquranapi.netlify.app/kjalil/080.mp3"
+      },
+      {
+        "number": 81,
+        "name": "التكوير",
+        "url": "https://nooralquranapi.netlify.app/kjalil/081.mp3"
+      },
+      {
+        "number": 82,
+        "name": "الانفطار",
+        "url": "https://nooralquranapi.netlify.app/kjalil/082.mp3"
+      },
+      {
+        "number": 83,
+        "name": "المطففين",
+        "url": "https://nooralquranapi.netlify.app/kjalil/083.mp3"
+      },
+      {
+        "number": 84,
+        "name": "الانشقاق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/084.mp3"
+      },
+      {
+        "number": 85,
+        "name": "البروج",
+        "url": "https://nooralquranapi.netlify.app/kjalil/085.mp3"
+      },
+      {
+        "number": 86,
+        "name": "الطارق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/086.mp3"
+      },
+      {
+        "number": 87,
+        "name": "الأعلى",
+        "url": "https://nooralquranapi.netlify.app/kjalil/087.mp3"
+      },
+      {
+        "number": 88,
+        "name": "الغاشية",
+        "url": "https://nooralquranapi.netlify.app/kjalil/088.mp3"
+      },
+      {
+        "number": 89,
+        "name": "الفجر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/089.mp3"
+      },
+      {
+        "number": 90,
+        "name": "البلد",
+        "url": "https://nooralquranapi.netlify.app/kjalil/090.mp3"
+      },
+      {
+        "number": 91,
+        "name": "الشمس",
+        "url": "https://nooralquranapi.netlify.app/kjalil/091.mp3"
+      },
+      {
+        "number": 92,
+        "name": "الليل",
+        "url": "https://nooralquranapi.netlify.app/kjalil/092.mp3"
+      },
+      {
+        "number": 93,
+        "name": "الضحى",
+        "url": "https://nooralquranapi.netlify.app/kjalil/093.mp3"
+      },
+      {
+        "number": 94,
+        "name": "الشرح",
+        "url": "https://nooralquranapi.netlify.app/kjalil/094.mp3"
+      },
+      {
+        "number": 95,
+        "name": "التين",
+        "url": "https://nooralquranapi.netlify.app/kjalil/095.mp3"
+      },
+      {
+        "number": 96,
+        "name": "العلق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/096.mp3"
+      },
+      {
+        "number": 97,
+        "name": "القدر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/097.mp3"
+      },
+      {
+        "number": 98,
+        "name": "البينة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/098.mp3"
+      },
+      {
+        "number": 99,
+        "name": "الزلزلة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/099.mp3"
+      },
+      {
+        "number": 100,
+        "name": "العاديات",
+        "url": "https://nooralquranapi.netlify.app/kjalil/100.mp3"
+      },
+      {
+        "number": 101,
+        "name": "القارعة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/101.mp3"
+      },
+      {
+        "number": 102,
+        "name": "التكاثر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/102.mp3"
+      },
+      {
+        "number": 103,
+        "name": "العصر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/103.mp3"
+      },
+      {
+        "number": 104,
+        "name": "الهمزة",
+        "url": "https://nooralquranapi.netlify.app/kjalil/104.mp3"
+      },
+      {
+        "number": 105,
+        "name": "الفيل",
+        "url": "https://nooralquranapi.netlify.app/kjalil/105.mp3"
+      },
+      {
+        "number": 106,
+        "name": "قريش",
+        "url": "https://nooralquranapi.netlify.app/kjalil/106.mp3"
+      },
+      {
+        "number": 107,
+        "name": "الماعون",
+        "url": "https://nooralquranapi.netlify.app/kjalil/107.mp3"
+      },
+      {
+        "number": 108,
+        "name": "الكوثر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/108.mp3"
+      },
+      {
+        "number": 109,
+        "name": "الكافرون",
+        "url": "https://nooralquranapi.netlify.app/kjalil/109.mp3"
+      },
+      {
+        "number": 110,
+        "name": "النصر",
+        "url": "https://nooralquranapi.netlify.app/kjalil/110.mp3"
+      },
+      {
+        "number": 111,
+        "name": "المسد",
+        "url": "https://nooralquranapi.netlify.app/kjalil/111.mp3"
+      },
+      {
+        "number": 112,
+        "name": "الإخلاص",
+        "url": "https://nooralquranapi.netlify.app/kjalil/112.mp3"
+      },
+      {
+        "number": 113,
+        "name": "الفلق",
+        "url": "https://nooralquranapi.netlify.app/kjalil/113.mp3"
+      },
+      {
+        "number": 114,
+        "name": "الناس",
+        "url": "https://nooralquranapi.netlify.app/kjalil/114.mp3"
+      }
+    ]
+  }
+]

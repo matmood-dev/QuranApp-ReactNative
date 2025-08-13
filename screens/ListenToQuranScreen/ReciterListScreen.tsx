@@ -74,9 +74,9 @@ const reciters = [
     image: require("../../assets/reciters/ydosary.webp"),
   },
   {
-    id: "ar.rkurdi",
-    name: "رعد الكردي",
-    image: require("../../assets/reciters/rkurdi.webp"),
+    id: "ar.kjalil",
+    name: "خالد الجليل",
+    image: require("../../assets/reciters/kjalil.jpg"),
   },
 ];
 
