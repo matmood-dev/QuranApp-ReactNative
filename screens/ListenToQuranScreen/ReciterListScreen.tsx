@@ -19,11 +19,6 @@ export const CARD_SIZE = (width - 48) / 2; // shared with card
 
 const reciters = [
   {
-    id: "ar.abdulbasit",
-    name: "عبد الباسط عبد الصمد",
-    image: require("../../assets/reciters/abdulbasit.jpg"),
-  },
-  {
     id: "ar.minshawi",
     name: "محمد المنشاوي",
     image: require("../../assets/reciters/minshawi.jpg"),
@@ -34,50 +29,20 @@ const reciters = [
     image: require("../../assets/reciters/kademi.jpg"),
   },
   {
-    id: "ar.tammar",
-    name: "ميثم التمار",
-    image: require("../../assets/reciters/tammar.jpg"),
-  },
-  {
-    id: "ar.mrashad",
-    name: "محمد رشاد",
-    image: require("../../assets/reciters/mrashad.jpg"),
-  },
-  {
-    id: "ar.mayoob",
-    name: "محمد أيوب",
-    image: require("../../assets/reciters/mayoob.png"),
-  },
-  {
-    id: "ar.sudais",
-    name: "عبد الرحمن السديس",
-    image: require("../../assets/reciters/sudais.jpg"),
-  },
-  {
-    id: "ar.sghamdi",
-    name: "سعد الغامدي",
-    image: require("../../assets/reciters/sghamdi.jpg"),
-  },
-  {
-    id: "ar.maher",
-    name: "ماهر المعيقلي",
-    image: require("../../assets/reciters/maher.jpg"),
-  },
-  {
-    id: "ar.afasi",
-    name: "مشاري العفاسي",
-    image: require("../../assets/reciters/afasi.jpg"),
-  },
-  {
-    id: "ar.ydosary",
-    name: "ياسر الدوسري",
-    image: require("../../assets/reciters/ydosary.webp"),
-  },
-  {
     id: "ar.kjalil",
     name: "خالد الجليل",
     image: require("../../assets/reciters/kjalil.jpg"),
   },
+  {
+    "id": "ar.mrashad",
+    "name": "محمد رشاد",
+    "image": require("../../assets/reciters/mrashad.jpg"),
+  },
+  {
+    "id": "ar.maher",
+    "name": "ماهر المعيقلي",
+    "image": require("../../assets/reciters/maher.jpg"),
+  }
 ];
 
 type RootStackParamList = {
@@ -120,9 +85,10 @@ export default function ReciterListScreen() {
           numColumns={3}
           contentContainerStyle={{ paddingBottom: 28 }}
           columnWrapperStyle={{
-            justifyContent: "space-between",
-            marginBottom: 12,
-          }} // ← gaps!
+            justifyContent: "flex-start",
+            margin: 5,
+            gap: 8,
+          }}
           renderItem={({ item, index }) => (
             <ReciterCard item={item} index={index} onSelect={handleSelect} />
           )}

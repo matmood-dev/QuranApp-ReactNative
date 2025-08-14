@@ -26,18 +26,11 @@ type ParamList = {
 
 export default function FullAudioPlayerScreen() {
   const reciterImages: Record<string, any> = {
-    "ar.abdulbasit": require("../../assets/reciters/abdulbasit.jpg"),
     "ar.minshawi": require("../../assets/reciters/minshawi.jpg"),
     "ar.kazemi": require("../../assets/reciters/kademi.jpg"),
-    "ar.tammar": require("../../assets/reciters/tammar.jpg"),
-    "ar.afasi": require("../../assets/reciters/afasi.jpg"),
-    "ar.maher": require("../../assets/reciters/maher.jpg"),
-    "ar.mayoob": require("../../assets/reciters/mayoob.png"),
     "ar.mrashad": require("../../assets/reciters/mrashad.jpg"),
-    "ar.sghamdi": require("../../assets/reciters/sghamdi.jpg"),
-    "ar.sudais": require("../../assets/reciters/sudais.jpg"),
-    "ar.ydosary": require("../../assets/reciters/ydosary.webp"),
     "ar.kjalil": require("../../assets/reciters/kjalil.jpg"),
+    "ar.maher": require("../../assets/reciters/maher.jpg"),
   };
 
   const navigation = useNavigation();

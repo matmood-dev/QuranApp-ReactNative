@@ -1256,7 +1256,7 @@
       {
         "number": 1,
         "name": "الفاتحة",
-        "url": "https://nooralquranapi.netlify.app/kjalil/001.mp3"
+        "url": "https://nooralquranapikjalil.netlify.app/kjalil/001.mp3"
       },
       {
         "number": 2,
@@ -1822,6 +1822,585 @@
         "number": 114,
         "name": "الناس",
         "url": "https://nooralquranapikjalil.netlify.app/kjalil/114.mp3"
+      }
+    ]
+  },
+  {
+    "id": "ar.maher",
+    "name": "ماهر المعيقلي",
+    "baseUrl": "https://nooralquranapimaher.netlify.app/maher",
+    "format": "mp3",
+    "pattern": "{num3}.mp3",
+    "surahs": [
+      {
+        "number": 1,
+        "name": "الفاتحة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/001.mp3"
+      },
+      {
+        "number": 2,
+        "name": "البقرة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/002.mp3"
+      },
+      {
+        "number": 3,
+        "name": "آل عمران",
+        "url": "https://nooralquranapimaher.netlify.app/maher/003.mp3"
+      },
+      {
+        "number": 4,
+        "name": "النساء",
+        "url": "https://nooralquranapimaher.netlify.app/maher/004.mp3"
+      },
+      {
+        "number": 5,
+        "name": "المائدة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/005.mp3"
+      },
+      {
+        "number": 6,
+        "name": "الأنعام",
+        "url": "https://nooralquranapimaher.netlify.app/maher/006.mp3"
+      },
+      {
+        "number": 7,
+        "name": "الأعراف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/007.mp3"
+      },
+      {
+        "number": 8,
+        "name": "الأنفال",
+        "url": "https://nooralquranapimaher.netlify.app/maher/008.mp3"
+      },
+      {
+        "number": 9,
+        "name": "التوبة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/009.mp3"
+      },
+      {
+        "number": 10,
+        "name": "يونس",
+        "url": "https://nooralquranapimaher.netlify.app/maher/010.mp3"
+      },
+      {
+        "number": 11,
+        "name": "هود",
+        "url": "https://nooralquranapimaher.netlify.app/maher/011.mp3"
+      },
+      {
+        "number": 12,
+        "name": "يوسف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/012.mp3"
+      },
+      {
+        "number": 13,
+        "name": "الرعد",
+        "url": "https://nooralquranapimaher.netlify.app/maher/013.mp3"
+      },
+      {
+        "number": 14,
+        "name": "إبراهيم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/014.mp3"
+      },
+      {
+        "number": 15,
+        "name": "الحجر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/015.mp3"
+      },
+      {
+        "number": 16,
+        "name": "النحل",
+        "url": "https://nooralquranapimaher.netlify.app/maher/016.mp3"
+      },
+      {
+        "number": 17,
+        "name": "الإسراء",
+        "url": "https://nooralquranapimaher.netlify.app/maher/017.mp3"
+      },
+      {
+        "number": 18,
+        "name": "الكهف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/018.mp3"
+      },
+      {
+        "number": 19,
+        "name": "مريم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/019.mp3"
+      },
+      {
+        "number": 20,
+        "name": "طه",
+        "url": "https://nooralquranapimaher.netlify.app/maher/020.mp3"
+      },
+      {
+        "number": 21,
+        "name": "الأنبياء",
+        "url": "https://nooralquranapimaher.netlify.app/maher/021.mp3"
+      },
+      {
+        "number": 22,
+        "name": "الحج",
+        "url": "https://nooralquranapimaher.netlify.app/maher/022.mp3"
+      },
+      {
+        "number": 23,
+        "name": "المؤمنون",
+        "url": "https://nooralquranapimaher.netlify.app/maher/023.mp3"
+      },
+      {
+        "number": 24,
+        "name": "النور",
+        "url": "https://nooralquranapimaher.netlify.app/maher/024.mp3"
+      },
+      {
+        "number": 25,
+        "name": "الفرقان",
+        "url": "https://nooralquranapimaher.netlify.app/maher/025.mp3"
+      },
+      {
+        "number": 26,
+        "name": "الشعراء",
+        "url": "https://nooralquranapimaher.netlify.app/maher/026.mp3"
+      },
+      {
+        "number": 27,
+        "name": "النمل",
+        "url": "https://nooralquranapimaher.netlify.app/maher/027.mp3"
+      },
+      {
+        "number": 28,
+        "name": "القصص",
+        "url": "https://nooralquranapimaher.netlify.app/maher/028.mp3"
+      },
+      {
+        "number": 29,
+        "name": "العنكبوت",
+        "url": "https://nooralquranapimaher.netlify.app/maher/029.mp3"
+      },
+      {
+        "number": 30,
+        "name": "الروم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/030.mp3"
+      },
+      {
+        "number": 31,
+        "name": "لقمان",
+        "url": "https://nooralquranapimaher.netlify.app/maher/031.mp3"
+      },
+      {
+        "number": 32,
+        "name": "السجدة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/032.mp3"
+      },
+      {
+        "number": 33,
+        "name": "الأحزاب",
+        "url": "https://nooralquranapimaher.netlify.app/maher/033.mp3"
+      },
+      {
+        "number": 34,
+        "name": "سبإ",
+        "url": "https://nooralquranapimaher.netlify.app/maher/034.mp3"
+      },
+      {
+        "number": 35,
+        "name": "فاطر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/035.mp3"
+      },
+      {
+        "number": 36,
+        "name": "يس",
+        "url": "https://nooralquranapimaher.netlify.app/maher/036.mp3"
+      },
+      {
+        "number": 37,
+        "name": "الصافات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/037.mp3"
+      },
+      {
+        "number": 38,
+        "name": "ص",
+        "url": "https://nooralquranapimaher.netlify.app/maher/038.mp3"
+      },
+      {
+        "number": 39,
+        "name": "الزمر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/039.mp3"
+      },
+      {
+        "number": 40,
+        "name": "غافر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/040.mp3"
+      },
+      {
+        "number": 41,
+        "name": "فصلت",
+        "url": "https://nooralquranapimaher.netlify.app/maher/041.mp3"
+      },
+      {
+        "number": 42,
+        "name": "الشورى",
+        "url": "https://nooralquranapimaher.netlify.app/maher/042.mp3"
+      },
+      {
+        "number": 43,
+        "name": "الزخرف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/043.mp3"
+      },
+      {
+        "number": 44,
+        "name": "الدخان",
+        "url": "https://nooralquranapimaher.netlify.app/maher/044.mp3"
+      },
+      {
+        "number": 45,
+        "name": "الجاثية",
+        "url": "https://nooralquranapimaher.netlify.app/maher/045.mp3"
+      },
+      {
+        "number": 46,
+        "name": "الأحقاف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/046.mp3"
+      },
+      {
+        "number": 47,
+        "name": "محمد",
+        "url": "https://nooralquranapimaher.netlify.app/maher/047.mp3"
+      },
+      {
+        "number": 48,
+        "name": "الفتح",
+        "url": "https://nooralquranapimaher.netlify.app/maher/048.mp3"
+      },
+      {
+        "number": 49,
+        "name": "الحجرات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/049.mp3"
+      },
+      {
+        "number": 50,
+        "name": "ق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/050.mp3"
+      },
+      {
+        "number": 51,
+        "name": "الذاريات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/051.mp3"
+      },
+      {
+        "number": 52,
+        "name": "الطور",
+        "url": "https://nooralquranapimaher.netlify.app/maher/052.mp3"
+      },
+      {
+        "number": 53,
+        "name": "النجم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/053.mp3"
+      },
+      {
+        "number": 54,
+        "name": "القمر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/054.mp3"
+      },
+      {
+        "number": 55,
+        "name": "الرحمن",
+        "url": "https://nooralquranapimaher.netlify.app/maher/055.mp3"
+      },
+      {
+        "number": 56,
+        "name": "الواقعة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/056.mp3"
+      },
+      {
+        "number": 57,
+        "name": "الحديد",
+        "url": "https://nooralquranapimaher.netlify.app/maher/057.mp3"
+      },
+      {
+        "number": 58,
+        "name": "المجادلة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/058.mp3"
+      },
+      {
+        "number": 59,
+        "name": "الحشر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/059.mp3"
+      },
+      {
+        "number": 60,
+        "name": "الممتحنة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/060.mp3"
+      },
+      {
+        "number": 61,
+        "name": "الصف",
+        "url": "https://nooralquranapimaher.netlify.app/maher/061.mp3"
+      },
+      {
+        "number": 62,
+        "name": "الجمعة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/062.mp3"
+      },
+      {
+        "number": 63,
+        "name": "المنافقون",
+        "url": "https://nooralquranapimaher.netlify.app/maher/063.mp3"
+      },
+      {
+        "number": 64,
+        "name": "التغابن",
+        "url": "https://nooralquranapimaher.netlify.app/maher/064.mp3"
+      },
+      {
+        "number": 65,
+        "name": "الطلاق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/065.mp3"
+      },
+      {
+        "number": 66,
+        "name": "التحريم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/066.mp3"
+      },
+      {
+        "number": 67,
+        "name": "الملك",
+        "url": "https://nooralquranapimaher.netlify.app/maher/067.mp3"
+      },
+      {
+        "number": 68,
+        "name": "القلم",
+        "url": "https://nooralquranapimaher.netlify.app/maher/068.mp3"
+      },
+      {
+        "number": 69,
+        "name": "الحاقة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/069.mp3"
+      },
+      {
+        "number": 70,
+        "name": "المعارج",
+        "url": "https://nooralquranapimaher.netlify.app/maher/070.mp3"
+      },
+      {
+        "number": 71,
+        "name": "نوح",
+        "url": "https://nooralquranapimaher.netlify.app/maher/071.mp3"
+      },
+      {
+        "number": 72,
+        "name": "الجن",
+        "url": "https://nooralquranapimaher.netlify.app/maher/072.mp3"
+      },
+      {
+        "number": 73,
+        "name": "المزمل",
+        "url": "https://nooralquranapimaher.netlify.app/maher/073.mp3"
+      },
+      {
+        "number": 74,
+        "name": "المدثر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/074.mp3"
+      },
+      {
+        "number": 75,
+        "name": "القيامة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/075.mp3"
+      },
+      {
+        "number": 76,
+        "name": "الإنسان",
+        "url": "https://nooralquranapimaher.netlify.app/maher/076.mp3"
+      },
+      {
+        "number": 77,
+        "name": "المرسلات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/077.mp3"
+      },
+      {
+        "number": 78,
+        "name": "النبأ",
+        "url": "https://nooralquranapimaher.netlify.app/maher/078.mp3"
+      },
+      {
+        "number": 79,
+        "name": "النازعات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/079.mp3"
+      },
+      {
+        "number": 80,
+        "name": "عبس",
+        "url": "https://nooralquranapimaher.netlify.app/maher/080.mp3"
+      },
+      {
+        "number": 81,
+        "name": "التكوير",
+        "url": "https://nooralquranapimaher.netlify.app/maher/081.mp3"
+      },
+      {
+        "number": 82,
+        "name": "الانفطار",
+        "url": "https://nooralquranapimaher.netlify.app/maher/082.mp3"
+      },
+      {
+        "number": 83,
+        "name": "المطففين",
+        "url": "https://nooralquranapimaher.netlify.app/maher/083.mp3"
+      },
+      {
+        "number": 84,
+        "name": "الانشقاق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/084.mp3"
+      },
+      {
+        "number": 85,
+        "name": "البروج",
+        "url": "https://nooralquranapimaher.netlify.app/maher/085.mp3"
+      },
+      {
+        "number": 86,
+        "name": "الطارق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/086.mp3"
+      },
+      {
+        "number": 87,
+        "name": "الأعلى",
+        "url": "https://nooralquranapimaher.netlify.app/maher/087.mp3"
+      },
+      {
+        "number": 88,
+        "name": "الغاشية",
+        "url": "https://nooralquranapimaher.netlify.app/maher/088.mp3"
+      },
+      {
+        "number": 89,
+        "name": "الفجر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/089.mp3"
+      },
+      {
+        "number": 90,
+        "name": "البلد",
+        "url": "https://nooralquranapimaher.netlify.app/maher/090.mp3"
+      },
+      {
+        "number": 91,
+        "name": "الشمس",
+        "url": "https://nooralquranapimaher.netlify.app/maher/091.mp3"
+      },
+      {
+        "number": 92,
+        "name": "الليل",
+        "url": "https://nooralquranapimaher.netlify.app/maher/092.mp3"
+      },
+      {
+        "number": 93,
+        "name": "الضحى",
+        "url": "https://nooralquranapimaher.netlify.app/maher/093.mp3"
+      },
+      {
+        "number": 94,
+        "name": "الشرح",
+        "url": "https://nooralquranapimaher.netlify.app/maher/094.mp3"
+      },
+      {
+        "number": 95,
+        "name": "التين",
+        "url": "https://nooralquranapimaher.netlify.app/maher/095.mp3"
+      },
+      {
+        "number": 96,
+        "name": "العلق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/096.mp3"
+      },
+      {
+        "number": 97,
+        "name": "القدر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/097.mp3"
+      },
+      {
+        "number": 98,
+        "name": "البينة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/098.mp3"
+      },
+      {
+        "number": 99,
+        "name": "الزلزلة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/099.mp3"
+      },
+      {
+        "number": 100,
+        "name": "العاديات",
+        "url": "https://nooralquranapimaher.netlify.app/maher/100.mp3"
+      },
+      {
+        "number": 101,
+        "name": "القارعة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/101.mp3"
+      },
+      {
+        "number": 102,
+        "name": "التكاثر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/102.mp3"
+      },
+      {
+        "number": 103,
+        "name": "العصر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/103.mp3"
+      },
+      {
+        "number": 104,
+        "name": "الهمزة",
+        "url": "https://nooralquranapimaher.netlify.app/maher/104.mp3"
+      },
+      {
+        "number": 105,
+        "name": "الفيل",
+        "url": "https://nooralquranapimaher.netlify.app/maher/105.mp3"
+      },
+      {
+        "number": 106,
+        "name": "قريش",
+        "url": "https://nooralquranapimaher.netlify.app/maher/106.mp3"
+      },
+      {
+        "number": 107,
+        "name": "الماعون",
+        "url": "https://nooralquranapimaher.netlify.app/maher/107.mp3"
+      },
+      {
+        "number": 108,
+        "name": "الكوثر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/108.mp3"
+      },
+      {
+        "number": 109,
+        "name": "الكافرون",
+        "url": "https://nooralquranapimaher.netlify.app/maher/109.mp3"
+      },
+      {
+        "number": 110,
+        "name": "النصر",
+        "url": "https://nooralquranapimaher.netlify.app/maher/110.mp3"
+      },
+      {
+        "number": 111,
+        "name": "المسد",
+        "url": "https://nooralquranapimaher.netlify.app/maher/111.mp3"
+      },
+      {
+        "number": 112,
+        "name": "الإخلاص",
+        "url": "https://nooralquranapimaher.netlify.app/maher/112.mp3"
+      },
+      {
+        "number": 113,
+        "name": "الفلق",
+        "url": "https://nooralquranapimaher.netlify.app/maher/113.mp3"
+      },
+      {
+        "number": 114,
+        "name": "الناس",
+        "url": "https://nooralquranapimaher.netlify.app/maher/114.mp3"
       }
     ]
   }
