@@ -34,10 +34,10 @@ export default function FullAudioPlayerScreen() {
     "ar.maher": require("../../assets/reciters/maher.jpg"),
     "ar.mayoob": require("../../assets/reciters/mayoob.png"),
     "ar.mrashad": require("../../assets/reciters/mrashad.jpg"),
-    "ar.rkurdi": require("../../assets/reciters/rkurdi.webp"),
     "ar.sghamdi": require("../../assets/reciters/sghamdi.jpg"),
     "ar.sudais": require("../../assets/reciters/sudais.jpg"),
     "ar.ydosary": require("../../assets/reciters/ydosary.webp"),
+    "ar.kjalil": require("../../assets/reciters/kjalil.jpg"),
   };
 
   const navigation = useNavigation();
